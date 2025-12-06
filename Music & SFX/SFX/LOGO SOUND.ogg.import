@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dp3kr080xdlac"
+path="res://.godot/imported/LOGO SOUND.ogg-b4ab388048cc1b565e64f868c6379e67.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music & SFX/SFX/LOGO SOUND.ogg"
+dest_files=["res://.godot/imported/LOGO SOUND.ogg-b4ab388048cc1b565e64f868c6379e67.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

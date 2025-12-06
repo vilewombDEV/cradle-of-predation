@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfurtrrxyv1jv"]
+
+[ext_resource type="Script" uid="uid://bidthlpuve4dq" path="res://Scripts/floating_crystal.gd" id="1_0y450"]
+[ext_resource type="Resource" uid="uid://5tqacnqh2b5p" path="res://Inventory/Items/crystal.tres" id="2_hvnvt"]
+[ext_resource type="Texture2D" uid="uid://cd3umx6miy56v" path="res://Assets/CRYSTAL.png" id="2_laeyx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laeyx"]
+atlas = ExtResource("2_laeyx")
+region = Rect2(468, 0, 78, 194)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvnvt"]
+atlas = ExtResource("2_laeyx")
+region = Rect2(0, 0, 78, 194)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vp2mm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laeyx")
+}],
+"loop": false,
+"name": &"with crystal",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvnvt")
+}],
+"loop": false,
+"name": &"without crystal",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08e0p"]
+size = Vector2(38, 109)
+
+[node name="FloatingCrystal" type="Node2D"]
+script = ExtResource("1_0y450")
+item = ExtResource("2_hvnvt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1.19209e-07)
+scale = Vector2(0.479048, 0.449416)
+sprite_frames = SubResource("SpriteFrames_vp2mm")
+animation = &"with crystal"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(0, 24.5)
+shape = SubResource("RectangleShape2D_08e0p")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 37)
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]

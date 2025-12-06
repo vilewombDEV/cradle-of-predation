@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://fde2wi5yawa"]
+
+[ext_resource type="Texture2D" uid="uid://cgvbevxhxu2k4" path="res://Assets/Candle Fire Anim.png" id="1_x5h8l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm35q"]
+atlas = ExtResource("1_x5h8l")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sahfc"]
+atlas = ExtResource("1_x5h8l")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a275p"]
+atlas = ExtResource("1_x5h8l")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycbxa"]
+atlas = ExtResource("1_x5h8l")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_abfe1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm35q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sahfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a275p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbxa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Candle Flame" type="AnimatedSprite2D"]
+position = Vector2(371, 121.5)
+scale = Vector2(0.09375, 0.0996094)
+sprite_frames = SubResource("SpriteFrames_abfe1")
+autoplay = "default"
+frame_progress = 0.531964

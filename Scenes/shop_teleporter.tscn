@@ -1,0 +1,119 @@
+[gd_scene load_steps=17 format=3 uid="uid://w67loej8hsd2"]
+
+[ext_resource type="Texture2D" uid="uid://c7r2u7gihc520" path="res://Assets/FlyingObelisk_no_lightnings_no_letter.png" id="1_6by0g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7f6q"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(0, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv2ml"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(200, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b3bm"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(400, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxlql"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(600, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcfc2"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(800, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exfhh"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(1000, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xpto"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(1200, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ji7i"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(1400, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giumj"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(1600, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x524"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(1800, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4kwo"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(2000, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsb5t"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(2200, 0, 200, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nfis"]
+atlas = ExtResource("1_6by0g")
+region = Rect2(2400, 0, 200, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6wsxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7f6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv2ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b3bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxlql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcfc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exfhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xpto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ji7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giumj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x524")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4kwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsb5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nfis")
+}],
+"loop": true,
+"name": &"Floating",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6clte"]
+size = Vector2(14, 86)
+
+[node name="ShopTeleporter" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.86102e-06, -5.72205e-06)
+scale = Vector2(0.24625, 0.268139)
+sprite_frames = SubResource("SpriteFrames_6wsxl")
+animation = &"Floating"
+autoplay = "Floating"
+frame_progress = 0.764446
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 7)
+shape = SubResource("RectangleShape2D_6clte")

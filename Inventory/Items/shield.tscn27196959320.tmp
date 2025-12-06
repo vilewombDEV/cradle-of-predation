@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://6gddn8sjhp1q"]
+
+[ext_resource type="PackedScene" uid="uid://cv2q3j8yclibk" path="res://Inventory/collectable.tscn" id="1_6ht67"]
+[ext_resource type="Script" uid="uid://bhq10pg53bphi" path="res://Inventory/Items/shield.gd" id="2_cwghu"]
+[ext_resource type="Texture2D" uid="uid://cfvsai8tl44ki" path="res://Assets/Shield3.png" id="2_xusph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwghu"]
+resource_local_to_scene = true
+size = Vector2(16, 18)
+
+[node name="Shield" instance=ExtResource("1_6ht67")]
+script = ExtResource("2_cwghu")
+defense_increase = null
+texture = null
+max_amount_per_stack = null
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_cwghu")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_xusph")

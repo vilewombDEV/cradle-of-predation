@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cu5uqxckdmjqk"
+path="res://.godot/imported/CREAHmn_Heavy Breathing, Beast, MHCS17.wav-57d673a7804adf5a8aedbe66d6a5178f.sample"
+
+[deps]
+
+source_file="res://Music & SFX/IMP SFX/CREAHmn_Heavy Breathing, Beast, MHCS17.wav"
+dest_files=["res://.godot/imported/CREAHmn_Heavy Breathing, Beast, MHCS17.wav-57d673a7804adf5a8aedbe66d6a5178f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,225 @@
+[gd_scene load_steps=14 format=3 uid="uid://xcvm7rno44v4"]
+
+[ext_resource type="Script" uid="uid://ceqh0gdrht76h" path="res://Interaction/Dialog System/dialog_system.gd" id="1_4alfp"]
+[ext_resource type="Texture2D" uid="uid://dybjub3o5oyrk" path="res://Assets/text-bubble.png" id="2_utdsk"]
+[ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="3_f8p31"]
+[ext_resource type="Texture2D" uid="uid://okwn210tbuyn" path="res://Assets/L GYPSY PORTRAIT.png" id="4_f8p31"]
+[ext_resource type="AudioStream" uid="uid://b5gddfx3f40wk" path="res://Music & SFX/SFX/voice_blip.wav" id="5_6y2ig"]
+[ext_resource type="Theme" uid="uid://bdfspsta5x5aj" path="res://Interaction/Dialog System/dialog_choice_these.tres" id="6_e71ex"]
+
+[sub_resource type="Gradient" id="Gradient_utdsk"]
+offsets = PackedFloat32Array(0.111111, 0.724868)
+colors = PackedColorArray(0, 0, 0, 1, 0.216, 0.216, 0.216, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f8p31"]
+gradient = SubResource("Gradient_utdsk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6y2ig"]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 20.0
+content_margin_bottom = 15.0
+texture = ExtResource("2_utdsk")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8p31"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 1.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="Animation" id="Animation_6y2ig"]
+resource_name = "Default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.1, 1.2, 1.3, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e71ex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5gwv"]
+_data = {
+&"Default": SubResource("Animation_6y2ig"),
+&"RESET": SubResource("Animation_e71ex")
+}
+
+[node name="DialogSystem" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("1_4alfp")
+
+[node name="DialogUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="DialogUI"]
+modulate = Color(1, 1, 1, 0.531)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -346.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture1D_f8p31")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.971
+anchor_top = 0.91
+anchor_right = 0.971
+anchor_bottom = 0.91
+offset_left = -1416.32
+offset_top = -151.8
+offset_right = -65.3202
+offset_bottom = 55.2
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6y2ig")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogUI/PanelContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
+theme_override_fonts/normal_font = ExtResource("3_f8p31")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[shake]Shaking Text[/shake]
+
+[wave]Wavy Text[/wave]
+
+[color=red]Colored Text[/color]"
+scroll_active = false
+visible_characters = 2
+visible_ratio = 0.0540541
+
+[node name="NameLabel" type="Label" parent="DialogUI"]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 766.0
+offset_right = 604.0
+offset_bottom = 819.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("3_f8p31")
+theme_override_font_sizes/font_size = 42
+text = "NAME"
+horizontal_alignment = 3
+
+[node name="PortraitSprite" type="Sprite2D" parent="DialogUI"]
+position = Vector2(267, 903.759)
+scale = Vector2(0.622137, 0.622137)
+texture = ExtResource("4_f8p31")
+
+[node name="Timer" type="Timer" parent="DialogUI"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogUI"]
+stream = ExtResource("5_6y2ig")
+max_polyphony = 6
+
+[node name="DialogProgressBar" type="PanelContainer" parent="DialogUI"]
+self_modulate = Color(0.878431, 0.780392, 0.239216, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -242.0
+offset_top = -81.0
+offset_right = -98.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f8p31")
+
+[node name="NEXT" type="Label" parent="DialogUI/DialogProgressBar"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f8p31")
+theme_override_font_sizes/font_size = 35
+text = "NEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogUI/DialogProgressBar"]
+libraries = {
+&"": SubResource("AnimationLibrary_v5gwv")
+}
+autoplay = "Default"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.935
+anchor_top = 0.562
+anchor_right = 0.935
+anchor_bottom = 0.562
+offset_left = -1054.2
+offset_top = 60.04
+offset_right = 123.8
+offset_bottom = 219.04
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_e71ex")
+alignment = 1
+
+[node name="Button" type="Button" parent="DialogUI/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f8p31")
+theme_override_font_sizes/font_size = 30
+text = "Choice 1..."
+
+[node name="Button2" type="Button" parent="DialogUI/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f8p31")
+theme_override_font_sizes/font_size = 30
+text = "Choice 2..."
+
+[node name="Button3" type="Button" parent="DialogUI/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f8p31")
+theme_override_font_sizes/font_size = 30
+text = "Choice 3..."

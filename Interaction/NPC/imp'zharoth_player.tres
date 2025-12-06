@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=3 format=3 uid="uid://8vq1mo48mwcb"]
+
+[ext_resource type="Texture2D" uid="uid://d2fkogxlvt5md" path="res://Player/Player Assests/PLAYER PORTRAIT.png" id="1_3thr3"]
+[ext_resource type="Script" uid="uid://d04eryd8kooyr" path="res://Interaction/NPC/NPC Resources/npc_resource.gd" id="2_rvxbv"]
+
+[resource]
+script = ExtResource("2_rvxbv")
+npc_name = "Imp'zharoth"
+portrait = ExtResource("1_3thr3")
+metadata/_custom_type_script = "uid://d04eryd8kooyr"

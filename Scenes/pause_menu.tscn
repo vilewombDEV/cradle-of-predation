@@ -1,0 +1,210 @@
+[gd_scene load_steps=12 format=3 uid="uid://dea28c55q05wy"]
+
+[ext_resource type="Script" uid="uid://ultugv8rec7h" path="res://Scripts/pause_menu.gd" id="1_vmyb1"]
+[ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="2_1och7"]
+[ext_resource type="FontFile" uid="uid://61ovup0rfkps" path="res://Assets/Fonts/Black Demon.otf" id="2_stj27"]
+[ext_resource type="AudioStream" uid="uid://dmibpyhfvr5oa" path="res://Music & SFX/SFX/Retro6.mp3" id="3_bpi0q"]
+[ext_resource type="Texture2D" uid="uid://cfs7vava5kr7k" path="res://Assets/INV BOARDERS.png" id="3_u8tnp"]
+[ext_resource type="PackedScene" uid="uid://cagewhegwfkb4" path="res://Inventory/Inventory GUI/inventory_slot.tscn" id="4_myy0f"]
+[ext_resource type="Script" uid="uid://eefrlglt1xkb" path="res://Inventory/Inventory GUI/inventory_ui.gd" id="4_sjs17"]
+[ext_resource type="AudioStream" uid="uid://b0lt00cgv1rgr" path="res://Music & SFX/SFX/Abstract1.mp3" id="4_vmyb1"]
+[ext_resource type="Resource" uid="uid://dk3qgg14gni0g" path="res://Inventory/player_inventory.tres" id="5_u8tnp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stj27"]
+atlas = ExtResource("3_u8tnp")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myy0f"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_stj27")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_vmyb1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13, 0.13, 0.13, 0.746)
+
+[node name="PAUSED" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -664.0
+offset_top = 160.0
+offset_right = -420.0
+offset_bottom = 285.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_stj27")
+theme_override_font_sizes/font_size = 80
+text = "PAUSED"
+
+[node name="ItemDescription" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -627.0
+offset_top = 680.0
+offset_right = -249.0
+offset_bottom = 704.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 271.0
+offset_top = -184.0
+offset_right = 467.0
+offset_bottom = -60.0
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_myy0f")
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("4_sjs17")
+data = ExtResource("5_u8tnp")
+
+[node name="InventorySlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="Control/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -100.0
+offset_right = 124.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Save" type="Button" parent="Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 30
+text = "Save"
+
+[node name="Load" type="Button" parent="Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 30
+text = "Load"
+
+[node name="Main Menu" type="Button" parent="Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="Click" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("3_bpi0q")
+
+[node name="Hover" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("4_vmyb1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+max_polyphony = 5
+
+[connection signal="mouse_entered" from="Control/VBoxContainer/Save" to="." method="_on_save_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Load" to="." method="_on_load_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Main Menu" to="." method="_on_main_menu_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

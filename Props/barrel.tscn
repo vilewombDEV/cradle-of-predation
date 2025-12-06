@@ -1,0 +1,139 @@
+[gd_scene load_steps=19 format=3 uid="uid://d16uck00gbmao"]
+
+[ext_resource type="Script" uid="uid://bhto437pmyt0u" path="res://Props/barrel.gd" id="1_a6h66"]
+[ext_resource type="Texture2D" uid="uid://8t44tbxnkb15" path="res://Props/Prop Sprites/Destructible Objects Sprite Sheet - Edited.png" id="2_sprgd"]
+[ext_resource type="PackedScene" uid="uid://cuumgqu5w2unl" path="res://Singleton/persistent_data_handler.tscn" id="3_a6h66"]
+[ext_resource type="PackedScene" uid="uid://4j3ebxuimei1" path="res://Scenes/hit_box.tscn" id="3_sprgd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddmht"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04qtm"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwwvv"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf17o"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_curls"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ink7w"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcfxl"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6h66"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ofyh"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy73q"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0hgo"]
+atlas = ExtResource("2_sprgd")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63c4j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddmht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04qtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwwvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf17o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_curls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ink7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcfxl")
+}],
+"loop": false,
+"name": &"Destroy",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6h66")
+}],
+"loop": true,
+"name": &"Destroyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ofyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy73q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0hgo")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkf6n"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddmht"]
+radius = 9.0
+
+[node name="Barrel" type="CharacterBody2D" groups=["enemies"]]
+process_mode = 3
+collision_layer = 272
+collision_mask = 9
+script = ExtResource("1_a6h66")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_63c4j")
+animation = &"Idle"
+frame_progress = 0.649789
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_lkf6n")
+
+[node name="HitBox" parent="." instance=ExtResource("3_sprgd")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_ddmht")
+debug_color = Color(0.923409, 4.83233e-05, 0.683896, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_lkf6n")
+
+[node name="IsDestroyed" parent="." instance=ExtResource("3_a6h66")]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwqwwviqgenon"]
+
+[ext_resource type="Script" uid="uid://o6vo3j7pyi4l" path="res://Interaction/NPC/shopkeeper.gd" id="1_l2jwx"]
+[ext_resource type="Texture2D" uid="uid://rd701hkwc1w8" path="res://Assets/Cat-2-Sitting.png" id="1_r5kvt"]
+[ext_resource type="Resource" uid="uid://df2dvcqyd310a" path="res://Interaction/NPC/NPC Resources/gypsy_shopkeeper.tres" id="2_k0c7d"]
+[ext_resource type="Script" uid="uid://r6u5xhk8gfv4" path="res://Interaction/NPC/NPC Resources/npc.gd" id="2_l2jwx"]
+[ext_resource type="PackedScene" uid="uid://dt670mvtvcc17" path="res://Interaction/Dialog System/dialog_interaction.tscn" id="4_g15iv"]
+[ext_resource type="Script" uid="uid://bl6alhn4bi86x" path="res://Interaction/NPC/NPC Resources/dialog_text.gd" id="5_l2jwx"]
+[ext_resource type="Script" uid="uid://ylv8dbax8c8c" path="res://Interaction/NPC/NPC Resources/dialog_choice.gd" id="6_60xkg"]
+[ext_resource type="Script" uid="uid://cdxasf6i202xc" path="res://Interaction/Dialog System/dialog_branch.gd" id="7_i7opd"]
+[ext_resource type="Resource" uid="uid://8vq1mo48mwcb" path="res://Interaction/NPC/imp'zharoth_player.tres" id="8_erg2d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02jty"]
+radius = 4.0
+height = 22.0
+
+[node name="Shopkeeper" type="Node2D"]
+script = ExtResource("1_l2jwx")
+
+[node name="Gypsy" type="CharacterBody2D" parent="."]
+z_index = -1
+script = ExtResource("2_l2jwx")
+npc_resource = ExtResource("2_k0c7d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gypsy"]
+position = Vector2(7.15256e-07, 7.15256e-07)
+scale = Vector2(1.39, 1.39)
+texture = ExtResource("1_r5kvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gypsy"]
+position = Vector2(3, -1)
+shape = SubResource("CapsuleShape2D_02jty")
+
+[node name="DialogInteraction" parent="Gypsy" instance=ExtResource("4_g15iv")]
+position = Vector2(1, -2)
+
+[node name="DialogText" type="Node" parent="Gypsy/DialogInteraction"]
+script = ExtResource("5_l2jwx")
+text = "I see you found my shop. "
+npc_info = ExtResource("2_k0c7d")
+metadata/_custom_type_script = "uid://bl6alhn4bi86x"
+
+[node name="DialogText2" type="Node" parent="Gypsy/DialogInteraction"]
+script = ExtResource("5_l2jwx")
+text = "Take a look. There may be something you need."
+npc_info = ExtResource("2_k0c7d")
+metadata/_custom_type_script = "uid://bl6alhn4bi86x"
+
+[node name="DialogChoice" type="Node" parent="Gypsy/DialogInteraction"]
+script = ExtResource("6_60xkg")
+metadata/_custom_type_script = "uid://ylv8dbax8c8c"
+
+[node name="DialogBranch" type="Node" parent="Gypsy/DialogInteraction/DialogChoice"]
+script = ExtResource("7_i7opd")
+text = "Show me your wares."
+npc_info = ExtResource("8_erg2d")
+metadata/_custom_type_script = "uid://cdxasf6i202xc"
+
+[node name="DialogBranch2" type="Node" parent="Gypsy/DialogInteraction/DialogChoice"]
+script = ExtResource("7_i7opd")
+text = "I am good for now."
+npc_info = ExtResource("8_erg2d")
+metadata/_custom_type_script = "uid://cdxasf6i202xc"
+
+[node name="DialogText" type="Node" parent="Gypsy/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("5_l2jwx")
+text = "I'll be here when you need me. "
+npc_info = ExtResource("2_k0c7d")
+metadata/_custom_type_script = "uid://bl6alhn4bi86x"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chbi1quld1pl1"]
+
+[ext_resource type="Script" uid="uid://bex13kf7i2h0d" path="res://Scenes/Enemies/Enemy States/enemy.gd" id="1_fjg4h"]
+
+[node name="Skeleton" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 256
+collision_mask = 25
+script = ExtResource("1_fjg4h")

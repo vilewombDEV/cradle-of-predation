@@ -1,0 +1,471 @@
+[gd_scene load_steps=13 format=3 uid="uid://syom1174nxct"]
+
+[ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="1_0do0w"]
+[ext_resource type="Script" uid="uid://v7vxpvpigajs" path="res://Inventory/ShopGUI/shop_menu.gd" id="1_e82st"]
+[ext_resource type="PackedScene" uid="uid://bi50715xpkbkq" path="res://Inventory/ShopGUI/shop_item_button.tscn" id="2_gsqdi"]
+[ext_resource type="FontFile" uid="uid://kp6rccpff4uq" path="res://Assets/Fonts/MM FONT.ttf" id="3_1x24s"]
+[ext_resource type="Texture2D" uid="uid://b81iu48d1p6ei" path="res://Assets/HP POTION.png" id="5_ywlsg"]
+
+[sub_resource type="Animation" id="Animation_e82st"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1593, 41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_648fp"]
+resource_name = "insufficient_skulls"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1593, 41), Vector2(1520, 41), Vector2(1638, 41), Vector2(1584, 41), Vector2(1593, 41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.883804, 0, 0.044653, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ywlsg"]
+_data = {
+&"RESET": SubResource("Animation_e82st"),
+&"insufficient_skulls": SubResource("Animation_648fp")
+}
+
+[sub_resource type="Animation" id="Animation_ywlsg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1593, 114)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kerx3"]
+resource_name = "insufficient_brains"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1593, 114), Vector2(1472, 114), Vector2(1682, 114), Vector2(1538, 114), Vector2(1593, 114)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.882353, 0, 0.0431373, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8sfkb"]
+_data = {
+&"RESET": SubResource("Animation_ywlsg"),
+&"insufficient_brains": SubResource("Animation_kerx3")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xysl7"]
+bg_color = Color(0, 0, 0, 0.453)
+
+[node name="ShopMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("1_e82st")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.337)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerCurrency1" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -327.0
+offset_top = 41.0
+offset_right = -103.0
+offset_bottom = 104.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PlayerCurrency1"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PlayerCurrency1/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ywlsg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SkullsLabel" type="Label" parent="Control/PlayerCurrency1/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_0do0w")
+theme_override_font_sizes/font_size = 30
+text = "99999"
+vertical_alignment = 2
+
+[node name="Control" type="Control" parent="Control/PlayerCurrency1/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="InsufficientSkulls" type="AnimationPlayer" parent="Control/PlayerCurrency1"]
+libraries = {
+&"": SubResource("AnimationLibrary_ywlsg")
+}
+
+[node name="PlayerCurrency2" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -327.0
+offset_top = 114.0
+offset_right = -103.0
+offset_bottom = 177.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PlayerCurrency2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PlayerCurrency2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ywlsg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BrainsLabel" type="Label" parent="Control/PlayerCurrency2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_0do0w")
+theme_override_font_sizes/font_size = 30
+text = "66666"
+vertical_alignment = 2
+
+[node name="Control" type="Control" parent="Control/PlayerCurrency2/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="InsufficientBrains" type="AnimationPlayer" parent="Control/PlayerCurrency2"]
+libraries = {
+&"": SubResource("AnimationLibrary_8sfkb")
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 191.0
+offset_right = 1004.0
+offset_bottom = 884.0
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ShopItemsContainer" type="VBoxContainer" parent="Control/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ShopItemButton" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_gsqdi")]
+layout_mode = 2
+
+[node name="ShopItemButton2" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_gsqdi")]
+layout_mode = 2
+
+[node name="ShopItemButton3" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_gsqdi")]
+layout_mode = 2
+
+[node name="ShopItemButton4" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_gsqdi")]
+layout_mode = 2
+
+[node name="ShopItemButton5" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_gsqdi")]
+layout_mode = 2
+
+[node name="ShopItemButton6" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_gsqdi")]
+layout_mode = 2
+
+[node name="ShopItemButton7" parent="Control/ScrollContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("2_gsqdi")]
+layout_mode = 2
+
+[node name="DetailsPanel" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 1098.0
+offset_top = 306.0
+offset_right = 1821.0
+offset_bottom = 774.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xysl7")
+
+[node name="Control" type="Control" parent="Control/DetailsPanel"]
+layout_mode = 2
+
+[node name="ItemImage" type="TextureRect" parent="Control/DetailsPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 0.124
+anchor_right = 0.425
+anchor_bottom = 0.124
+offset_left = 0.225006
+offset_top = 77.968
+offset_right = 108.225
+offset_bottom = 185.968
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ywlsg")
+
+[node name="ItemName" type="Label" parent="Control/DetailsPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.41
+anchor_right = 0.501
+anchor_bottom = 0.459
+offset_left = -351.5
+offset_top = 89.12
+offset_right = 352.777
+offset_bottom = 89.188
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0do0w")
+theme_override_font_sizes/font_size = 25
+text = "Item Name Label"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="ItemDescription" type="Label" parent="Control/DetailsPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.553
+anchor_right = 0.501
+anchor_bottom = 0.859
+offset_left = -351.5
+offset_top = 38.196
+offset_right = 352.777
+offset_bottom = 37.988
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0do0w")
+theme_override_font_sizes/font_size = 20
+text = "Item Description Label: here you get to type all the information needed"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceLabel" type="Label" parent="Control/DetailsPanel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.41
+anchor_right = 0.501
+anchor_bottom = 0.459
+offset_left = 105.5
+offset_top = -162.88
+offset_right = 354.777
+offset_bottom = -161.812
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.68)
+theme_override_fonts/font = ExtResource("1_0do0w")
+theme_override_font_sizes/font_size = 20
+text = "Purchase Price"
+autowrap_mode = 2
+
+[node name="ItemPrice" type="Label" parent="Control/DetailsPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.41
+anchor_right = 0.501
+anchor_bottom = 0.459
+offset_left = -25.5
+offset_top = -162.88
+offset_right = 99.777
+offset_bottom = -161.812
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.98266, 0.72798, 0, 1)
+theme_override_fonts/font = ExtResource("1_0do0w")
+theme_override_font_sizes/font_size = 20
+text = "999"
+autowrap_mode = 2
+
+[node name="InventoryCountLabel" type="Label" parent="Control/DetailsPanel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.41
+anchor_right = 0.501
+anchor_bottom = 0.459
+offset_left = 105.5
+offset_top = -106.88
+offset_right = 355.777
+offset_bottom = -106.812
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.641)
+theme_override_fonts/font = ExtResource("1_0do0w")
+theme_override_font_sizes/font_size = 20
+text = "# In Inventory"
+autowrap_mode = 2
+
+[node name="ItemHeldCount" type="Label" parent="Control/DetailsPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.41
+anchor_right = 0.501
+anchor_bottom = 0.459
+offset_left = -25.5
+offset_top = -106.88
+offset_right = 92.777
+offset_bottom = -105.812
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0do0w")
+theme_override_font_sizes/font_size = 20
+text = "999"
+autowrap_mode = 2
+
+[node name="Dividor1" type="ColorRect" parent="Control/DetailsPanel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.473
+anchor_top = 0.118
+anchor_right = 0.473
+anchor_bottom = 0.128
+offset_left = -1.979
+offset_top = -0.224003
+offset_right = 372.021
+offset_bottom = -1.904
+color = Color(0.3, 0.3, 0.3, 0.801)
+
+[node name="Dividor2" type="ColorRect" parent="Control/DetailsPanel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.473
+anchor_top = 0.118
+anchor_right = 0.473
+anchor_bottom = 0.128
+offset_left = -1.979
+offset_top = 56.776
+offset_right = 373.021
+offset_bottom = 55.096
+color = Color(0.3, 0.3, 0.3, 0.801)
+
+[node name="CloseButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1666.0
+offset_top = 947.0
+offset_right = 1867.0
+offset_bottom = 1011.0
+theme_override_fonts/font = ExtResource("1_0do0w")
+theme_override_font_sizes/font_size = 20
+text = "Close"
+
+[node name="The Rattle & Claw" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.917)
+offset_left = 78.0
+offset_top = 65.0
+offset_right = 456.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("3_1x24s")
+theme_override_font_sizes/font_size = 70
+text = "The Rattle & Claw"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

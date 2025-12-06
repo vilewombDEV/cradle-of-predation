@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4y4hdrvcpwyp"
+path="res://.godot/imported/CREAHmn_Short, Hiss, Zombie, MHCS12.wav-e97334aa770a139c63c6f26ec547dfe4.sample"
+
+[deps]
+
+source_file="res://Music & SFX/IMP SFX/CREAHmn_Short, Hiss, Zombie, MHCS12.wav"
+dest_files=["res://.godot/imported/CREAHmn_Short, Hiss, Zombie, MHCS12.wav-e97334aa770a139c63c6f26ec547dfe4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
