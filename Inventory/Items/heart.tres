@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://txhp4iwmckwl"]
+
+[ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_w3sfr"]
+[ext_resource type="AudioStream" uid="uid://iun5yy7k43t5" path="res://Music & SFX/SFX/070_Equip_10.wav" id="2_t4lpu"]
+[ext_resource type="Script" uid="uid://446llnfkvpvp" path="res://Inventory/health_item.gd" id="3_dlp4c"]
+[ext_resource type="Script" uid="uid://biyd2cvsmp6a5" path="res://Inventory/item_data.gd" id="4_m1jgc"]
+[ext_resource type="Texture2D" uid="uid://ekdl2d4q4708" path="res://Assets/HEART LOOT.png" id="5_fdu1x"]
+
+[sub_resource type="Resource" id="Resource_v1nsl"]
+script = ExtResource("3_dlp4c")
+health_increase = 2
+audio = ExtResource("2_t4lpu")
+use_description = ""
+metadata/_custom_type_script = "uid://446llnfkvpvp"
+
+[resource]
+script = ExtResource("4_m1jgc")
+name = "Still-Beating Heart"
+description = "Seemingly still beating. 
+
++ 1 (Full) Heart"
+texture = ExtResource("5_fdu1x")
+effects = Array[ExtResource("1_w3sfr")]([SubResource("Resource_v1nsl")])
+metadata/_custom_type_script = "uid://biyd2cvsmp6a5"

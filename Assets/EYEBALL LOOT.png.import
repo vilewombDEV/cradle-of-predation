@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdls3nbcqqykr"
-path="res://.godot/imported/HP.png-b1880d254678625140a8732c6bb91d66.ctex"
+uid="uid://bw55f5mk5sbf2"
+path="res://.godot/imported/EYEBALL LOOT.png-9689de7d3c338b9449f0a1fb5151c5e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HP.png"
-dest_files=["res://.godot/imported/HP.png-b1880d254678625140a8732c6bb91d66.ctex"]
+source_file="res://Assets/EYEBALL LOOT.png"
+dest_files=["res://.godot/imported/EYEBALL LOOT.png-9689de7d3c338b9449f0a1fb5151c5e9.ctex"]
 
 [params]
 

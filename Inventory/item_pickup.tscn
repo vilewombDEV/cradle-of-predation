@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pa18x4s50mi7" path="res://Inventory/item_pickup.gd" id="1_4sn25"]
 [ext_resource type="AudioStream" uid="uid://j2xs60qpkksd" path="res://Music & SFX/SFX/092_PU_04.wav" id="2_3j7d5"]
-[ext_resource type="Texture2D" uid="uid://db1kf7b7x08o4" path="res://Assets/EYE.png" id="2_4t16j"]
+[ext_resource type="Texture2D" uid="uid://db1kf7b7x08o4" path="res://Assets/eye sprite placeholder.png" id="2_4t16j"]
 [ext_resource type="Texture2D" uid="uid://colclvbuh5jr4" path="res://Assets/Shadow.png" id="2_6ysnt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4sn25"]

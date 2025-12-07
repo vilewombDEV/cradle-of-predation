@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2yqq0wsdwib5"
-path="res://.godot/imported/key5.png-3a0e5624a51b4a0a2e2fe1caa7981e9c.ctex"
+uid="uid://ekdl2d4q4708"
+path="res://.godot/imported/HEART LOOT.png-d4672b8d0a7de501d23e6da986aec51e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/key5.png"
-dest_files=["res://.godot/imported/key5.png-3a0e5624a51b4a0a2e2fe1caa7981e9c.ctex"]
+source_file="res://Assets/HEART LOOT.png"
+dest_files=["res://.godot/imported/HEART LOOT.png-d4672b8d0a7de501d23e6da986aec51e.ctex"]
 
 [params]
 

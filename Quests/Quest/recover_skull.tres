@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://8jbw0ajbt8dl"]
+
+[ext_resource type="Script" uid="uid://dlw318g6uy0tj" path="res://Quests/quest_reward_item.gd" id="1_yeolt"]
+[ext_resource type="Resource" uid="uid://drthrwplkxlqn" path="res://Inventory/Items/brain.tres" id="2_edhoh"]
+[ext_resource type="Script" uid="uid://yo73vrm3o2tb" path="res://Quests/quest_resource.gd" id="2_i1f7h"]
+
+[sub_resource type="Resource" id="Resource_ka11v"]
+script = ExtResource("1_yeolt")
+item = ExtResource("2_edhoh")
+quantity = 2
+metadata/_custom_type_script = "uid://dlw318g6uy0tj"
+
+[resource]
+script = ExtResource("2_i1f7h")
+title = "Recover Lost Skull"
+description = "Gypsy lost her best friend's skull. She wants it for the vigil. "
+steps = Array[String](["Find Skull", "Return to Gypsy"])
+reward_xp = 100
+reward_items = Array[ExtResource("1_yeolt")]([SubResource("Resource_ka11v")])
+metadata/_custom_type_script = "uid://yo73vrm3o2tb"

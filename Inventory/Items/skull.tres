@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://biyd2cvsmp6a5" path="res://Inventory/item_data.gd" id="1_3ijgr"]
 [ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_cwbvq"]
-[ext_resource type="Texture2D" uid="uid://dutx65jcf8l7f" path="res://Assets/SKULL.png" id="2_62nl2"]
+[ext_resource type="Texture2D" uid="uid://kiej07m73xhf" path="res://Assets/SKULL LOOT.png" id="3_cwbvq"]
 
 [resource]
 script = ExtResource("1_3ijgr")
-name = "Skull"
+name = "Broken Skull"
 description = "A peculiar type of currency. "
-texture = ExtResource("2_62nl2")
+texture = ExtResource("3_cwbvq")
 effects = Array[ExtResource("1_cwbvq")]([])
 metadata/_custom_type_script = "uid://biyd2cvsmp6a5"

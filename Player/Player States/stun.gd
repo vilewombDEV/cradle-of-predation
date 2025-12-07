@@ -20,6 +20,7 @@ func enter() -> void:
 	player.effect_animation_player.play("damaged")
 
 func exit() -> void:
+	next_state = null
 	player.animation_player.animation_finished.disconnect(_animation_finished)
 
 func handle_input(_event: InputEvent) -> PlayerState:

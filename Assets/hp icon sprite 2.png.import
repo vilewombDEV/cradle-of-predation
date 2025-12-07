@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b81iu48d1p6ei"
-path="res://.godot/imported/HP POTION.png-7b93b7eab1dd099b06ad1adf1f5667f5.ctex"
+uid="uid://cdls3nbcqqykr"
+path="res://.godot/imported/hp icon sprite 2.png-e8cba2a7ef1db96f68fd6bb5a82cfb3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HP POTION.png"
-dest_files=["res://.godot/imported/HP POTION.png-7b93b7eab1dd099b06ad1adf1f5667f5.ctex"]
+source_file="res://Assets/hp icon sprite 2.png"
+dest_files=["res://.godot/imported/hp icon sprite 2.png-e8cba2a7ef1db96f68fd6bb5a82cfb3a.ctex"]
 
 [params]
 

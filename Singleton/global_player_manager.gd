@@ -8,6 +8,8 @@ const INVENTORY_DATA: InventoryData = preload("res://Inventory/player_inventory.
 var player: Player
 var player_spawned: bool = false
 
+var xp: int = 0
+
 
 func _ready() -> void:
 	add_player_instance()
@@ -33,3 +35,7 @@ func set_health(_hp: int, _max_hp: int) -> void:
 	player.max_hp = _max_hp
 	player.hp = _hp
 	player.update_hp(0)
+
+func reward_xp(_xp: int) -> void:
+	xp += _xp
+	print("XP = ", str( xp ))

@@ -45,12 +45,6 @@ func _ready() -> void:
 	hit_box.damaged.connect(_take_damage)
 	update_hp(99)
 
-func _unhandled_input(event: InputEvent) -> void:
-	change_state(current_state.handle_input(event))
-	if event.is_action_pressed("test"):
-		update_hp(-99)
-		player_damaged.emit(%HurtBox)
-
 func _process(_delta: float) -> void:
 	update_direction()
 	change_state(current_state.process(_delta))

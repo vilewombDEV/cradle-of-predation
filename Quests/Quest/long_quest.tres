@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://bdjlexgq425km"]
+
+[ext_resource type="Script" uid="uid://dlw318g6uy0tj" path="res://Quests/quest_reward_item.gd" id="1_iulim"]
+[ext_resource type="Resource" uid="uid://bw2kdyiiney4s" path="res://Inventory/Items/eyeballs.tres" id="2_qnb33"]
+[ext_resource type="Script" uid="uid://yo73vrm3o2tb" path="res://Quests/quest_resource.gd" id="3_ebn8o"]
+
+[sub_resource type="Resource" id="Resource_p55sk"]
+script = ExtResource("1_iulim")
+item = ExtResource("2_qnb33")
+quantity = 3
+metadata/_custom_type_script = "uid://dlw318g6uy0tj"
+
+[resource]
+script = ExtResource("3_ebn8o")
+title = "Long Quest"
+description = "Long quest with multiple steps."
+steps = Array[String](["1", "2", "3", "4", "5"])
+reward_xp = 50
+reward_items = Array[ExtResource("1_iulim")]([SubResource("Resource_p55sk")])
+metadata/_custom_type_script = "uid://yo73vrm3o2tb"

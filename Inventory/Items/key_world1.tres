@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_4kpwl")
 name = "Ornamental Key"
-description = "A key. What does it open?"
+description = "An ornamental key. What does it open?"
 texture = ExtResource("3_ddbqc")
 effects = Array[ExtResource("1_dj7bx")]([])
 metadata/_custom_type_script = "uid://biyd2cvsmp6a5"

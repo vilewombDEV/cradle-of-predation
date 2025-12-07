@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cagewhegwfkb4"]
 
-[ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/HP.png" id="1_g8fja"]
+[ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/hp icon sprite 2.png" id="1_g8fja"]
 [ext_resource type="Script" uid="uid://ur2odrdx87sa" path="res://Inventory/Inventory GUI/inventory_slot_ui.gd" id="1_ohnad"]
 
 [node name="InventorySlot" type="Button"]

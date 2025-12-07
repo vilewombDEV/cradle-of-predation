@@ -27,10 +27,11 @@ LevelManager="*res://Levels/level_manager.gd"
 PlayerHUD="*res://Scenes/player_hud.tscn"
 PlayerManager="*res://Singleton/global_player_manager.gd"
 SceneTransition="*res://Levels/scene_transition.tscn"
-SaveManager="*res://Singleton/save_manager.gd"
-DialogSystem="*res://Interaction/Dialog System/dialog_system.tscn"
+SaveManager="*res://Singleton/global_save_manager.gd"
 ShopMenu="*res://Inventory/ShopGUI/shop_menu.tscn"
 PauseMenu="*res://Scenes/pause_menu.tscn"
+QuestManager="*res://Singleton/global_quest_manager.gd"
+DialogSystem="*res://Interaction/Dialog System/dialog_system.tscn"
 
 [display]
 
@@ -62,6 +63,7 @@ folder_colors={
 "res://Player/Player Assests/Fireball Sprites/": "orange",
 "res://Player/Player States/": "yellow",
 "res://Props/Prop Sprites/": "orange",
+"res://Quests/Quest/": "yellow",
 "res://Scenes/Enemies/": "red",
 "res://Scenes/Enemies/Enemy States/": "pink"
 }

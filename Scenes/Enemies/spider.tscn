@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://mw37cjulc2af" path="res://Scenes/Enemies/Enemy States/enemy_destroy.gd" id="8_wloym"]
 [ext_resource type="Script" uid="uid://cqydt761s6qn0" path="res://Scenes/Enemies/Enemy States/drop_data.gd" id="9_6hqkn"]
 [ext_resource type="AudioStream" uid="uid://drmvbvldhl27j" path="res://Music & SFX/SFX/15_Impact_flesh_02.wav" id="10_ox5xr"]
-[ext_resource type="Resource" uid="uid://bw2kdyiiney4s" path="res://Inventory/Items/eyeball.tres" id="10_rxrcf"]
+[ext_resource type="Resource" uid="uid://bw2kdyiiney4s" path="res://Inventory/Items/eyeballs.tres" id="10_rxrcf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8t5f"]
 radius = 4.0

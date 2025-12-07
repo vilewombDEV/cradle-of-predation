@@ -5,16 +5,17 @@ signal hidden
 
 @onready var audio_stream_player: AudioStreamPlayer = $Control/AudioStreamPlayer
 
-@onready var save_button: Button = $Control/VBoxContainer/Save
-@onready var load_button: Button = $Control/VBoxContainer/Load
-@onready var main_menu_button: Button = $"Control/VBoxContainer/Main Menu"
-@onready var quit: Button = $Control/VBoxContainer/Quit
+@onready var save_button: Button = $Control/TabContainer/System/VBoxContainer/Save
+@onready var load_button: Button = $Control/TabContainer/System/VBoxContainer/Load
+@onready var main_menu_button: Button = $"Control/TabContainer/System/VBoxContainer/Main Menu"
+@onready var quit: Button = $Control/TabContainer/System/VBoxContainer/Quit
 
 @onready var click: AudioStreamPlayer = $Control/Click
 @onready var hover: AudioStreamPlayer = $Control/Hover
 
-@onready var item_description: Label = $Control/ItemDescription
+@onready var item_description: Label = $Control/TabContainer/Inventory/ItemDescription
 
+@onready var tab_container: TabContainer = $Control/TabContainer
 
 var is_paused: bool = false
 

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bpxitoc3f8cpd" path="res://Assets/Tile Sets/DOOR - PORTALS.png" id="4_p7ekk"]
 [ext_resource type="Script" uid="uid://cxvuob6p6e6a" path="res://Levels/Tilemaps/level_tilemap.gd" id="5_0tnf1"]
 [ext_resource type="PackedScene" uid="uid://c5ykmin26do5a" path="res://Levels/player_spawn.tscn" id="5_4wqju"]
-[ext_resource type="Resource" uid="uid://txhp4iwmckwl" path="res://Inventory/Items/health_potion.tres" id="10_0tnf1"]
+[ext_resource type="Resource" uid="uid://txhp4iwmckwl" path="res://Inventory/Items/heart.tres" id="10_0tnf1"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="11_jbvdo"]
 [ext_resource type="Texture2D" uid="uid://dhv7f4yqq1064" path="res://Assets/End Portal Open.png" id="11_to5w2"]
 [ext_resource type="PackedScene" uid="uid://c5eq5pm52pw5i" path="res://Scenes/Enemies/spider.tscn" id="12_mydkt"]

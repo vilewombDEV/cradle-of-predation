@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://v7vxpvpigajs" path="res://Inventory/ShopGUI/shop_menu.gd" id="1_e82st"]
 [ext_resource type="PackedScene" uid="uid://bi50715xpkbkq" path="res://Inventory/ShopGUI/shop_item_button.tscn" id="2_gsqdi"]
 [ext_resource type="FontFile" uid="uid://kp6rccpff4uq" path="res://Assets/Fonts/MM FONT.ttf" id="3_1x24s"]
-[ext_resource type="Texture2D" uid="uid://b81iu48d1p6ei" path="res://Assets/HP POTION.png" id="5_ywlsg"]
+[ext_resource type="Texture2D" uid="uid://b81iu48d1p6ei" path="res://Assets/hp icon sprite.png" id="5_ywlsg"]
 
 [sub_resource type="Animation" id="Animation_e82st"]
 length = 0.001

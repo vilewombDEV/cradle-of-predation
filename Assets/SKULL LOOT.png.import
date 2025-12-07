@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dutx65jcf8l7f"
-path="res://.godot/imported/SKULL.png-9c2bc08c620d01d300642a372d490e72.ctex"
+uid="uid://kiej07m73xhf"
+path="res://.godot/imported/SKULL LOOT.png-4ae1a581635d80f1c10bf8b253991922.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SKULL.png"
-dest_files=["res://.godot/imported/SKULL.png-9c2bc08c620d01d300642a372d490e72.ctex"]
+source_file="res://Assets/SKULL LOOT.png"
+dest_files=["res://.godot/imported/SKULL LOOT.png-4ae1a581635d80f1c10bf8b253991922.ctex"]
 
 [params]
 
