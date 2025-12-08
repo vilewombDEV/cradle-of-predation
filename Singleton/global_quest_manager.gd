@@ -12,8 +12,16 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("test"):
-		print( "get_quest_index_by_title: ", get_quest_index_by_title("Recover Lost Skull") )
-		print( "get_quest_index_by_title: ", get_quest_index_by_title("Short Quest") )
+		update_quest("Short Quest", "Step 1", true)
+		update_quest("Find Gypsy", "Step 1")
+		update_quest("Find Gypsy", "Step 2")
+		update_quest("Find Gypsy", "", true)
+		update_quest("Long Quest", "Step 1")
+		update_quest("Long Quest", "Step 2")
+		update_quest("Long Quest", "Step 3")
+		update_quest("Long Quest", "Step 4")
+		update_quest("Long Quest", "", false)
+		print("Quests: ", current_quests)
 
 func gather_quest_data() -> void:
 	# Gather all Quest resources and add to the Quests Array
@@ -21,15 +29,13 @@ func gather_quest_data() -> void:
 	quests.clear()
 	for q in quest_files:
 		quests.append( load( QUEST_DATA_LOCATION + "/" + q ) as Quest )
-		print( "Quests Count: ", quests.size() )
-	pass
 
 func update_quest(_title: String, _completed_step: String = "", _is_complete: bool = false) -> void:
 	var quest_index: int = get_quest_index_by_title(_title)
 	if quest_index == -1:
 		var new_quest: Dictionary = {
 			title = _title,
-			_is_complete = _completed_step,
+			is_complete = _is_complete,
 			completed_steps = []
 		}
 		if _completed_step != "":
@@ -69,4 +75,21 @@ func get_quest_index_by_title(_title: String) -> int:
 	return -1
 
 func sort_quests() -> void:
-	pass
+	var active_quests: Array = []
+	var completed_quests: Array = []
+	for q in current_quests:
+		if q.is_complete:
+			completed_quests.append(q)
+		else:
+			active_quests.append(q)
+			
+	active_quests.sort_custom(sort_quests_ascending)
+	completed_quests.sort_custom(sort_quests_ascending)
+	
+	current_quests = active_quests
+	current_quests.append_array(completed_quests)
+
+func sort_quests_ascending(a, b):
+	if a.title < b.title:
+		return true
+	return false

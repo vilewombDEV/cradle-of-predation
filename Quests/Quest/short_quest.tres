@@ -1,13 +1,20 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://ckqvx8rmasqsg"]
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://ckqvx8rmasqsg"]
 
 [ext_resource type="Script" uid="uid://dlw318g6uy0tj" path="res://Quests/quest_reward_item.gd" id="1_c2fj0"]
+[ext_resource type="Resource" uid="uid://txhp4iwmckwl" path="res://Inventory/Items/heart.tres" id="2_78eb7"]
 [ext_resource type="Script" uid="uid://yo73vrm3o2tb" path="res://Quests/quest_resource.gd" id="2_vk25q"]
+
+[sub_resource type="Resource" id="Resource_cfvjy"]
+script = ExtResource("1_c2fj0")
+item = ExtResource("2_78eb7")
+quantity = 1
+metadata/_custom_type_script = "uid://dlw318g6uy0tj"
 
 [resource]
 script = ExtResource("2_vk25q")
-title = "Short Quest Test"
-description = "An example short quest with 1 step required to complete. "
-steps = Array[String](["Complete Quest"])
+title = "Short Quest"
+description = "An example short quest with 1 step required to complete."
+steps = Array[String](["Step 1"])
 reward_xp = 10
-reward_items = Array[ExtResource("1_c2fj0")]([])
+reward_items = Array[ExtResource("1_c2fj0")]([SubResource("Resource_cfvjy")])
 metadata/_custom_type_script = "uid://yo73vrm3o2tb"

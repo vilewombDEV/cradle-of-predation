@@ -12,9 +12,9 @@ metadata/_custom_type_script = "uid://dlw318g6uy0tj"
 
 [resource]
 script = ExtResource("2_i1f7h")
-title = "Recover Lost Skull"
-description = "Gypsy lost her best friend's skull. She wants it for the vigil. "
-steps = Array[String](["Find Skull", "Return to Gypsy"])
+title = "Find Gypsy"
+description = "Find Gypsy in this hellscape."
+steps = Array[String](["Step 1", "Step 2"])
 reward_xp = 100
 reward_items = Array[ExtResource("1_yeolt")]([SubResource("Resource_ka11v")])
 metadata/_custom_type_script = "uid://yo73vrm3o2tb"

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://credu1nntxmmh"]
+
+[ext_resource type="Script" uid="uid://1t20wbevabau" path="res://Quests/quest_step_item.gd" id="1_0oh7j"]
+[ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="2_acjxm"]
+[ext_resource type="Texture2D" uid="uid://dkgvfc2lpj1fj" path="res://Assets/checkbox.png" id="3_x5qyp"]
+
+[node name="QuestStepItem" type="Control"]
+custom_minimum_size = Vector2(710, 15)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0oh7j")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.607843, 0.678431, 0.717647, 1)
+layout_mode = 0
+offset_left = 28.0
+offset_right = 92.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("2_acjxm")
+theme_override_font_sizes/font_size = 18
+text = "Step"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_x5qyp")
+centered = false
+hframes = 2

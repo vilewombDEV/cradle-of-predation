@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dea28c55q05wy"]
+[gd_scene load_steps=15 format=3 uid="uid://dea28c55q05wy"]
 
 [ext_resource type="Script" uid="uid://ultugv8rec7h" path="res://Scripts/pause_menu.gd" id="1_vmyb1"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="2_1och7"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://eefrlglt1xkb" path="res://Inventory/Inventory GUI/inventory_ui.gd" id="4_sjs17"]
 [ext_resource type="AudioStream" uid="uid://b0lt00cgv1rgr" path="res://Music & SFX/SFX/Abstract1.mp3" id="4_vmyb1"]
 [ext_resource type="Resource" uid="uid://dk3qgg14gni0g" path="res://Inventory/player_inventory.tres" id="5_u8tnp"]
+[ext_resource type="Script" uid="uid://fynya842ea40" path="res://Scenes/quests_ui.gd" id="10_524vl"]
+[ext_resource type="PackedScene" uid="uid://dgxf862pxumbf" path="res://Quests/quest_item.tscn" id="10_ix48p"]
+[ext_resource type="PackedScene" uid="uid://credu1nntxmmh" path="res://Quests/quest_step_item.tscn" id="12_0fi7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stj27"]
 atlas = ExtResource("3_u8tnp")
@@ -81,9 +84,10 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 25
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -172,9 +176,106 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Quests" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
+script = ExtResource("10_524vl")
 metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Quests"]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 131.0
+offset_right = 917.0
+offset_bottom = 611.0
+follow_focus = true
+scroll_vertical_custom_step = 100.0
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Quests/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="QuestItem" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="QuestItem2" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="QuestItem3" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="QuestItem4" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="QuestItem5" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="QuestItem6" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="QuestItem7" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="QuestItem8" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="QuestItem9" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="QuestItem10" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests"]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 136.0
+offset_right = 1742.0
+offset_bottom = 446.0
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="Control/TabContainer/Quests/VBoxContainer"]
+custom_minimum_size = Vector2(710, 15)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 30
+text = "Quest Title"
+autowrap_mode = 3
+
+[node name="DescriptionLabel" type="Label" parent="Control/TabContainer/Quests/VBoxContainer"]
+modulate = Color(0.560955, 0.560955, 0.560955, 1)
+custom_minimum_size = Vector2(710, 15)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 20
+text = "Quest Description"
+autowrap_mode = 3
+
+[node name="SpacerControl" type="Control" parent="Control/TabContainer/Quests/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="QuestStepItem" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+layout_mode = 2
+
+[node name="QuestStepItem2" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+layout_mode = 2
+
+[node name="QuestStepItem3" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+layout_mode = 2
+
+[node name="QuestStepItem4" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+layout_mode = 2
+
+[node name="QuestStepItem5" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+layout_mode = 2
+
+[node name="QuestStepItem6" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+layout_mode = 2
 
 [node name="System" type="Control" parent="Control/TabContainer"]
 visible = false
