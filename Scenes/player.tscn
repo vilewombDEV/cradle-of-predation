@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cf7bdays7hchv"]
+[gd_scene load_steps=33 format=3 uid="uid://cf7bdays7hchv"]
 
 [ext_resource type="Script" uid="uid://d0if8url3x6j4" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://c1yepr6eudcky" path="res://Player/Player Assests/Imp Sprite Sheet.png" id="1_v0iea"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="11_gymyn"]
 [ext_resource type="PackedScene" uid="uid://4j3ebxuimei1" path="res://Scenes/hit_box.tscn" id="12_pu2lt"]
 [ext_resource type="AudioStream" uid="uid://bmnyh0dkqqaw" path="res://Music & SFX/IMP SFX/CREAHmn_Short, Angry, Zombie, MHCS11.wav" id="13_ukyrk"]
+[ext_resource type="Script" uid="uid://c2fghape1v3ut" path="res://Scenes/push_area.gd" id="16_qqcod"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8erm5"]
 radius = 5.0
@@ -23,6 +24,9 @@ height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pu2lt"]
 radius = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd4e3"]
+size = Vector2(20, 6)
 
 [sub_resource type="Animation" id="Animation_f1ek2"]
 length = 0.001
@@ -273,7 +277,7 @@ hframes = 8
 vframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_8erm5")
 debug_color = Color(0, 0.6, 0.701961, 0.262745)
 
@@ -310,6 +314,17 @@ monitoring = false
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_pu2lt")
 debug_color = Color(0.997027, 0, 0.175987, 0.42)
+
+[node name="PushArea" type="Area2D" parent="Interactions"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("16_qqcod")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PushArea"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fd4e3")
+debug_color = Color(1.92523e-06, 0.647691, 0.203856, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

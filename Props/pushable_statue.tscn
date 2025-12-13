@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqael0h8p0d2i"]
+
+[ext_resource type="Script" uid="uid://cqwtrcb3jhlmr" path="res://Props/pushable_statue.gd" id="1_vrhf6"]
+[ext_resource type="Texture2D" uid="uid://b12ec7c53by6r" path="res://Props/Prop Sprites/TOMBSTONE.png" id="2_dfnnp"]
+[ext_resource type="AudioStream" uid="uid://rjnq2fxf83sm" path="res://Music & SFX/SFX/push_stone.wav" id="3_gxqeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfnnp"]
+size = Vector2(16, 17)
+
+[node name="PushableStatue" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 273
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_vrhf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_dfnnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("2_dfnnp")
+region_enabled = true
+region_rect = Rect2(197, 9, 22, 23)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gxqeo")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cus5anl0f21jf"]
+[gd_scene load_steps=19 format=4 uid="uid://cus5anl0f21jf"]
 
 [ext_resource type="Script" uid="uid://dfawrkv1bwgwu" path="res://Levels/level.gd" id="1_a18s4"]
 [ext_resource type="PackedScene" uid="uid://fde2wi5yawa" path="res://Scenes/candle_flame.tscn" id="2_igicm"]
@@ -9,18 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dxjwv8c6w25ss" path="res://Assets/Tile Sets/3 - Edited.png" id="6_0wvid"]
 [ext_resource type="PackedScene" uid="uid://d16uck00gbmao" path="res://Props/barrel.tscn" id="8_770ha"]
 [ext_resource type="PackedScene" uid="uid://c5ykmin26do5a" path="res://Levels/player_spawn.tscn" id="14_2lp5j"]
-[ext_resource type="PackedScene" uid="uid://cevcxrkcu60b0" path="res://Interaction/NPC/hooded_entity.tscn" id="15_8hemp"]
-[ext_resource type="PackedScene" uid="uid://dt670mvtvcc17" path="res://Interaction/Dialog System/dialog_interaction.tscn" id="16_3p7ho"]
-[ext_resource type="Script" uid="uid://bl6alhn4bi86x" path="res://Interaction/NPC/NPC Resources/dialog_text.gd" id="17_o180a"]
 [ext_resource type="AudioStream" uid="uid://dtraia4b6s1w6" path="res://Music & SFX/juanjo_sound - Unroot.ogg" id="17_wvkut"]
-[ext_resource type="Resource" uid="uid://tvln172t6qfi" path="res://Interaction/NPC/NPC Resources/hooded_entity.tres" id="18_akwg7"]
 [ext_resource type="PackedScene" uid="uid://c6c5ogs46xbip" path="res://Interaction/Interactable Items/lock_1.tscn" id="18_mn3ar"]
-[ext_resource type="Script" uid="uid://ylv8dbax8c8c" path="res://Interaction/NPC/NPC Resources/dialog_choice.gd" id="19_j1w17"]
-[ext_resource type="Script" uid="uid://cdxasf6i202xc" path="res://Interaction/Dialog System/dialog_branch.gd" id="20_uhbvf"]
-[ext_resource type="Resource" uid="uid://8vq1mo48mwcb" path="res://Interaction/NPC/imp'zharoth_player.tres" id="21_1htus"]
-[ext_resource type="PackedScene" uid="uid://cdc8bkwuu0716" path="res://Quests/Utility Nodes/quest_advance_trigger.tscn" id="22_a18s4"]
 [ext_resource type="PackedScene" uid="uid://bgrkxg1kk8byu" path="res://Scenes/platform1.tscn" id="23_6o233"]
-[ext_resource type="Resource" uid="uid://8jbw0ajbt8dl" path="res://Quests/Quest/find_gypsy.tres" id="23_igicm"]
 [ext_resource type="PackedScene" uid="uid://r7e54m5ht830" path="res://Scenes/killzone.tscn" id="24_gubof"]
 [ext_resource type="PackedScene" uid="uid://bw6gxq0t8wvsm" path="res://Levels/level_transition.tscn" id="29_a18s4"]
 
@@ -238,57 +229,3 @@ level = "uid://wpklagel40y6"
 target_transition_area = "LevelTransition3"
 size = 1
 side = 1
-
-[node name="QuestGiver" parent="." instance=ExtResource("15_8hemp")]
-position = Vector2(798, 139)
-
-[node name="DialogInteraction" parent="QuestGiver" instance=ExtResource("16_3p7ho")]
-position = Vector2(-5, -6)
-
-[node name="DialogText" type="Node" parent="QuestGiver/DialogInteraction"]
-script = ExtResource("17_o180a")
-text = "You..."
-npc_info = ExtResource("18_akwg7")
-metadata/_custom_type_script = "uid://bl6alhn4bi86x"
-
-[node name="DialogText2" type="Node" parent="QuestGiver/DialogInteraction"]
-script = ExtResource("17_o180a")
-text = "I've seen those eyes before..."
-npc_info = ExtResource("18_akwg7")
-metadata/_custom_type_script = "uid://bl6alhn4bi86x"
-
-[node name="DialogChoice" type="Node" parent="QuestGiver/DialogInteraction"]
-script = ExtResource("19_j1w17")
-metadata/_custom_type_script = "uid://ylv8dbax8c8c"
-
-[node name="DialogBranch" type="Node" parent="QuestGiver/DialogInteraction/DialogChoice"]
-script = ExtResource("20_uhbvf")
-text = "Who are you?"
-npc_info = ExtResource("21_1htus")
-metadata/_custom_type_script = "uid://cdxasf6i202xc"
-
-[node name="DialogText" type="Node" parent="QuestGiver/DialogInteraction/DialogChoice/DialogBranch"]
-script = ExtResource("17_o180a")
-text = "I am the cracks in each brick...the flickering light in each candle..."
-npc_info = ExtResource("18_akwg7")
-metadata/_custom_type_script = "uid://bl6alhn4bi86x"
-
-[node name="DialogBranch2" type="Node" parent="QuestGiver/DialogInteraction/DialogChoice"]
-script = ExtResource("20_uhbvf")
-text = "How could you know such a thing?"
-npc_info = ExtResource("21_1htus")
-metadata/_custom_type_script = "uid://cdxasf6i202xc"
-
-[node name="QuestAdvanceTrigger" parent="QuestGiver/DialogInteraction/DialogChoice/DialogBranch2" instance=ExtResource("22_a18s4")]
-signal_name = "selected"
-linked_quest = ExtResource("23_igicm")
-settings_summary = "UPDATE QUEST:
-Quest: Find Gypsy
-Step: 0 - N/A
-Complete: false"
-
-[node name="DialogText" type="Node" parent="QuestGiver/DialogInteraction/DialogChoice/DialogBranch2"]
-script = ExtResource("17_o180a")
-text = "I am bound to these whimpering walls..if you're to fulfil your quest for hunger, there's a spirit you're to meet."
-npc_info = ExtResource("18_akwg7")
-metadata/_custom_type_script = "uid://bl6alhn4bi86x"
