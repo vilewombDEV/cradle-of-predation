@@ -125,13 +125,11 @@ func set_dialog_choice(_d: DialogChoice) -> void:
 	choice_options.get_child(0).grab_focus()
 	pass
 
-
-
 func _dialog_choice_selected(_d: DialogBranch) -> void:
 	choice_options.visible = false
+	_d.selected.emit()
 	show_dialog(_d.dialog_items)
 	pass
-
 
 func on_timer_timeout() -> void:
 	content.visible_characters += 1

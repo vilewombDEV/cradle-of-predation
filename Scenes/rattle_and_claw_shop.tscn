@@ -1,10 +1,9 @@
-[gd_scene load_steps=28 format=4 uid="uid://cstqm2inckfvc"]
+[gd_scene load_steps=27 format=4 uid="uid://cstqm2inckfvc"]
 
 [ext_resource type="Texture2D" uid="uid://bd4i3rou8m2po" path="res://Assets/Tile Sets/oak_woods_v1.0/oak_woods_tileset.png" id="1_4rcv3"]
 [ext_resource type="Texture2D" uid="uid://drh7ehtd1v182" path="res://Assets/Tile Sets/oak_woods_v1.0/background/background_layer_1.png" id="1_63dqu"]
 [ext_resource type="Script" uid="uid://dfawrkv1bwgwu" path="res://Levels/level.gd" id="1_jb5np"]
 [ext_resource type="Texture2D" uid="uid://cl7oyl245x6b8" path="res://Assets/Tile Sets/oak_woods_v1.0/background/background_layer_2.png" id="2_cdo1u"]
-[ext_resource type="AudioStream" uid="uid://baes2ibbxb8tt" path="res://Music & SFX/Forest Day.ogg" id="2_hcbt5"]
 [ext_resource type="Script" uid="uid://cxvuob6p6e6a" path="res://Levels/Tilemaps/level_tilemap.gd" id="2_jb5np"]
 [ext_resource type="Texture2D" uid="uid://duf8vgbg2m54q" path="res://Assets/Tile Sets/oak_woods_v1.0/background/background_layer_3.png" id="3_ck22l"]
 [ext_resource type="Texture2D" uid="uid://dtvj7jnfae24j" path="res://Assets/Tile Sets/oak_woods_v1.0/decorations/fence_1.png" id="6_xwrut"]
@@ -976,7 +975,6 @@ radius = 4.0
 
 [node name="RattleandClaw" type="Node2D"]
 script = ExtResource("1_jb5np")
-music = ExtResource("2_hcbt5")
 
 [node name="PARA" type="Node" parent="."]
 
@@ -1119,7 +1117,7 @@ tile_set = SubResource("TileSet_cdo1u")
 script = ExtResource("2_jb5np")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("14_hcbt5")]
-position = Vector2(190, 220)
+position = Vector2(1060, 222)
 
 [node name="BG ITEMS" type="Node" parent="."]
 

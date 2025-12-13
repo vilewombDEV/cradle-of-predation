@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=3 format=3 uid="uid://tvln172t6qfi"]
+
+[ext_resource type="Texture2D" uid="uid://bwrdjm4ycvu5g" path="res://Interaction/NPC/HOODED ENTITY PORTRAIT.png" id="1_0t1om"]
+[ext_resource type="Script" uid="uid://d04eryd8kooyr" path="res://Interaction/NPC/NPC Resources/npc_resource.gd" id="1_2lwwu"]
+
+[resource]
+script = ExtResource("1_2lwwu")
+npc_name = "The Hooded Entity"
+portrait = ExtResource("1_0t1om")
+metadata/_custom_type_script = "uid://d04eryd8kooyr"

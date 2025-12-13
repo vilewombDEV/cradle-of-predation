@@ -32,7 +32,7 @@ position = Vector2(3, -1)
 shape = SubResource("CapsuleShape2D_02jty")
 
 [node name="DialogInteraction" parent="Gypsy" instance=ExtResource("4_g15iv")]
-position = Vector2(1, -2)
+position = Vector2(1, 0)
 
 [node name="DialogText" type="Node" parent="Gypsy/DialogInteraction"]
 script = ExtResource("5_l2jwx")

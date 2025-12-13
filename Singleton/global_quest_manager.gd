@@ -12,16 +12,19 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("test"):
-		update_quest("Short Quest", "Step 1", true)
-		update_quest("Find Gypsy", "Step 1")
-		update_quest("Find Gypsy", "Step 2")
-		update_quest("Find Gypsy", "", true)
-		update_quest("Long Quest", "Step 1")
-		update_quest("Long Quest", "Step 2")
-		update_quest("Long Quest", "Step 3")
-		update_quest("Long Quest", "Step 4")
-		update_quest("Long Quest", "", false)
+		#print(find_quest_by_title("Find Gypsy"))
+		#print("Current Quests: ", current_quests)
+		#print("get_quest_index_by_title: ", get_quest_index_by_title("find gypsy"))
+		#print("get_quest_index_by_title: ", get_quest_index_by_title("short quest"))
+		
+		#print("before: ", current_quests)
+		#update_quest("short quest", "", true)
+		#update_quest("find gypsy", "Search Main Hall")
+		#update_quest("long quest", "", true)
+		#print("after: ", current_quests)
 		print("Quests: ", current_quests)
+		#print("==============")
+		pass
 
 func gather_quest_data() -> void:
 	# Gather all Quest resources and add to the Quests Array
@@ -29,25 +32,33 @@ func gather_quest_data() -> void:
 	quests.clear()
 	for q in quest_files:
 		quests.append( load( QUEST_DATA_LOCATION + "/" + q ) as Quest )
+	print("Quest Count: ", quests.size())
 
 func update_quest(_title: String, _completed_step: String = "", _is_complete: bool = false) -> void:
 	var quest_index: int = get_quest_index_by_title(_title)
 	if quest_index == -1:
-		var new_quest: Dictionary = {
-			title = _title,
-			is_complete = _is_complete,
-			completed_steps = []
+		var new_quest: Dictionary = { 
+				title = _title, 
+				is_complete = _is_complete, 
+				completed_steps = []
 		}
 		if _completed_step != "":
 			new_quest.completed_steps.append(_completed_step)
-			current_quests.append(new_quest)
-			quest_updated.emit(new_quest)
+		
+		current_quests.append(new_quest)
+		quest_updated.emit(new_quest)
+		
+		# Display a notification that quest was added
+		
 	else:
 		var q = current_quests[quest_index]
 		if _completed_step != "" and q.completed_steps.has(_completed_step) == false:
 			q.completed_steps.append(_completed_step)
 		q.is_complete = _is_complete
 		quest_updated.emit(q)
+		
+		# Display a notification that quest was updated OR completed
+		
 		if q.is_complete == true:
 			disperse_quest_rewards(find_quest_by_title(_title))
 
@@ -58,19 +69,19 @@ func disperse_quest_rewards(_q: Quest) -> void:
 
 func find_quest(_quest: Quest) -> Dictionary:
 	for q in current_quests:
-		if q.title == _quest.title:
+		if q.title.to_lower() == _quest.title.to_lower():
 			return q
 	return { title = "Not Found", is_complete = false, completed_steps = [''] }
 
 func find_quest_by_title(_title: String) -> Quest:
 	for q in quests:
-		if q.title == _title:
+		if q.title.to_lower() == _title.to_lower():
 			return q
 	return null
 
 func get_quest_index_by_title(_title: String) -> int:
 	for i in current_quests.size():
-		if current_quests[i].title == _title:
+		if current_quests[i].title.to_lower() == _title.to_lower():
 			return i
 	return -1
 

@@ -9,7 +9,6 @@ var next_state: PlayerState
 @onready var run: PlayerStateRun = %Run
 @onready var jump: PlayerStateJump = %Jump
 @onready var fall: PlayerStateFall = %Fall
-@onready var climb: PlayerStateClimb = %Climb
 @onready var attack: PlayerStateAttack = %Attack
 @onready var stun: PlayerStateStun = %Stun
 @onready var death: PlayerStateDeath = %Death

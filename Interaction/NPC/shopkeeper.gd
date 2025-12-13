@@ -11,4 +11,4 @@ func _ready() -> void:
 
 
 func show_shop_menu() -> void:
-	print("Show the menu")
+	ShopMenu.show_menu()

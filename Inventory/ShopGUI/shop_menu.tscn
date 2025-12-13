@@ -144,7 +144,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.337)
+color = Color(0, 0, 0, 0.713726)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -465,7 +465,7 @@ offset_top = 65.0
 offset_right = 456.0
 offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("3_1x24s")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 85
 text = "The Rattle & Claw"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

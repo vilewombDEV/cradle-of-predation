@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name NPC
 
-
 @export var npc_resource: NPCResource: set = _set_npc_resource
 
 

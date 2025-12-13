@@ -52,9 +52,6 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	velocity.y += gravity * _delta * gravity_multiplier
 	velocity.y = clampf(velocity.y, -1000.0, max_fall_velocity)
-	var ladder_collider = ladder_ray_cast.get_collider()
-	if ladder_collider: 
-		_ladder_climb(_delta)
 	move_and_slide()
 	change_state(current_state.physics_process(_delta))
 
@@ -95,14 +92,8 @@ func update_direction() -> void:
 		elif direction.x > 0:
 			sprite.flip_h = false
 
-func _ladder_climb(_delta):
-	direction.y = Input.get_axis("up", "down")
-	if direction: 
-		velocity = direction * move_speed / 2
-	else: 
-		velocity = Vector2.ZERO
-
 func _unhandled_key_input(event: InputEvent) -> void:
+	change_state(current_state.handle_input(event))
 	if event.is_action_pressed("interact"):
 		PlayerManager.interact_pressed.emit()
 
@@ -112,7 +103,6 @@ func _take_damage(hurt_box: HurtBox) -> void:
 	if hp > 0:
 		update_hp(-hurt_box.damage)
 		player_damaged.emit(hurt_box)
-	
 
 func update_hp(delta: int) -> void:
 	hp = clampi(hp + delta, 0, max_hp)

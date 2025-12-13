@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://cevcxrkcu60b0"]
+
+[ext_resource type="Script" uid="uid://r6u5xhk8gfv4" path="res://Interaction/NPC/NPC Resources/npc.gd" id="1_ovimc"]
+[ext_resource type="Texture2D" uid="uid://d2my8yk2uc545" path="res://Interaction/NPC/HOODED WIZARD.png" id="2_aa7lg"]
+[ext_resource type="Resource" uid="uid://tvln172t6qfi" path="res://Interaction/NPC/NPC Resources/hooded_entity.tres" id="2_us5vr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeooy"]
+atlas = ExtResource("2_aa7lg")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw35k"]
+atlas = ExtResource("2_aa7lg")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4xet"]
+atlas = ExtResource("2_aa7lg")
+region = Rect2(640, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5xbl"]
+atlas = ExtResource("2_aa7lg")
+region = Rect2(720, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aa7lg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeooy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw35k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4xet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5xbl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovimc"]
+radius = 6.0
+height = 40.0
+
+[node name="QuestGiver" type="Node2D"]
+
+[node name="The Hooded Entity" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ovimc")
+npc_resource = ExtResource("2_us5vr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="The Hooded Entity"]
+scale = Vector2(0.7375, 0.7375)
+sprite_frames = SubResource("SpriteFrames_aa7lg")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.597128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="The Hooded Entity"]
+position = Vector2(-2, 0)
+shape = SubResource("CapsuleShape2D_ovimc")
+debug_color = Color(0, 0.6, 0.701961, 0.301961)

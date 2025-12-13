@@ -16,7 +16,7 @@ func _ready() -> void:
 func _on_visible_changed() -> void:
 	for i in quest_item_container.get_children():
 		i.queue_free()
-		
+	
 	clear_quest_details()
 	
 	if visible == true:
@@ -46,7 +46,6 @@ func update_quest_details(q: Quest) -> void:
 func clear_quest_details() -> void:
 	title_label.text = ""
 	description_label.text = ""
-	
 	for c in details_container.get_children():
 		if c is QuestStepItem:
 			c.queue_free()
