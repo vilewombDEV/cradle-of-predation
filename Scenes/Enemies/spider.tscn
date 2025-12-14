@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://c5eq5pm52pw5i"]
 
-[ext_resource type="Texture2D" uid="uid://ckvbbrloc2tgq" path="res://Assets/Enemy Sprites/SPIDERS.png" id="1_k3kcl"]
+[ext_resource type="Texture2D" uid="uid://ckvbbrloc2tgq" path="res://Scenes/Enemies/Enemy Sprites/SPIDERS.png" id="1_k3kcl"]
 [ext_resource type="Script" uid="uid://bex13kf7i2h0d" path="res://Scenes/Enemies/Enemy States/enemy.gd" id="1_thv0l"]
 [ext_resource type="Script" uid="uid://4n6ds180b6rx" path="res://Scenes/Enemies/Enemy States/enemy_state_machine.gd" id="2_x8t5f"]
 [ext_resource type="Script" uid="uid://bslfgshxp5pbd" path="res://Scenes/Enemies/Enemy States/enemy_idle.gd" id="3_51pgp"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="8_ud1yb"]
 [ext_resource type="Script" uid="uid://mw37cjulc2af" path="res://Scenes/Enemies/Enemy States/enemy_destroy.gd" id="8_wloym"]
 [ext_resource type="Script" uid="uid://cqydt761s6qn0" path="res://Scenes/Enemies/Enemy States/drop_data.gd" id="9_6hqkn"]
-[ext_resource type="AudioStream" uid="uid://drmvbvldhl27j" path="res://Music & SFX/SFX/15_Impact_flesh_02.wav" id="10_ox5xr"]
+[ext_resource type="AudioStream" uid="uid://drmvbvldhl27j" path="res://Music & SFX/SFX/spider_death.wav" id="10_ox5xr"]
 [ext_resource type="Resource" uid="uid://bw2kdyiiney4s" path="res://Inventory/Items/eyeballs.tres" id="10_rxrcf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8t5f"]

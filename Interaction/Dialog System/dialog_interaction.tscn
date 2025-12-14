@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://h6cdcphgy4fw" path="res://Interaction/Dialog System/dialog_interactable.png" id="1_qbmgq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kvxpw"]
-radius = 4.0
+radius = 5.0
 height = 28.0
 
 [sub_resource type="Animation" id="Animation_kvxpw"]
@@ -133,7 +133,6 @@ monitorable = false
 script = ExtResource("1_kvxpw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 3)
 shape = SubResource("CapsuleShape2D_kvxpw")
 debug_color = Color(0.927, 0, 0.671, 0.398)
 

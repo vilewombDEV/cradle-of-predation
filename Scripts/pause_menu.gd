@@ -12,6 +12,7 @@ signal hidden
 
 @onready var click: AudioStreamPlayer = $Control/Click
 @onready var hover: AudioStreamPlayer = $Control/Hover
+@onready var click_2: AudioStreamPlayer = $Control/Click2
 
 @onready var item_description: Label = $Control/TabContainer/Inventory/ItemDescription
 
@@ -90,3 +91,7 @@ func update_item_description(new_text: String) -> void:
 func play_sound(audio: AudioStream) -> void:
 	audio_stream_player.stream = audio
 	audio_stream_player.play()
+
+
+func _on_tab_container_tab_clicked(tab: int) -> void:
+	click_2.play()

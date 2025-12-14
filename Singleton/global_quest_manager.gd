@@ -10,22 +10,6 @@ var current_quests: Array = []
 func _ready() -> void:
 	gather_quest_data()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("test"):
-		#print(find_quest_by_title("Find Gypsy"))
-		#print("Current Quests: ", current_quests)
-		#print("get_quest_index_by_title: ", get_quest_index_by_title("find gypsy"))
-		#print("get_quest_index_by_title: ", get_quest_index_by_title("short quest"))
-		
-		#print("before: ", current_quests)
-		#update_quest("short quest", "", true)
-		#update_quest("find gypsy", "Search Main Hall")
-		#update_quest("long quest", "", true)
-		#print("after: ", current_quests)
-		print("Quests: ", current_quests)
-		#print("==============")
-		pass
-
 func gather_quest_data() -> void:
 	# Gather all Quest resources and add to the Quests Array
 	var quest_files: PackedStringArray = DirAccess.get_files_at(QUEST_DATA_LOCATION)
@@ -43,29 +27,36 @@ func update_quest(_title: String, _completed_step: String = "", _is_complete: bo
 				completed_steps = []
 		}
 		if _completed_step != "":
-			new_quest.completed_steps.append(_completed_step)
+			new_quest.completed_steps.append(_completed_step.to_lower())
 		
 		current_quests.append(new_quest)
 		quest_updated.emit(new_quest)
 		
 		# Display a notification that quest was added
+		PlayerHUD.queue_notification("Quest Started", _title)
 		
 	else:
 		var q = current_quests[quest_index]
 		if _completed_step != "" and q.completed_steps.has(_completed_step) == false:
-			q.completed_steps.append(_completed_step)
+			q.completed_steps.append(_completed_step.to_lower())
 		q.is_complete = _is_complete
 		quest_updated.emit(q)
 		
 		# Display a notification that quest was updated OR completed
 		
 		if q.is_complete == true:
+			PlayerHUD.queue_notification("Quest Complete", _title)
 			disperse_quest_rewards(find_quest_by_title(_title))
+		else:
+			PlayerHUD.queue_notification("Quest Updated", _title + ": " + _completed_step)
 
 func disperse_quest_rewards(_q: Quest) -> void:
+	var _message: String = str(_q.reward_xp) + "xp"
 	PlayerManager.reward_xp(_q.reward_xp)
 	for i in _q.reward_items:
 		PlayerManager.INVENTORY_DATA.add_item(i.item, i.quantity)
+		_message += ", " + i.item.name + " x" + str(i.quantity)
+	PlayerHUD.queue_notification("Quest Rewards", _message)
 
 func find_quest(_quest: Quest) -> Dictionary:
 	for q in current_quests:

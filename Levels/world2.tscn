@@ -5515,6 +5515,21 @@ _data = {
 &"move": SubResource("Animation_j2n37")
 }
 
+[sub_resource type="Animation" id="Animation_kjxtg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1273, 109)]
+}
+
 [sub_resource type="Animation" id="Animation_ukggr"]
 resource_name = "move_2"
 length = 6.0
@@ -5530,21 +5545,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1273, 109), Vector2(1273, -285)]
-}
-
-[sub_resource type="Animation" id="Animation_kjxtg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1273, 109)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_676u0"]
@@ -5570,7 +5570,7 @@ tile_set = SubResource("TileSet_0sdjl")
 script = ExtResource("7_f6rtp")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("8_08ur2")]
-position = Vector2(101, 141)
+position = Vector2(111, 140)
 
 [node name="Misc BG Items" type="Node" parent="."]
 

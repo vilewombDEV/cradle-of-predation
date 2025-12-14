@@ -1,15 +1,15 @@
 extends Node
 
 signal interact_pressed
+signal player_leveled_up
 
-const PLAYER = preload("res://Scenes/player.tscn")
+const PLAYER = preload("res://Player/player.tscn")
 const INVENTORY_DATA: InventoryData = preload("res://Inventory/player_inventory.tres")
 
 var player: Player
 var player_spawned: bool = false
 
-var xp: int = 0
-
+var level_requirements = [0, 100, 200, 400, 800, 1000, 1500, 2000, 2500, 3000, 5000]
 
 func _ready() -> void:
 	add_player_instance()
@@ -37,5 +37,15 @@ func set_health(_hp: int, _max_hp: int) -> void:
 	player.update_hp(0)
 
 func reward_xp(_xp: int) -> void:
-	xp += _xp
-	print("XP = ", str( xp ))
+	player.xp += _xp
+	check_for_level_advance()
+
+func check_for_level_advance() -> void:
+	if player.level >= level_requirements.size():
+		return
+	if player.xp >= level_requirements[player.level]:
+		player.level += 1
+		player.attack += 2
+		player.defense += 2
+		player_leveled_up.emit()
+		check_for_level_advance()

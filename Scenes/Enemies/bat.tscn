@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://cqu04m0upylj6"]
-
-[node name="Bat" type="CharacterBody2D" groups=["enemies"]]
-collision_layer = 256
-collision_mask = 25

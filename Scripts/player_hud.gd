@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@export var button_focus_audio: AudioStream = preload("res://Music & SFX/SFX/Abstract1.mp3")
-@export var button_select_audio: AudioStream = preload("res://Music & SFX/SFX/Retro6.mp3")
+@export var button_focus_audio: AudioStream = preload("res://Music & SFX/SFX/hover_pm.wav")
+@export var button_select_audio: AudioStream = preload("res://Music & SFX/SFX/click_pm.wav")
 
 var hearts: Array[HeartGUI] = []
 
@@ -10,6 +10,7 @@ var hearts: Array[HeartGUI] = []
 @onready var main_menu_button: Button = $"Control/GameOver/VBoxContainer/Main Menu"
 @onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+@onready var notification: NotificationUI = $Control/Notification
 
 
 func _ready() -> void:
@@ -77,3 +78,6 @@ func fade_to_black() -> bool:
 func play_audio(_a: AudioStream) -> void:
 	audio.stream = _a
 	audio.play()
+
+func queue_notification(_title: String, _message: String) -> void:
+	notification.add_notification_to_queue(_title, _message)

@@ -107,9 +107,8 @@ texture_filter = 1
 rotation = -1.57138
 scale = Vector2(0.596088, 0.596088)
 sprite_frames = SubResource("SpriteFrames_nuuns")
-animation = &"stepped_on"
+animation = &"moving"
 autoplay = "moving"
-frame_progress = 0.642782
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

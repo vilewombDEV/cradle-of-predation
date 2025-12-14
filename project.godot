@@ -28,8 +28,8 @@ PlayerHUD="*res://Scenes/player_hud.tscn"
 PlayerManager="*res://Singleton/global_player_manager.gd"
 SceneTransition="*res://Levels/scene_transition.tscn"
 SaveManager="*res://Singleton/global_save_manager.gd"
-ShopMenu="*res://Inventory/ShopGUI/shop_menu.tscn"
 PauseMenu="*res://Scenes/pause_menu.tscn"
+ShopMenu="*res://Inventory/ShopGUI/shop_menu.tscn"
 QuestManager="*res://Singleton/global_quest_manager.gd"
 DialogSystem="*res://Interaction/Dialog System/dialog_system.tscn"
 
@@ -43,7 +43,6 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
-"res://Assets/Enemy Sprites/": "red",
 "res://Assets/Fonts/": "blue",
 "res://Assets/Tile Sets/": "pink",
 "res://Interaction/Dialog System/": "yellow",
@@ -55,7 +54,6 @@ folder_colors={
 "res://Inventory/Items/": "teal",
 "res://Inventory/ShopGUI/": "purple",
 "res://Levels/Tilemaps/": "green",
-"res://Music & SFX/Chest & Lock FX/": "green",
 "res://Music & SFX/IMP SFX/": "red",
 "res://Music & SFX/SFX/": "purple",
 "res://Player/": "pink",
@@ -64,7 +62,9 @@ folder_colors={
 "res://Player/Player States/": "yellow",
 "res://Props/Prop Sprites/": "orange",
 "res://Quests/Quest/": "yellow",
+"res://Quests/Utility Nodes/": "green",
 "res://Scenes/Enemies/": "red",
+"res://Scenes/Enemies/Enemy Sprites/": "purple",
 "res://Scenes/Enemies/Enemy States/": "pink"
 }
 

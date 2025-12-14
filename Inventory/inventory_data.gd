@@ -76,3 +76,11 @@ func use_item(item: ItemData, count: int = 1) -> bool:
 				s.quantity -= count
 				return true
 	return false
+
+func get_item_held_quantity(_item: ItemData) -> int:
+	for slot in slots:
+		if slot:
+			if slot.item_data:
+				if slot.item_data == _item:
+					return slot.quantity
+	return 0

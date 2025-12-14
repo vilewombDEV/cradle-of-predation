@@ -36,6 +36,13 @@ var gravity_multiplier: float = 1.0
 var invulnerable: bool = false
 var hp: int = 6
 var max_hp: int = 6
+var level: int = 1
+var xp: int = 0
+var attack: int = 1: 
+	set(v):
+		attack = v
+		update_damage_values()
+var defense: int = 1
 #endregion
 
 
@@ -44,6 +51,9 @@ func _ready() -> void:
 	initialize_states()
 	hit_box.damaged.connect(_take_damage)
 	update_hp(99)
+	update_damage_values()
+	PlayerManager.player_leveled_up.connect(_on_player_leveled_up)
+
 
 func _process(_delta: float) -> void:
 	update_direction()
@@ -101,7 +111,10 @@ func _take_damage(hurt_box: HurtBox) -> void:
 	if invulnerable == true:
 		return
 	if hp > 0:
-		update_hp(-hurt_box.damage)
+		var dmg: int = hurt_box.damage
+		if dmg > 0:
+			dmg = clampi(dmg - defense, 1, dmg)
+		update_hp(-dmg)
 		player_damaged.emit(hurt_box)
 
 func update_hp(delta: int) -> void:
@@ -119,3 +132,10 @@ func revive_player() -> void:
 	print("Player: ", hp)
 	update_hp(99)
 	change_state(%Idle)
+
+func update_damage_values() -> void:
+	%HurtBox.damage = attack
+
+func _on_player_leveled_up() -> void:
+	effect_animation_player.play("level_up")
+	update_hp(max_hp)

@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://8vq1mo48mwcb" path="res://Interaction/NPC/imp'zharoth_player.tres" id="8_erg2d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02jty"]
-radius = 4.0
+radius = 3.0
 height = 22.0
 
 [node name="Shopkeeper" type="Node2D"]
@@ -23,16 +23,16 @@ script = ExtResource("2_l2jwx")
 npc_resource = ExtResource("2_k0c7d")
 
 [node name="Sprite2D" type="Sprite2D" parent="Gypsy"]
-position = Vector2(7.15256e-07, 7.15256e-07)
+position = Vector2(5.68434e-14, -10)
 scale = Vector2(1.39, 1.39)
 texture = ExtResource("1_r5kvt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gypsy"]
-position = Vector2(3, -1)
+position = Vector2(3, -12)
 shape = SubResource("CapsuleShape2D_02jty")
 
 [node name="DialogInteraction" parent="Gypsy" instance=ExtResource("4_g15iv")]
-position = Vector2(1, 0)
+position = Vector2(1, -9)
 
 [node name="DialogText" type="Node" parent="Gypsy/DialogInteraction"]
 script = ExtResource("5_l2jwx")

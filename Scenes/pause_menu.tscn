@@ -1,16 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://dea28c55q05wy"]
+[gd_scene load_steps=17 format=3 uid="uid://dea28c55q05wy"]
 
 [ext_resource type="Script" uid="uid://ultugv8rec7h" path="res://Scripts/pause_menu.gd" id="1_vmyb1"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="2_1och7"]
 [ext_resource type="FontFile" uid="uid://61ovup0rfkps" path="res://Assets/Fonts/Black Demon.otf" id="2_stj27"]
-[ext_resource type="AudioStream" uid="uid://dmibpyhfvr5oa" path="res://Music & SFX/SFX/Retro6.mp3" id="3_bpi0q"]
+[ext_resource type="AudioStream" uid="uid://dmibpyhfvr5oa" path="res://Music & SFX/SFX/select.mp3" id="3_bpi0q"]
 [ext_resource type="Texture2D" uid="uid://cfs7vava5kr7k" path="res://Assets/INV BOARDERS.png" id="3_u8tnp"]
+[ext_resource type="AudioStream" uid="uid://bd3vaoqo1psh7" path="res://Music & SFX/SFX/click_pm.wav" id="3_uscpe"]
 [ext_resource type="PackedScene" uid="uid://cagewhegwfkb4" path="res://Inventory/Inventory GUI/inventory_slot.tscn" id="4_myy0f"]
 [ext_resource type="Script" uid="uid://eefrlglt1xkb" path="res://Inventory/Inventory GUI/inventory_ui.gd" id="4_sjs17"]
-[ext_resource type="AudioStream" uid="uid://b0lt00cgv1rgr" path="res://Music & SFX/SFX/Abstract1.mp3" id="4_vmyb1"]
+[ext_resource type="AudioStream" uid="uid://um1mti2yr473" path="res://Music & SFX/SFX/hover_pm.wav" id="4_uscpe"]
 [ext_resource type="Resource" uid="uid://dk3qgg14gni0g" path="res://Inventory/player_inventory.tres" id="5_u8tnp"]
-[ext_resource type="Script" uid="uid://fynya842ea40" path="res://Scenes/quests_ui.gd" id="10_524vl"]
+[ext_resource type="Script" uid="uid://fynya842ea40" path="res://Quests/quests_ui.gd" id="10_524vl"]
 [ext_resource type="PackedScene" uid="uid://dgxf862pxumbf" path="res://Quests/quest_item.tscn" id="10_ix48p"]
+[ext_resource type="PackedScene" uid="uid://btphlt66ki2gc" path="res://Scenes/stats.tscn" id="10_uscpe"]
 [ext_resource type="PackedScene" uid="uid://credu1nntxmmh" path="res://Quests/quest_step_item.tscn" id="12_0fi7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stj27"]
@@ -63,10 +65,13 @@ theme_override_font_sizes/font_size = 100
 text = "PAUSED"
 
 [node name="Click" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("3_uscpe")
+
+[node name="Click2" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("3_bpi0q")
 
 [node name="Hover" type="AudioStreamPlayer" parent="Control"]
-stream = ExtResource("4_vmyb1")
+stream = ExtResource("4_uscpe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 max_polyphony = 5
@@ -85,10 +90,9 @@ mouse_filter = 2
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 25
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -100,10 +104,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -281.0
-offset_right = -60.0
-offset_bottom = -157.0
+offset_left = -584.0
+offset_top = -263.0
+offset_right = -388.0
+offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.5, 2.5)
@@ -166,10 +170,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 752.0
-offset_top = 59.0
-offset_right = 1152.0
-offset_bottom = 83.0
+offset_left = 424.0
+offset_top = 71.0
+offset_right = 824.0
+offset_bottom = 95.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 20
@@ -177,7 +181,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("10_uscpe")]
+layout_mode = 0
+offset_left = 1012.0
+offset_top = 170.0
+offset_right = 1300.0
+offset_bottom = 292.0
+
 [node name="Quests" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("10_524vl")
 metadata/_tab_index = 1
@@ -331,6 +343,7 @@ theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
+[connection signal="tab_clicked" from="Control/TabContainer" to="." method="_on_tab_container_tab_clicked"]
 [connection signal="mouse_entered" from="Control/TabContainer/System/VBoxContainer/Save" to="." method="_on_save_mouse_entered"]
 [connection signal="pressed" from="Control/TabContainer/System/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="mouse_entered" from="Control/TabContainer/System/VBoxContainer/Load" to="." method="_on_load_mouse_entered"]

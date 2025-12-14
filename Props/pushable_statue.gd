@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name PushableStatue
 
-@export var push_speed: float = 10
+@export var push_speed: float = 20
 
 var push_direction: Vector2 = Vector2.ZERO: set = _set_push
 

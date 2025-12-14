@@ -8,6 +8,7 @@ signal enemy_destroyed(hurt_box: HurtBox)
 const DIR_2 = [Vector2.RIGHT, Vector2.LEFT]
 
 @export var hp: int = 3
+@export var xp_reward: int = 1
 
 var axis_direction: Vector2 = Vector2.LEFT
 var direction: Vector2 = Vector2.ZERO
@@ -50,7 +51,7 @@ func set_direction(_new_direction: Vector2) -> bool:
 	
 	axis_direction = new_dir
 	direction_changed.emit(new_dir)
-	sprite.scale.x = -1 if axis_direction == Vector2.LEFT else -1
+	sprite.scale.x = 1 if axis_direction == Vector2.LEFT else 1
 	return true
 
 func update_animation(state: String) -> void:
@@ -58,9 +59,9 @@ func update_animation(state: String) -> void:
 
 func animation_direction() -> String:
 	if axis_direction == Vector2.LEFT:
-		return "right"
-	elif axis_direction == Vector2.RIGHT:
 		return "left"
+	elif axis_direction == Vector2.RIGHT:
+		return "right"
 	else:
 		return ""
 

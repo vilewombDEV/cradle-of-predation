@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdrjw6opucaev" path="res://Scripts/heart_pickup.gd" id="1_anpyr"]
 [ext_resource type="Texture2D" uid="uid://btd77my2yd7u8" path="res://Assets/heart.png" id="1_axkij"]
-[ext_resource type="AudioStream" uid="uid://cbo2keoi0jq2q" path="res://Music & SFX/SFX/051_use_item_01.wav" id="3_mdlrf"]
+[ext_resource type="AudioStream" uid="uid://dvxrfwpjdhn67" path="res://Music & SFX/SFX/heart_pickup.wav" id="3_mdlrf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_anpyr"]
 atlas = ExtResource("1_axkij")
@@ -76,7 +76,7 @@ tracks/2/path = NodePath("HeartPickup/PickupSound:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(-0.0666667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -132,6 +132,7 @@ monitorable = false
 script = ExtResource("1_anpyr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(1.0625, 1.0625)
 sprite_frames = SubResource("SpriteFrames_o05ce")
@@ -142,6 +143,7 @@ frame_progress = 0.23772
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_axkij")
+disabled = true
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_mdlrf")

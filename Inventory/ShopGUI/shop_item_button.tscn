@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi50715xpkbkq"]
+[gd_scene load_steps=4 format=3 uid="uid://bi50715xpkbkq"]
 
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="1_3gnqu"]
-[ext_resource type="Texture2D" uid="uid://b81iu48d1p6ei" path="res://Assets/hp icon sprite.png" id="2_pteqf"]
+[ext_resource type="Script" uid="uid://bmxexw21if7y3" path="res://Inventory/ShopGUI/shop_item_button.gd" id="1_e8mw5"]
+[ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/hp icon sprite 2.png" id="3_e8mw5"]
 
 [node name="ShopItemButton" type="Button"]
 custom_minimum_size = Vector2(800, 140)
@@ -9,6 +10,7 @@ offset_right = 635.0
 offset_bottom = 108.0
 text = "
 "
+script = ExtResource("1_e8mw5")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -17,10 +19,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -223.5
-offset_top = -11.5
-offset_right = 223.5
-offset_bottom = 11.5
+offset_left = -248.0
+offset_top = -6.0
+offset_right = 199.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_3gnqu")
@@ -34,8 +36,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -101.0
-offset_bottom = 18.0
+offset_left = -112.0
+offset_top = 16.0
+offset_right = -11.0
+offset_bottom = 34.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("1_3gnqu")
 theme_override_font_sizes/font_size = 20
@@ -43,12 +47,10 @@ text = "999"
 horizontal_alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -54.0
-offset_right = 108.0
-offset_bottom = 54.0
-grow_vertical = 2
-texture = ExtResource("2_pteqf")
+offset_left = 80.0
+offset_top = 48.0
+offset_right = 130.0
+offset_bottom = 98.0
+texture = ExtResource("3_e8mw5")

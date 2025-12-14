@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bre180yio6r0h" path="res://Assets/Animated Chests.png" id="2_26t8h"]
 [ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/hp icon sprite 2.png" id="4_yngqm"]
 [ext_resource type="PackedScene" uid="uid://cuumgqu5w2unl" path="res://Singleton/persistent_data_handler.tscn" id="5_eofq2"]
-[ext_resource type="AudioStream" uid="uid://fskfxfse01iq" path="res://Music & SFX/Chest & Lock FX/Chest Open 1.wav" id="6_chfoe"]
+[ext_resource type="AudioStream" uid="uid://fskfxfse01iq" path="res://Music & SFX/SFX/Chest Open 1.wav" id="6_chfoe"]
 
 [sub_resource type="Animation" id="Animation_dq33m"]
 resource_name = "Open"
