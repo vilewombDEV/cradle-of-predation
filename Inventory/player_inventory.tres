@@ -1,16 +1,9 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=5 format=3 uid="uid://dk3qgg14gni0g"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=3 format=3 uid="uid://dk3qgg14gni0g"]
 
 [ext_resource type="Script" uid="uid://cuk2e3qiqfxc7" path="res://Inventory/inventory_data.gd" id="1_k7d1n"]
 [ext_resource type="Script" uid="uid://bq6iyeeqck6fh" path="res://Inventory/Inventory GUI/slot_data.gd" id="2_5tggb"]
-[ext_resource type="Resource" uid="uid://bw2kdyiiney4s" path="res://Inventory/Items/eyeballs.tres" id="3_k7d1n"]
-
-[sub_resource type="Resource" id="Resource_5vals"]
-script = ExtResource("2_5tggb")
-item_data = ExtResource("3_k7d1n")
-quantity = 20
-metadata/_custom_type_script = "uid://bq6iyeeqck6fh"
 
 [resource]
 script = ExtResource("1_k7d1n")
-slots = Array[ExtResource("2_5tggb")]([SubResource("Resource_5vals"), null, null, null, null, null, null, null, null, null, null, null, null, null])
+slots = Array[ExtResource("2_5tggb")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://cuk2e3qiqfxc7"

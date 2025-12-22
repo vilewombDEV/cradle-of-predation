@@ -5,13 +5,19 @@ extends CanvasLayer
 
 var hearts: Array[HeartGUI] = []
 
+#region /// Basic On-Ready References
 @onready var game_over: Control = $Control/GameOver
 @onready var continue_button: Button = $Control/GameOver/VBoxContainer/Continue
 @onready var main_menu_button: Button = $"Control/GameOver/VBoxContainer/Main Menu"
 @onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var notification: NotificationUI = $Control/Notification
+#endregion
 
+#region /// Ability-related On-Ready References
+@onready var abilities: Control = $Control/Abilities
+@onready var ability_items: HBoxContainer = $Control/Abilities/HBoxContainer
+#endregion
 
 func _ready() -> void:
 	for child in $Control/HFlowContainer.get_children():
@@ -24,6 +30,10 @@ func _ready() -> void:
 	main_menu_button.focus_entered.connect(play_audio.bind(button_focus_audio))
 	main_menu_button.pressed.connect(title_screen)
 	LevelManager.level_load_started.connect(hide_game_over_screen)
+	
+	update_ability_ui(0)
+	PauseMenu.shown.connect(_on_show_pause)
+	PauseMenu.hidden.connect(_on_hide_pause)
 
 func update_hp(_hp: int, _max_hp: int) -> void:
 	update_max_hp(_max_hp)
@@ -81,3 +91,26 @@ func play_audio(_a: AudioStream) -> void:
 
 func queue_notification(_title: String, _message: String) -> void:
 	notification.add_notification_to_queue(_title, _message)
+
+func update_ability_items(abilities: Array[String]) -> void:
+	var ability_items: Array[Node] = ability_items.get_children()
+	for a in ability_items.size():
+		if abilities[a] == "":
+			ability_items[a].visible = false
+		else:
+			ability_items[a].visible = true
+
+func update_ability_ui(ability_index: int) ->void:
+	var _items: Array[Node] = ability_items.get_children()
+	for a in _items:
+		a.self_modulate = Color(1, 1, 1)
+		a.modulate = Color(0.6, 0.6, 0.8)
+	_items[ability_index].self_modulate = Color(1, 1, 1)
+	_items[ability_index].modulate = Color(1, 1, 1)
+	play_audio(button_focus_audio)
+
+func _on_show_pause() -> void:
+	abilities.visible = false
+
+func _on_hide_pause() -> void:
+	abilities.visible = true

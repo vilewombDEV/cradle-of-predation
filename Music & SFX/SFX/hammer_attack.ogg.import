@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cycc2b12nejoi"
+path="res://.godot/imported/hammer_attack.ogg-86588a75b0604b96624ef91112535f60.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music & SFX/SFX/hammer_attack.ogg"
+dest_files=["res://.godot/imported/hammer_attack.ogg-86588a75b0604b96624ef91112535f60.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

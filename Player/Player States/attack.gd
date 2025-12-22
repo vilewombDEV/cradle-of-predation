@@ -1,15 +1,16 @@
 extends PlayerState
 class_name PlayerStateAttack
 
+@export var attack_sound: AudioStream
+
 var attacking: bool = false
 
 func init() -> void:
 	pass
 
 func enter() -> void:
-	player.animation_player.play("secondary_attack")
+	player.animation_player.play("attack")
 	player.animation_player.animation_finished.connect(end_attack)
-	
 	attacking = true
 	await get_tree().create_timer(0.075).timeout
 	if attacking:
@@ -24,6 +25,11 @@ func handle_input(_event: InputEvent) -> PlayerState:
 	return next_state 
 
 func process(_delta: float) -> PlayerState:
+	if attacking == false:
+		if player.direction == Vector2.ZERO:
+			return idle
+		else: 
+			return run
 	return next_state
 
 func physics_process(_delta: float) -> PlayerState:

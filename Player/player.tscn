@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cf7bdays7hchv"]
+[gd_scene load_steps=48 format=3 uid="uid://cf7bdays7hchv"]
 
 [ext_resource type="Script" uid="uid://d0if8url3x6j4" path="res://Scripts/player.gd" id="1_pisgm"]
 [ext_resource type="Resource" uid="uid://8vq1mo48mwcb" path="res://Interaction/NPC/imp'zharoth_player.tres" id="2_b1ygp"]
@@ -8,24 +8,32 @@
 [ext_resource type="Script" uid="uid://bv7rj8qbu75a8" path="res://Player/Player States/jump.gd" id="6_hshwv"]
 [ext_resource type="Script" uid="uid://bnhb3ihcx55ka" path="res://Player/Player States/fall.gd" id="7_gpjlu"]
 [ext_resource type="Script" uid="uid://bkrtmt8yhfoej" path="res://Player/Player States/attack.gd" id="8_8mwp6"]
+[ext_resource type="AudioStream" uid="uid://cycc2b12nejoi" path="res://Music & SFX/SFX/hammer_attack.ogg" id="9_7emwf"]
 [ext_resource type="Script" uid="uid://5r8nv8j0cru7" path="res://Player/Player States/stun.gd" id="9_qemgg"]
 [ext_resource type="Script" uid="uid://b6bvdqxywoejk" path="res://Player/Player States/death.gd" id="10_8viyr"]
 [ext_resource type="AudioStream" uid="uid://8lqlolt18xtr" path="res://Music & SFX/IMP SFX/CREAHmn_Short, Intimidating, Troll, MHCS15.wav" id="11_sm0op"]
 [ext_resource type="Texture2D" uid="uid://c1yepr6eudcky" path="res://Player/Player Assests/Imp Sprite Sheet.png" id="12_76lrf"]
 [ext_resource type="Script" uid="uid://cmtqs8jddtedc" path="res://Scripts/player_camera.gd" id="13_efx54"]
+[ext_resource type="Script" uid="uid://bw4iy7clhu6to" path="res://Player/Player States/fireball.gd" id="13_gpjlu"]
+[ext_resource type="Script" uid="uid://dfd6tc1oy4gsk" path="res://Player/Player States/psychic.gd" id="14_8mwp6"]
 [ext_resource type="PackedScene" uid="uid://4j3ebxuimei1" path="res://Scenes/hit_box.tscn" id="14_755ss"]
 [ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="15_bbimk"]
+[ext_resource type="Script" uid="uid://qyvrsx3luoqa" path="res://Player/player_interactions_host.gd" id="16_hshwv"]
 [ext_resource type="Script" uid="uid://c2fghape1v3ut" path="res://Scripts/push_area.gd" id="16_m0h3t"]
 [ext_resource type="AudioStream" uid="uid://bmnyh0dkqqaw" path="res://Music & SFX/IMP SFX/CREAHmn_Short, Angry, Zombie, MHCS11.wav" id="17_i4o1l"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="18_b1ygp"]
 [ext_resource type="AudioStream" uid="uid://bb0t0q05atjvi" path="res://Music & SFX/SFX/level_up.wav" id="18_o28un"]
+[ext_resource type="Script" uid="uid://bptcsh6qjiovk" path="res://Player/abilities.gd" id="21_8mwp6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pu2lt"]
+radius = 6.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8erm5"]
 radius = 5.0
 height = 18.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pu2lt"]
-radius = 9.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_n471f"]
+radius = 6.99999
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd4e3"]
 size = Vector2(20, 6)
@@ -45,6 +53,23 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_o28un"]
+resource_name = "attack"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20]
+}
+
 [sub_resource type="Animation" id="Animation_igrcy"]
 resource_name = "death"
 length = 0.7
@@ -60,6 +85,40 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [32, 33, 34, 35, 36, 37]
+}
+
+[sub_resource type="Animation" id="Animation_gpjlu"]
+resource_name = "fireball"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_qemgg"]
+resource_name = "frosthammer"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20]
 }
 
 [sub_resource type="Animation" id="Animation_8erm5"]
@@ -96,6 +155,23 @@ tracks/0/keys = {
 "values": [5, 9, 17, 16]
 }
 
+[sub_resource type="Animation" id="Animation_8mwp6"]
+resource_name = "psychic"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20]
+}
+
 [sub_resource type="Animation" id="Animation_tx1dd"]
 resource_name = "run"
 length = 0.8
@@ -112,23 +188,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [8, 9, 10, 11, 12, 13, 14, 15]
-}
-
-[sub_resource type="Animation" id="Animation_pu2lt"]
-resource_name = "secondary_attack"
-length = 0.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [17, 18, 19, 20, 21]
 }
 
 [sub_resource type="Animation" id="Animation_ukyrk"]
@@ -151,11 +210,14 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tx1dd"]
 _data = {
 &"RESET": SubResource("Animation_f1ek2"),
+&"attack": SubResource("Animation_o28un"),
 &"death": SubResource("Animation_igrcy"),
+&"fireball": SubResource("Animation_gpjlu"),
+&"frosthammer": SubResource("Animation_qemgg"),
 &"idle": SubResource("Animation_8erm5"),
 &"jump": SubResource("Animation_gymyn"),
+&"psychic": SubResource("Animation_8mwp6"),
 &"run": SubResource("Animation_tx1dd"),
-&"secondary_attack": SubResource("Animation_pu2lt"),
 &"stun": SubResource("Animation_ukyrk")
 }
 
@@ -308,7 +370,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.719, 0.44, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(0.435294, 0.14902, 0.14902, 1), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -427,6 +489,7 @@ script = ExtResource("7_gpjlu")
 [node name="Attack" type="Node" parent="States"]
 unique_name_in_owner = true
 script = ExtResource("8_8mwp6")
+attack_sound = ExtResource("9_7emwf")
 
 [node name="Stun" type="Node" parent="States"]
 unique_name_in_owner = true
@@ -438,12 +501,29 @@ unique_name_in_owner = true
 script = ExtResource("10_8viyr")
 death_audio = ExtResource("11_sm0op")
 
+[node name="Fireball" type="Node" parent="States"]
+unique_name_in_owner = true
+script = ExtResource("13_gpjlu")
+
+[node name="Psychic" type="Node" parent="States"]
+unique_name_in_owner = true
+script = ExtResource("14_8mwp6")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -22)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("12_76lrf")
 hframes = 8
 vframes = 12
+
+[node name="HitBox" parent="." instance=ExtResource("14_755ss")]
+unique_name_in_owner = true
+collision_layer = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_pu2lt")
+debug_color = Color(0.216509, 0.639412, 0, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
@@ -461,27 +541,19 @@ metadata/_custom_type_script = "uid://cmtqs8jddtedc"
 process_mode = 3
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
-max_polyphony = 7
+max_polyphony = 10
 
 [node name="Interactions" type="Node2D" parent="."]
-
-[node name="HitBox" parent="Interactions" instance=ExtResource("14_755ss")]
-unique_name_in_owner = true
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HitBox"]
-position = Vector2(0, -9)
-shape = SubResource("CircleShape2D_pu2lt")
-debug_color = Color(0.216509, 0.639412, 0, 0.42)
+script = ExtResource("16_hshwv")
 
 [node name="HurtBox" parent="Interactions" instance=ExtResource("15_bbimk")]
 unique_name_in_owner = true
+position = Vector2(0, -7)
 collision_mask = 256
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
-position = Vector2(0, -9)
-shape = SubResource("CircleShape2D_pu2lt")
+shape = SubResource("CircleShape2D_n471f")
 debug_color = Color(0.997027, 0, 0.175987, 0.42)
 
 [node name="PushArea" type="Area2D" parent="Interactions"]
@@ -494,6 +566,13 @@ script = ExtResource("16_m0h3t")
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_fd4e3")
 debug_color = Color(1.92523e-06, 0.647691, 0.203856, 0.42)
+
+[node name="Abilities" type="Node2D" parent="."]
+script = ExtResource("21_8mwp6")
+
+[node name="AbilityMarker2D" type="Marker2D" parent="Abilities"]
+unique_name_in_owner = true
+position = Vector2(4, -6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -510,9 +589,9 @@ libraries = {
 visible = false
 texture_filter = 1
 offset_left = -40.0
-offset_top = -34.0
+offset_top = -39.0
 offset_right = 40.0
-offset_bottom = -25.0
+offset_bottom = -30.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("18_b1ygp")
 theme_override_font_sizes/font_size = 10
@@ -521,7 +600,7 @@ horizontal_alignment = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 50
+amount = 100
 one_shot = true
 explosiveness = 0.25
 process_material = SubResource("ParticleProcessMaterial_n471f")

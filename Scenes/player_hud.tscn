@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://72cs0kq6i3tm"]
+[gd_scene load_steps=21 format=3 uid="uid://72cs0kq6i3tm"]
 
 [ext_resource type="Script" uid="uid://y46lm5pnahly" path="res://Scripts/player_hud.gd" id="1_54pr6"]
 [ext_resource type="PackedScene" uid="uid://7ymp8gaqu27o" path="res://Scenes/heart_gui.tscn" id="2_iori6"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://diut3irtd5ft6" path="res://Assets/panel_notification.png" id="5_54pr6"]
 [ext_resource type="Script" uid="uid://bs701xybsr6ic" path="res://Scripts/notification_ui.gd" id="5_imajn"]
 [ext_resource type="AudioStream" uid="uid://c41ouhejuhtbe" path="res://Music & SFX/SFX/notification.wav" id="7_imajn"]
+[ext_resource type="Texture2D" uid="uid://d21pnwqyndtx3" path="res://Assets/fire scroll.png" id="8_2627f"]
+[ext_resource type="Texture2D" uid="uid://bn4w5jo0nd1h6" path="res://Assets/blood_scroll.png" id="8_buav2"]
+[ext_resource type="Texture2D" uid="uid://dewoaldde3m5a" path="res://Assets/psychic_scroll.png" id="10_advre"]
 
 [sub_resource type="Animation" id="Animation_54pr6"]
 length = 0.001
@@ -453,6 +456,16 @@ _data = {
 &"show_notification": SubResource("Animation_imajn")
 }
 
+[sub_resource type="Gradient" id="Gradient_o8xso"]
+offsets = PackedFloat32Array(0.172973, 0.518919, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.145098, 0.141176, 0.247059, 1, 0.187752, 0, 0.00146564, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vfwc5"]
+gradient = SubResource("Gradient_o8xso")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="PlayerHUD" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_54pr6")
@@ -479,7 +492,6 @@ offset_right = -161.0
 offset_bottom = 64.0
 grow_horizontal = 0
 scale = Vector2(3, 3)
-mouse_filter = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 
@@ -551,7 +563,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control/GameOver"]
 layout_mode = 1
@@ -652,15 +663,15 @@ process_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_filter = 2
 script = ExtResource("5_imajn")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/Notification"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 0
 offset_left = 15.0
+offset_top = 15.0
 offset_right = 515.0
-offset_bottom = 100.0
+offset_bottom = 115.0
 scale = Vector2(1.2, 1.2)
 theme_override_styles/panel = SubResource("StyleBoxTexture_188kt")
 
@@ -694,5 +705,67 @@ autowrap_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_tfrlj")
 }
+
+[node name="Abilities" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_right = 95.0
+offset_bottom = 62.0
+grow_horizontal = 2
+scale = Vector2(1.2, 1.2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 268.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="TextureRect1" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_vfwc5")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect1"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
+grow_horizontal = 2
+texture = ExtResource("8_buav2")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_vfwc5")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect2"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("8_2627f")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_vfwc5")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect3"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("10_advre")
+stretch_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

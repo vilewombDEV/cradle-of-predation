@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cagewhegwfkb4"]
+[gd_scene load_steps=4 format=3 uid="uid://cagewhegwfkb4"]
 
 [ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/hp icon sprite 2.png" id="1_g8fja"]
 [ext_resource type="Script" uid="uid://ur2odrdx87sa" path="res://Inventory/Inventory GUI/inventory_slot_ui.gd" id="1_ohnad"]
+[ext_resource type="FontFile" uid="uid://2oqcj8einkut" path="res://Assets/Fonts/m5x7.ttf" id="3_ohnad"]
 
 [node name="InventorySlot" type="Button"]
 custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
 size_flags_horizontal = 0
+mouse_filter = 2
 script = ExtResource("1_ohnad")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -19,11 +21,14 @@ texture = ExtResource("1_g8fja")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="."]
-texture_filter = 1
 layout_mode = 0
-offset_top = 1.0
+offset_top = -2.0
 offset_right = 32.0
 offset_bottom = 32.0
-theme_override_font_sizes/font_size = 10
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("3_ohnad")
+theme_override_font_sizes/font_size = 16
 text = "99"
 horizontal_alignment = 2

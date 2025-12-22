@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EquipableItemData" load_steps=6 format=3 uid="uid://84fpp4lkdeu8"]
+
+[ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_baa5f"]
+[ext_resource type="Script" uid="uid://b46u7f850w025" path="res://Inventory/Equipable Items/equipable_item_modifier.gd" id="2_bbvqo"]
+[ext_resource type="Script" uid="uid://cmte7tabh1b83" path="res://Inventory/Equipable Items/equipable_item_data.gd" id="3_fk4kv"]
+[ext_resource type="Texture2D" uid="uid://dou1i64lgmbls" path="res://Assets/vigil_shield.png" id="4_bbvqo"]
+
+[sub_resource type="Resource" id="Resource_q4o0o"]
+script = ExtResource("2_bbvqo")
+type = 1
+value = 2
+metadata/_custom_type_script = "uid://b46u7f850w025"
+
+[resource]
+script = ExtResource("3_fk4kv")
+type = 1
+modifiers = Array[ExtResource("2_bbvqo")]([SubResource("Resource_q4o0o")])
+name = "Shield of Unyielding Vigil"
+description = "A battle-worn shield, decorated with dents & aged blood."
+texture = ExtResource("4_bbvqo")
+cost = 400
+effects = Array[ExtResource("1_baa5f")]([])
+metadata/_custom_type_script = "uid://cmte7tabh1b83"

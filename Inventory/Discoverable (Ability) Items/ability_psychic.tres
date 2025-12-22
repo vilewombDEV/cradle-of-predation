@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AbilityItemData" load_steps=5 format=3 uid="uid://8mftm2w6witv"]
+
+[ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_uitoy"]
+[ext_resource type="Script" uid="uid://bwd8y5xaetk57" path="res://Inventory/ability_item_data.gd" id="2_byyyj"]
+[ext_resource type="Texture2D" uid="uid://cnee03e2g7w2a" path="res://Assets/SCROLLS.png" id="3_f0dql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh5wf"]
+atlas = ExtResource("3_f0dql")
+region = Rect2(114, 114, 12, 12)
+
+[resource]
+script = ExtResource("2_byyyj")
+type = 2
+name = "Psychic"
+description = ""
+texture = SubResource("AtlasTexture_wh5wf")
+cost = 10
+effects = Array[ExtResource("1_uitoy")]([])
+metadata/_custom_type_script = "uid://bwd8y5xaetk57"

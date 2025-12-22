@@ -1,20 +1,33 @@
 extends Resource
 class_name InventoryData
 
+signal equipment_changed
+signal ability_acquired(ability: AbilityItemData)
+
 @export var slots: Array[SlotData]
+var equipment_slot_count: int = 4
 
 func _init() -> void:
 	connect_slots()
 	pass
 
+func inventory_slots() -> Array[SlotData]:
+	return slots.slice(0, -equipment_slot_count)
+
+func equipment_slots() -> Array[SlotData]:
+	return slots.slice( -equipment_slot_count, slots.size() )
+
 func add_item(item: ItemData, count: int = 1) -> bool:
+	if item is AbilityItemData:
+		ability_acquired.emit(item)
+		return true
 	for s in slots:
 		if s:
 			if s.item_data == item:
 				s.quantity += count
 				return true
 	
-	for i in slots.size():
+	for i in inventory_slots().size():
 		if slots[i] == null:
 			var new = SlotData.new()
 			new.item_data = item
@@ -84,3 +97,82 @@ func get_item_held_quantity(_item: ItemData) -> int:
 				if slot.item_data == _item:
 					return slot.quantity
 	return 0
+
+func swap_items_by_index(i1: int, i2: int) -> void:
+	var temp: SlotData = slots[i1]
+	slots[i1] = slots[i2]
+	slots[i2] = temp
+
+func equip_item(slot: SlotData) -> void:
+	if slot == null or not slot.item_data is EquipableItemData:
+		return
+	var item: EquipableItemData = slot.item_data
+	var slot_index: int = slots.find(slot)
+	var equipment_index: int = slots.size() - equipment_slot_count
+	
+	match item.type:
+		EquipableItemData.Type.ARMOR:
+			equipment_index += 0
+		EquipableItemData.Type.WEAPON:
+			equipment_index += 1
+		EquipableItemData.Type.MAGIC_BOOK:
+			equipment_index += 2
+		EquipableItemData.Type.RING:
+			equipment_index += 3
+		
+	var unequiped_slot: SlotData = slots[equipment_index]
+	slots[slot_index] = unequiped_slot
+	slots[equipment_index] = slot
+	
+	equipment_changed.emit()
+	PauseMenu.focused_item_changed(unequiped_slot)
+
+func get_attack_bonus() -> int:
+	return get_equipment_bonus(EquipableItemModifier.Type.ATTACK)
+
+func get_attack_bonus_diff(item: EquipableItemData) -> int:
+	var before: int = get_attack_bonus()
+	var after: int = get_equipment_bonus(EquipableItemModifier.Type.ATTACK, item)
+	return after - before
+
+func get_defense_bonus() -> int:
+	return get_equipment_bonus(EquipableItemModifier.Type.DEFENSE)
+
+func get_defense_bonus_diff(item: EquipableItemData) -> int:
+	var before: int = get_defense_bonus()
+	var after: int = get_equipment_bonus(EquipableItemModifier.Type.DEFENSE, item)
+	return after - before
+
+
+####### MAY DELETE IF DOESNT WORK
+func get_insight_bonus() -> int:
+	return get_equipment_bonus(EquipableItemModifier.Type.INSIGHT)
+
+func get_insight_bonus_diff(item: EquipableItemData) -> int:
+	var before: int = get_insight_bonus()
+	var after: int = get_equipment_bonus(EquipableItemModifier.Type.INSIGHT, item)
+	return after - before
+
+func get_attunement_bonus() -> int:
+	return get_equipment_bonus(EquipableItemModifier.Type.ATTUNEMENT)
+
+func get_attunement_bonus_diff(item: EquipableItemData) -> int:
+	var before: int = get_attunement_bonus()
+	var after: int = get_equipment_bonus(EquipableItemModifier.Type.ATTUNEMENT, item)
+	return after - before
+####### MAY DELETE IF DOESNT WORK
+
+
+func get_equipment_bonus(bonus_type: EquipableItemModifier.Type, compare: EquipableItemData = null) -> int:
+	var bonus: int = 0
+	for s in equipment_slots():
+		if s == null:
+			continue
+		var e: EquipableItemData = s.item_data
+		if compare:
+			if e.type == compare.type:
+				e = compare
+		for m in e.modifiers:
+			if m.type == bonus_type:
+				bonus += m.value
+	return bonus

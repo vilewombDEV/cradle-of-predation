@@ -2,23 +2,26 @@ extends CanvasLayer
 
 signal shown
 signal hidden
+signal preview_stats_changed(item: ItemData)
 
+var is_paused: bool = false
+
+#region /// Basic On-Ready References
 @onready var audio_stream_player: AudioStreamPlayer = $Control/AudioStreamPlayer
-
 @onready var save_button: Button = $Control/TabContainer/System/VBoxContainer/Save
 @onready var load_button: Button = $Control/TabContainer/System/VBoxContainer/Load
 @onready var main_menu_button: Button = $"Control/TabContainer/System/VBoxContainer/Main Menu"
 @onready var quit: Button = $Control/TabContainer/System/VBoxContainer/Quit
-
 @onready var click: AudioStreamPlayer = $Control/Click
 @onready var hover: AudioStreamPlayer = $Control/Hover
 @onready var click_2: AudioStreamPlayer = $Control/Click2
+#endregion
 
+#region /// Tab-related On-Ready References
 @onready var item_description: Label = $Control/TabContainer/Inventory/ItemDescription
-
 @onready var tab_container: TabContainer = $Control/TabContainer
+#endregion
 
-var is_paused: bool = false
 
 func _ready() -> void:
 	hide_pause_menu()
@@ -48,6 +51,7 @@ func hide_pause_menu() -> void:
 	is_paused = false
 	hidden.emit()
 
+
 func _on_save_mouse_entered() -> void:
 	hover.play()
 func _on_load_mouse_entered() -> void:
@@ -62,7 +66,6 @@ func _on_save_pressed() -> void:
 		return
 	SaveManager.save_game()
 	hide_pause_menu()
-
 func _on_load_pressed() -> void:
 	click.play()
 	if is_paused == false:
@@ -70,7 +73,6 @@ func _on_load_pressed() -> void:
 	SaveManager.load_game()
 	await LevelManager.level_load_started
 	hide_pause_menu()
-
 func _on_main_menu_pressed() -> void:
 	click.play()
 	if is_paused == false:
@@ -79,11 +81,22 @@ func _on_main_menu_pressed() -> void:
 	LevelManager.load_new_level("res://Levels/main_menu.tscn", "", Vector2.ZERO)
 	PauseMenu.visible = false
 	PauseMenu.PROCESS_MODE_DISABLED
-
 func _on_quit_pressed() -> void:
 	click.play()
 	await click.finished
 	get_tree().quit()
+func _on_tab_container_tab_clicked(tab: int) -> void:
+	click_2.play()
+
+
+func focused_item_changed(slot: SlotData) -> void:
+	if slot:
+		if slot.item_data:
+			update_item_description(slot.item_data.description)
+			preview_stats(slot.item_data)
+	else:
+		update_item_description("")
+		preview_stats(null)
 
 func update_item_description(new_text: String) -> void:
 	item_description.text = new_text
@@ -92,6 +105,13 @@ func play_sound(audio: AudioStream) -> void:
 	audio_stream_player.stream = audio
 	audio_stream_player.play()
 
+func preview_stats(item: ItemData) -> void:
+	preview_stats_changed.emit(item)
 
-func _on_tab_container_tab_clicked(tab: int) -> void:
-	click_2.play()
+func update_ability_items(abilities: Array[String]) -> void:
+	var ability_buttons: Array[Node] = %AbilityGridContainer.get_children()
+	for a in ability_buttons.size():
+		if abilities[a] == "":
+			ability_buttons[a].visible = false
+		else:
+			ability_buttons[a].visible = true

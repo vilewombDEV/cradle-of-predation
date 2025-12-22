@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EquipableItemData" load_steps=7 format=3 uid="uid://blr5is60wcsoo"]
+
+[ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_h2sxx"]
+[ext_resource type="Script" uid="uid://b46u7f850w025" path="res://Inventory/Equipable Items/equipable_item_modifier.gd" id="2_l88sc"]
+[ext_resource type="Script" uid="uid://cmte7tabh1b83" path="res://Inventory/Equipable Items/equipable_item_data.gd" id="3_q3skq"]
+[ext_resource type="Texture2D" uid="uid://cnee03e2g7w2a" path="res://Assets/SCROLLS.png" id="4_48ij8"]
+
+[sub_resource type="Resource" id="Resource_q4o0o"]
+script = ExtResource("2_l88sc")
+type = 2
+value = 3
+metadata/_custom_type_script = "uid://b46u7f850w025"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoymd"]
+atlas = ExtResource("4_48ij8")
+region = Rect2(114, 66, 11, 13)
+
+[resource]
+script = ExtResource("3_q3skq")
+type = 2
+modifiers = Array[ExtResource("2_l88sc")]([SubResource("Resource_q4o0o")])
+name = "Page of Mystical Fortitude"
+description = "A page from an ambitious, magical book.
+You've learned how to improve (+3) your Psychic ability. "
+texture = SubResource("AtlasTexture_xoymd")
+cost = 300
+effects = Array[ExtResource("1_h2sxx")]([])
+metadata/_custom_type_script = "uid://cmte7tabh1b83"

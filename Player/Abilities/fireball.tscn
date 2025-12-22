@@ -1,0 +1,179 @@
+[gd_scene load_steps=11 format=3 uid="uid://dy7oc4mlxwasw"]
+
+[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="2_73sam"]
+[ext_resource type="Texture2D" uid="uid://c3lq4gxjwa41m" path="res://Player/Player Assests/fireball.png" id="3_c1soq"]
+[ext_resource type="Texture2D" uid="uid://q40soju4fk1m" path="res://Player/Player Assests/fireball_explode.png" id="4_778mx"]
+[ext_resource type="AudioStream" uid="uid://bdfyp0rqqrgbj" path="res://Music & SFX/SFX/Fireball 2.wav" id="4_c1soq"]
+[ext_resource type="Script" uid="uid://boymstu2tnukq" path="res://Player/Abilities/fireball.gd" id="32_73sam"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5ust"]
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_c1soq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplodeSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ExplodeSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_778mx"]
+resource_name = "fireball"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8tcqj"]
+resource_name = "fireball_explode"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplodeSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplodeSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8tcqj"]
+_data = {
+&"RESET": SubResource("Animation_c1soq"),
+&"fireball": SubResource("Animation_778mx"),
+&"fireball_explode": SubResource("Animation_8tcqj")
+}
+
+[node name="Fireball" type="Node2D"]
+script = ExtResource("32_73sam")
+fireball_audio = ExtResource("4_c1soq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, -2.75)
+scale = Vector2(0.426471, 0.426471)
+texture = ExtResource("3_c1soq")
+hframes = 5
+
+[node name="ExplodeSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -4)
+scale = Vector2(0.0327807, 0.0327807)
+texture = ExtResource("4_778mx")
+hframes = 3
+
+[node name="FireballHurtBox" parent="." instance=ExtResource("2_73sam")]
+unique_name_in_owner = true
+position = Vector2(0, -3.75)
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballHurtBox"]
+shape = SubResource("CircleShape2D_m5ust")
+debug_color = Color(0.994933, 0, 0.21392, 0.42)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-5.96046e-08, -3.75)
+scale = Vector2(0.4, 0.4)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8tcqj")
+}
+autoplay = "fireball"
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

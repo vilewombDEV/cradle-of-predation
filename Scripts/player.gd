@@ -2,6 +2,7 @@ extends NPC
 class_name Player
 
 signal player_damaged(hurt_box: HurtBox)
+signal direction_changed(new_direction: Vector2)
 
 #region /// On-Ready Variables
 @onready var sprite: Sprite2D = $Sprite2D
@@ -10,8 +11,8 @@ signal player_damaged(hurt_box: HurtBox)
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 @onready var hurt_box: HurtBox = %HurtBox
 @onready var hit_box: HitBox = %HitBox
-@onready var ladder_ray_cast: RayCast2D = $LadderRayCast
 @onready var audio_player: AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
+@onready var player_abilities: PlayerAbilities = $Abilities
 
 #endregion
 
@@ -31,6 +32,7 @@ var previous_state: PlayerState:
 
 #region /// Standard Variables
 var direction: Vector2 = Vector2.ZERO
+var axis_direction: Vector2 = Vector2.RIGHT
 var gravity: float = 980
 var gravity_multiplier: float = 1.0
 var invulnerable: bool = false
@@ -43,8 +45,16 @@ var attack: int = 1:
 		attack = v
 		update_damage_values()
 var defense: int = 1
-#endregion
+var defense_bonus: int = 0
 
+var insight: int = 1: ####### MAY DELETE IF DOESNT WORK
+	set(iv): ####### MAY DELETE IF DOESNT WORK
+		insight = iv ####### MAY DELETE IF DOESNT WORK
+		update_insight_values() ####### MAY DELETE IF DOESNT WORK
+var attunement: int = 1 ####### MAY DELETE IF DOESNT WORK
+var attunement_bonus: int = 0 ####### MAY DELETE IF DOESNT WORK
+
+#endregion
 
 func _ready() -> void:
 	PlayerManager.player = self
@@ -52,8 +62,9 @@ func _ready() -> void:
 	hit_box.damaged.connect(_take_damage)
 	update_hp(99)
 	update_damage_values()
+	update_insight_values() ####### MAY DELETE IF DOESNT WORK
 	PlayerManager.player_leveled_up.connect(_on_player_leveled_up)
-
+	PlayerManager.INVENTORY_DATA.equipment_changed.connect(_on_equipment_changed)
 
 func _process(_delta: float) -> void:
 	update_direction()
@@ -101,6 +112,17 @@ func update_direction() -> void:
 			sprite.flip_h = true
 		elif direction.x > 0:
 			sprite.flip_h = false
+	direction_changed.emit(direction)
+
+func set_direction() -> bool:
+	var new_dir: Vector2 = axis_direction
+	if direction == Vector2.ZERO:
+		return false
+	if direction.y == 0:
+		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
+	elif direction.x == 0:
+		new_dir = Vector2.UP if direction.y < 0 else Vector2.DOWN
+	return true
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	change_state(current_state.handle_input(event))
@@ -113,7 +135,7 @@ func _take_damage(hurt_box: HurtBox) -> void:
 	if hp > 0:
 		var dmg: int = hurt_box.damage
 		if dmg > 0:
-			dmg = clampi(dmg - defense, 1, dmg)
+			dmg = clampi(dmg - defense - defense_bonus, 1, dmg)
 		update_hp(-dmg)
 		player_damaged.emit(hurt_box)
 
@@ -134,8 +156,17 @@ func revive_player() -> void:
 	change_state(%Idle)
 
 func update_damage_values() -> void:
-	%HurtBox.damage = attack
+	var damage_value: int = attack + PlayerManager.INVENTORY_DATA.get_attack_bonus()
+	%HurtBox.damage = damage_value
+
+func update_insight_values() -> void: ####### MAY DELETE IF DOESNT WORK
+	var ability_value: int = insight + PlayerManager.INVENTORY_DATA.get_insight_bonus() ####### MAY DELETE IF DOESNT WORK
 
 func _on_player_leveled_up() -> void:
 	effect_animation_player.play("level_up")
 	update_hp(max_hp)
+
+func _on_equipment_changed() -> void:
+	update_damage_values()
+	update_insight_values() ####### MAY DELETE IF DOESNT WORK
+	defense_bonus = PlayerManager.INVENTORY_DATA.get_defense_bonus()
