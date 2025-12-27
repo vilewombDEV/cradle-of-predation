@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="NPCResource" load_steps=3 format=3 uid="uid://df2dvcqyd310a"]
 
-[ext_resource type="Texture2D" uid="uid://okwn210tbuyn" path="res://Assets/L GYPSY PORTRAIT.png" id="1_la56r"]
+[ext_resource type="Texture2D" uid="uid://okwn210tbuyn" path="res://Assets/Misc UI/L GYPSY PORTRAIT.png" id="1_la56r"]
 [ext_resource type="Script" uid="uid://d04eryd8kooyr" path="res://Interaction/NPC/NPC Resources/npc_resource.gd" id="2_lrqlc"]
 
 [resource]

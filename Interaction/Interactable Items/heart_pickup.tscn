@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://ohpfv81ibf1t"]
 
 [ext_resource type="Script" uid="uid://cdrjw6opucaev" path="res://Scripts/heart_pickup.gd" id="1_anpyr"]
-[ext_resource type="Texture2D" uid="uid://btd77my2yd7u8" path="res://Assets/heart.png" id="1_axkij"]
+[ext_resource type="Texture2D" uid="uid://btd77my2yd7u8" path="res://Assets/Sprites/heart.png" id="1_axkij"]
 [ext_resource type="AudioStream" uid="uid://dvxrfwpjdhn67" path="res://Music & SFX/SFX/heart_pickup.wav" id="3_mdlrf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_anpyr"]

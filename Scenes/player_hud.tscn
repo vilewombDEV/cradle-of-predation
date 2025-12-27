@@ -1,15 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://72cs0kq6i3tm"]
+[gd_scene load_steps=25 format=3 uid="uid://72cs0kq6i3tm"]
 
 [ext_resource type="Script" uid="uid://y46lm5pnahly" path="res://Scripts/player_hud.gd" id="1_54pr6"]
 [ext_resource type="PackedScene" uid="uid://7ymp8gaqu27o" path="res://Scenes/heart_gui.tscn" id="2_iori6"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="3_uc0x4"]
 [ext_resource type="FontFile" uid="uid://61ovup0rfkps" path="res://Assets/Fonts/Black Demon.otf" id="4_54pr6"]
-[ext_resource type="Texture2D" uid="uid://diut3irtd5ft6" path="res://Assets/panel_notification.png" id="5_54pr6"]
+[ext_resource type="Texture2D" uid="uid://diut3irtd5ft6" path="res://Assets/Misc UI/panel_notification.png" id="5_54pr6"]
 [ext_resource type="Script" uid="uid://bs701xybsr6ic" path="res://Scripts/notification_ui.gd" id="5_imajn"]
 [ext_resource type="AudioStream" uid="uid://c41ouhejuhtbe" path="res://Music & SFX/SFX/notification.wav" id="7_imajn"]
-[ext_resource type="Texture2D" uid="uid://d21pnwqyndtx3" path="res://Assets/fire scroll.png" id="8_2627f"]
-[ext_resource type="Texture2D" uid="uid://bn4w5jo0nd1h6" path="res://Assets/blood_scroll.png" id="8_buav2"]
-[ext_resource type="Texture2D" uid="uid://dewoaldde3m5a" path="res://Assets/psychic_scroll.png" id="10_advre"]
+[ext_resource type="Texture2D" uid="uid://d21pnwqyndtx3" path="res://Assets/Icons/fire scroll.png" id="8_2627f"]
+[ext_resource type="Texture2D" uid="uid://bn4w5jo0nd1h6" path="res://Assets/Icons/blood_scroll.png" id="8_buav2"]
+[ext_resource type="Texture2D" uid="uid://dewoaldde3m5a" path="res://Assets/Icons/psychic_scroll.png" id="10_advre"]
+[ext_resource type="FontFile" uid="uid://2oqcj8einkut" path="res://Assets/Fonts/m5x7.ttf" id="11_advre"]
+[ext_resource type="Texture2D" uid="uid://bcfg5a6wvi5k" path="res://Assets/Misc UI/boss-hp.png" id="11_o8xso"]
 
 [sub_resource type="Animation" id="Animation_54pr6"]
 length = 0.001
@@ -466,6 +468,14 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfwc5"]
+atlas = ExtResource("11_o8xso")
+region = Rect2(9, 40, 14, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rgen"]
+atlas = ExtResource("11_o8xso")
+region = Rect2(40, 40, 15, 15)
+
 [node name="PlayerHUD" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_54pr6")
@@ -767,5 +777,72 @@ offset_right = 64.0
 offset_bottom = 64.0
 texture = ExtResource("10_advre")
 stretch_mode = 3
+
+[node name="BossUI" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -945.0
+offset_top = -172.0
+offset_right = -945.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/BossUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = 15.0
+offset_right = 85.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 90.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_vfwc5")
+texture_progress = SubResource("AtlasTexture_8rgen")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/BossUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = 7.0
+offset_right = 92.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_o8xso")
+region_rect = Rect2(0, 0, 64, 30)
+patch_margin_left = 22
+patch_margin_right = 25
+axis_stretch_horizontal = 1
+
+[node name="Label" type="Label" parent="Control/BossUI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.5
+offset_top = 34.0
+offset_right = 34.5
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_advre")
+theme_override_font_sizes/font_size = 20
+text = "BOSS NAME"
+horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

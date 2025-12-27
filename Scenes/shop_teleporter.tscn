@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://w67loej8hsd2"]
 
-[ext_resource type="Texture2D" uid="uid://c7r2u7gihc520" path="res://Assets/FlyingObelisk_no_lightnings_no_letter.png" id="1_6by0g"]
+[ext_resource type="Texture2D" uid="uid://c7r2u7gihc520" path="res://Assets/Sprites/FlyingObelisk_no_lightnings_no_letter.png" id="1_6by0g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r7f6q"]
 atlas = ExtResource("1_6by0g")

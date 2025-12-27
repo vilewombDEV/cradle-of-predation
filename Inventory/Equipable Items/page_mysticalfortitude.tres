@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_h2sxx"]
 [ext_resource type="Script" uid="uid://b46u7f850w025" path="res://Inventory/Equipable Items/equipable_item_modifier.gd" id="2_l88sc"]
 [ext_resource type="Script" uid="uid://cmte7tabh1b83" path="res://Inventory/Equipable Items/equipable_item_data.gd" id="3_q3skq"]
-[ext_resource type="Texture2D" uid="uid://cnee03e2g7w2a" path="res://Assets/SCROLLS.png" id="4_48ij8"]
+[ext_resource type="Texture2D" uid="uid://cnee03e2g7w2a" path="res://Assets/Icons/SCROLLS.png" id="4_48ij8"]
 
 [sub_resource type="Resource" id="Resource_q4o0o"]
 script = ExtResource("2_l88sc")

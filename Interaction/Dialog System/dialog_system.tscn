@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://xcvm7rno44v4"]
 
 [ext_resource type="Script" uid="uid://ceqh0gdrht76h" path="res://Interaction/Dialog System/dialog_system.gd" id="1_4alfp"]
-[ext_resource type="Texture2D" uid="uid://dybjub3o5oyrk" path="res://Assets/text-bubble.png" id="2_utdsk"]
+[ext_resource type="Texture2D" uid="uid://dybjub3o5oyrk" path="res://Assets/Misc UI/text-bubble.png" id="2_utdsk"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="3_f8p31"]
-[ext_resource type="Texture2D" uid="uid://okwn210tbuyn" path="res://Assets/L GYPSY PORTRAIT.png" id="4_f8p31"]
+[ext_resource type="Texture2D" uid="uid://okwn210tbuyn" path="res://Assets/Misc UI/L GYPSY PORTRAIT.png" id="4_f8p31"]
 [ext_resource type="AudioStream" uid="uid://b5gddfx3f40wk" path="res://Music & SFX/SFX/voice_blip.wav" id="5_6y2ig"]
 [ext_resource type="Theme" uid="uid://bdfspsta5x5aj" path="res://Interaction/Dialog System/dialog_choice_these.tres" id="6_e71ex"]
 

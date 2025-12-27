@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ykmin26do5a" path="res://Levels/player_spawn.tscn" id="5_4wqju"]
 [ext_resource type="Resource" uid="uid://txhp4iwmckwl" path="res://Inventory/Items/heart.tres" id="10_0tnf1"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="11_jbvdo"]
-[ext_resource type="Texture2D" uid="uid://dhv7f4yqq1064" path="res://Assets/End Portal Open.png" id="11_to5w2"]
+[ext_resource type="Texture2D" uid="uid://dhv7f4yqq1064" path="res://Assets/Sprites/End Portal Open.png" id="11_to5w2"]
 [ext_resource type="PackedScene" uid="uid://c5eq5pm52pw5i" path="res://Scenes/Enemies/spider.tscn" id="12_mydkt"]
 [ext_resource type="PackedScene" uid="uid://clbxbjfdfip7a" path="res://Interaction/Interactable Items/chest.tscn" id="13_m0lrx"]
 [ext_resource type="AudioStream" uid="uid://c87xp1o14q6yl" path="res://Music & SFX/SFX/88_Teleport_02.wav" id="15_l8sr5"]
@@ -3699,7 +3699,7 @@ text = "[LMB] to Shoot
 horizontal_alignment = 1
 
 [node name="Spider" parent="." instance=ExtResource("12_mydkt")]
-position = Vector2(981, -125)
+position = Vector2(990, -109)
 
 [node name="Chest1" parent="." instance=ExtResource("13_m0lrx")]
 position = Vector2(890, 149)

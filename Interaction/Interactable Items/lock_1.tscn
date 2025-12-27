@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c6c5ogs46xbip"]
 
 [ext_resource type="Script" uid="uid://pkkiia52qbrr" path="res://Interaction/Interactable Items/lock_1.gd" id="1_34uw3"]
-[ext_resource type="Texture2D" uid="uid://cul62ruabsd3i" path="res://Assets/PADLOCK.png" id="1_bca0v"]
+[ext_resource type="Texture2D" uid="uid://cul62ruabsd3i" path="res://Assets/Sprites/PADLOCK.png" id="1_bca0v"]
 [ext_resource type="Resource" uid="uid://bgxo6s84plx8a" path="res://Inventory/Items/key_world1.tres" id="2_clw0l"]
 [ext_resource type="PackedScene" uid="uid://cuumgqu5w2unl" path="res://Singleton/persistent_data_handler.tscn" id="2_wu3gn"]
 [ext_resource type="AudioStream" uid="uid://bowwukfaasyog" path="res://Music & SFX/SFX/locked_door.wav" id="3_2bggc"]

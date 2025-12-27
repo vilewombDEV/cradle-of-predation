@@ -5,8 +5,8 @@
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="2_0do6d"]
 [ext_resource type="Texture2D" uid="uid://b0hucon7miyfy" path="res://Cutscene/2.png" id="2_8cq0p"]
 [ext_resource type="Texture2D" uid="uid://gb7o3d8qq3k4" path="res://Cutscene/Effect_4.png" id="3_0s8a4"]
-[ext_resource type="Texture2D" uid="uid://duxfwe5mrbtr6" path="res://Assets/vile_DEV (trans2).png" id="6_yksne"]
-[ext_resource type="VideoStream" uid="uid://df2cigsbsbl33" path="res://Assets/TITLE CARD.ogv" id="7_o4cyi"]
+[ext_resource type="Texture2D" uid="uid://duxfwe5mrbtr6" path="res://Splash Scene/vile_DEV (trans2).png" id="6_yksne"]
+[ext_resource type="VideoStream" uid="uid://df2cigsbsbl33" path="res://Cutscene/TITLE CARD.ogv" id="7_o4cyi"]
 [ext_resource type="FontFile" uid="uid://kp6rccpff4uq" path="res://Assets/Fonts/MM FONT.ttf" id="8_amcq5"]
 
 [sub_resource type="Animation" id="Animation_554co"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bwqwwviqgenon"]
 
 [ext_resource type="Script" uid="uid://o6vo3j7pyi4l" path="res://Interaction/NPC/shopkeeper.gd" id="1_l2jwx"]
-[ext_resource type="Texture2D" uid="uid://rd701hkwc1w8" path="res://Assets/Cat-2-Sitting.png" id="1_r5kvt"]
+[ext_resource type="Texture2D" uid="uid://rd701hkwc1w8" path="res://Assets/Sprites/Cat-2-Sitting.png" id="1_r5kvt"]
 [ext_resource type="Resource" uid="uid://df2dvcqyd310a" path="res://Interaction/NPC/NPC Resources/gypsy_shopkeeper.tres" id="2_k0c7d"]
 [ext_resource type="Script" uid="uid://r6u5xhk8gfv4" path="res://Interaction/NPC/NPC Resources/npc.gd" id="2_l2jwx"]
 [ext_resource type="PackedScene" uid="uid://dt670mvtvcc17" path="res://Interaction/Dialog System/dialog_interaction.tscn" id="4_g15iv"]

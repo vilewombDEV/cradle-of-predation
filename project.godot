@@ -45,6 +45,9 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Assets/Fonts/": "blue",
+"res://Assets/Icons/": "red",
+"res://Assets/Misc UI/": "purple",
+"res://Assets/Sprites/": "green",
 "res://Assets/Tile Sets/": "pink",
 "res://Interaction/Dialog System/": "yellow",
 "res://Interaction/Interactable Items/": "green",

@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="1_3gnqu"]
 [ext_resource type="Script" uid="uid://bmxexw21if7y3" path="res://Inventory/ShopGUI/shop_item_button.gd" id="1_e8mw5"]
-[ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/hp icon sprite 2.png" id="3_e8mw5"]
+[ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/Icons/hp icon sprite 2.png" id="3_e8mw5"]
 
 [node name="ShopItemButton" type="Button"]
 custom_minimum_size = Vector2(800, 140)

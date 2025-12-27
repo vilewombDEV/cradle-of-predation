@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://btphlt66ki2gc"]
 
-[ext_resource type="Texture2D" uid="uid://cfs7vava5kr7k" path="res://Assets/INV BOARDERS.png" id="1_ehh3d"]
+[ext_resource type="Texture2D" uid="uid://cfs7vava5kr7k" path="res://Assets/Misc UI/GUI boarders.png" id="1_ehh3d"]
 [ext_resource type="Script" uid="uid://du37d77gsyoet" path="res://Scripts/stats.gd" id="2_i6gfd"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="2_lwp2e"]
 

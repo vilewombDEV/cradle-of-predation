@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_2idmx"]
 [ext_resource type="Script" uid="uid://bwd8y5xaetk57" path="res://Inventory/ability_item_data.gd" id="2_6t236"]
-[ext_resource type="Texture2D" uid="uid://cnee03e2g7w2a" path="res://Assets/SCROLLS.png" id="3_pog7a"]
+[ext_resource type="Texture2D" uid="uid://cnee03e2g7w2a" path="res://Assets/Icons/SCROLLS.png" id="3_pog7a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wh5wf"]
 atlas = ExtResource("3_pog7a")

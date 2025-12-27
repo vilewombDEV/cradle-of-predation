@@ -12,6 +12,10 @@ var hearts: Array[HeartGUI] = []
 @onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var notification: NotificationUI = $Control/Notification
+@onready var boss_ui: Control = $Control/BossUI
+@onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
+@onready var boss_label: Label = $Control/BossUI/Label
+
 #endregion
 
 #region /// Ability-related On-Ready References
@@ -34,6 +38,8 @@ func _ready() -> void:
 	update_ability_ui(0)
 	PauseMenu.shown.connect(_on_show_pause)
 	PauseMenu.hidden.connect(_on_hide_pause)
+	
+	hide_boss_health()
 
 func update_hp(_hp: int, _max_hp: int) -> void:
 	update_max_hp(_max_hp)
@@ -114,3 +120,14 @@ func _on_show_pause() -> void:
 
 func _on_hide_pause() -> void:
 	abilities.visible = true
+
+func show_boss_health(boss_name: String) -> void:
+	boss_ui.visible = true
+	boss_label.text = boss_name
+	update_boss_health(1,1)
+
+func hide_boss_health() -> void:
+	boss_ui.visible = false
+
+func update_boss_health(hp: int, max_hp: int) -> void:
+	boss_hp_bar.value = clampf( float(hp) / float(max_hp) * 100, 0, 100 )

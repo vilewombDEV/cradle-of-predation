@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://8ir25cxwaa5" path="res://Music & SFX/SFX/use_item.wav" id="2_w3sfr"]
 [ext_resource type="Script" uid="uid://446llnfkvpvp" path="res://Inventory/health_item.gd" id="3_dlp4c"]
 [ext_resource type="Script" uid="uid://biyd2cvsmp6a5" path="res://Inventory/item_data.gd" id="4_m1jgc"]
-[ext_resource type="Texture2D" uid="uid://ekdl2d4q4708" path="res://Assets/HEART LOOT.png" id="5_fdu1x"]
+[ext_resource type="Texture2D" uid="uid://ekdl2d4q4708" path="res://Assets/Icons/HEART LOOT.png" id="5_fdu1x"]
 
 [sub_resource type="Resource" id="Resource_v1nsl"]
 script = ExtResource("3_dlp4c")

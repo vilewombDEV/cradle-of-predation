@@ -3,9 +3,9 @@
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="1_0do0w"]
 [ext_resource type="Script" uid="uid://v7vxpvpigajs" path="res://Inventory/ShopGUI/shop_menu.gd" id="1_e82st"]
 [ext_resource type="PackedScene" uid="uid://bi50715xpkbkq" path="res://Inventory/ShopGUI/shop_item_button.tscn" id="2_gsqdi"]
-[ext_resource type="Texture2D" uid="uid://bw55f5mk5sbf2" path="res://Assets/EYEBALL LOOT.png" id="2_ywlsg"]
+[ext_resource type="Texture2D" uid="uid://bw55f5mk5sbf2" path="res://Assets/Icons/EYEBALL LOOT.png" id="2_ywlsg"]
 [ext_resource type="FontFile" uid="uid://kp6rccpff4uq" path="res://Assets/Fonts/MM FONT.ttf" id="3_1x24s"]
-[ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/hp icon sprite 2.png" id="4_e82st"]
+[ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/Icons/hp icon sprite 2.png" id="4_e82st"]
 
 [sub_resource type="Animation" id="Animation_ywlsg"]
 length = 0.001
