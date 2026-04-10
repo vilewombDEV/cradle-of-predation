@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://7imaylg5gkyn"]
+[gd_scene load_steps=11 format=3 uid="uid://7imaylg5gkyn"]
 
 [ext_resource type="Script" uid="uid://cekut0g16yx5d" path="res://Scenes/Enemies/energy_orb.gd" id="1_s1lpt"]
 [ext_resource type="Material" uid="uid://b20tbr422r0ei" path="res://Materials/light_material.tres" id="2_41evg"]
-[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="2_hgj5l"]
 [ext_resource type="AudioStream" uid="uid://cocxnr2c5kkot" path="res://Music & SFX/SFX/boss_fireball.wav" id="2_nxcpo"]
 [ext_resource type="AudioStream" uid="uid://vemgmre7h8en" path="res://Music & SFX/SFX/boss_fireball_hit.wav" id="3_ouaws"]
+[ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="5_nxcpo"]
+[ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="6_ouaws"]
 
 [sub_resource type="Gradient" id="Gradient_s1lpt"]
 offsets = PackedFloat32Array(0.243243, 0.67027, 0.864865, 1)
@@ -21,7 +22,10 @@ fill_to = Vector2(1, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_41evg"]
 radius = 8.0
 
-[node name="EnergyOrb" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_y3f2b"]
+radius = 8.06226
+
+[node name="EnergyOrb" type="Node2D" groups=["enemies"]]
 z_index = 1
 script = ExtResource("1_s1lpt")
 shoot_audio = ExtResource("2_nxcpo")
@@ -35,9 +39,24 @@ texture = SubResource("GradientTexture2D_hgj5l")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 4
 
-[node name="HurtBox" parent="." instance=ExtResource("2_hgj5l")]
+[node name="DamagedArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 4
+script = ExtResource("5_nxcpo")
+metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagedArea"]
 z_index = 1
 shape = SubResource("CircleShape2D_41evg")
 debug_color = Color(0.75, 0, 0.121, 0)
+
+[node name="HazardArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 4
+script = ExtResource("6_ouaws")
+damage = 2
+metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+shape = SubResource("CircleShape2D_y3f2b")
+debug_color = Color(0.95477, 8.66354e-07, 0.546702, 0.42)

@@ -7,7 +7,6 @@ var music_bus: String = "Music"
 
 var music_fade_duration: float = 0.5
 
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	for i in music_audio_player_count:

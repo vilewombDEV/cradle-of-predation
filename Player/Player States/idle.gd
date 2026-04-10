@@ -11,11 +11,13 @@ func exit() -> void:
 	pass
 
 func handle_input(_event: InputEvent) -> PlayerState:
-	if _event.is_action_pressed("jump"):
-		return jump
 	if _event.is_action_pressed("attack"):
 		return attack
-	return next_state 
+	if _event.is_action_pressed("jump"):
+		return jump
+	if _event.is_action_pressed("dash"):
+		return dash
+	return null
 
 func process(_delta: float) -> PlayerState:
 	if player.direction.x != 0:

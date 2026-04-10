@@ -21,7 +21,6 @@ var blood_vortex_instance: BloodVortex = null
 
 @onready var ability_marker: Marker2D = %AbilityMarker2D
 
-
 func _ready() -> void:
 	player = PlayerManager.player
 	setup_abilities()
@@ -33,7 +32,6 @@ func setup_abilities(select_index: int = 0) -> void:
 	PlayerHUD.update_ability_items(abilities)
 	selected_ability = select_index - 1
 	toggle_ability()
-	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("spell_ability"):

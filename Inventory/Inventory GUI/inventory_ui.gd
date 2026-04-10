@@ -9,9 +9,10 @@ var hovered_item: InventorySlotUI
 @export var data: InventoryData
 
 @onready var inventory_slot_armor: InventorySlotUI = %InventorySlot_Armor
-@onready var inventory_slot_amulet: InventorySlotUI = %InventorySlot_Amulet
 @onready var inventory_slot_weapon: InventorySlotUI = %InventorySlot_Weapon
 @onready var inventory_slot_ring: InventorySlotUI = %InventorySlot_Ring
+@onready var inventory_slot_book: InventorySlotUI = %InventorySlot_Book
+
 
 
 func _ready() -> void:
@@ -40,9 +41,8 @@ func update_inventory(apply_focus: bool = true) -> void:
 		var e_slots: Array[SlotData] = data.equipment_slots()
 		inventory_slot_armor.set_slot_data(e_slots[0])
 		inventory_slot_weapon.set_slot_data(e_slots[1])
-		inventory_slot_amulet.set_slot_data(e_slots[2])
-		inventory_slot_ring.set_slot_data(e_slots[3])
-		
+		inventory_slot_ring.set_slot_data(e_slots[2])
+		inventory_slot_book.set_slot_data(e_slots[3])
 	if apply_focus:
 		get_child(0).grab_focus()
 

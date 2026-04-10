@@ -3,9 +3,11 @@ class_name BarredDoor
 
 var is_open: bool = false
 
+#region /// On-Ready Variables
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var is_open_data: PersistentDataHandler = $IsOpen
+#endregion
 
 func _ready() -> void:
 	is_open_data.data_loaded.connect(set_state)

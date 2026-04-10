@@ -3,7 +3,7 @@ class_name UlthrexBoss
 
 const ENERGY_ORB: PackedScene = preload("res://Scenes/Enemies/energy_orb.tscn")
 
-@export var max_hp: int = 10
+@export var max_hp: int = 15
 
 #region /// Standard Variables
 var hp: int  = 10
@@ -21,9 +21,8 @@ var damage_count: int = 0
 @onready var audio: AudioStreamPlayer2D = $BossNode/AudioStreamPlayer2D
 @onready var boss_node: Node2D = $BossNode
 @onready var boss_defeated: PersistentDataHandler = $PersistentDataHandler
-@onready var hurt_box: HurtBox = $BossNode/HurtBox
-@onready var hit_box: HitBox = $BossNode/HitBox
-
+@onready var hazard_area: HazardArea = $BossNode/HazardArea
+@onready var damaged_area: DamagedArea = $BossNode/DamagedArea
 #endregion
 
 func _ready() -> void:
@@ -32,8 +31,8 @@ func _ready() -> void:
 		queue_free()
 		return
 	hp = max_hp
-	PlayerHUD.show_boss_health("Ulthrex, the Psyion Hierophant")
-	hit_box.damaged.connect(_damage_taken)
+	PlayerHUD.show_boss_health("Ulthrex, the Psion Hierophant")
+	damaged_area.damage_taken.connect(_damage_taken)
 	for c in $PositionTargets.get_children():
 		positions.append(c.global_position)
 	$PositionTargets.visible = false
@@ -102,11 +101,11 @@ func shoot_orb() -> void:
 	get_parent().add_child.call_deferred(eo)
 	play_audio(audio_shoot)
 
-func _damage_taken(_hurt_box: HurtBox) -> void:
-	if damaged_animation_player.current_animation == "damaged" or _hurt_box.damage == 0:
+func _damage_taken(attack_area: AttackArea) -> void:
+	if damaged_animation_player.current_animation == "damaged" or attack_area.damage == 0:
 		return
 	play_audio(audio_hurt)
-	hp = clampi(hp - hurt_box.damage, 0, max_hp)
+	hp = clampi(hp - attack_area.damage, 0, max_hp)
 	damage_count += 1
 	PlayerHUD.update_boss_health(hp, max_hp)
 	damaged_animation_player.play("damaged")
@@ -123,8 +122,8 @@ func defeat() -> void:
 	await boss_animation_player.animation_finished
 
 func enable_hit_boxes(_v: bool = true) -> void:
-	hit_box.set_deferred("monitorable", _v)
-	hurt_box.set_deferred("monitoring", _v)
+	damaged_area.set_deferred("monitorable", _v)
+	hazard_area.set_deferred("monitoring", _v)
 
 func play_audio(_a: AudioStream) -> void:
 	audio.stream = _a

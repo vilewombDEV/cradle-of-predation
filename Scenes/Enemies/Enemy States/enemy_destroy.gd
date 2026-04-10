@@ -3,18 +3,20 @@ class_name EnemyStateDestroy
 
 const PICKUP = preload("res://Inventory/item_pickup.tscn")
 
+#region /// Export Variables
 @export var animation_name: String = "destroy"
 @export var knockback_speed: float = 15.0
 @export var decelerate_speed: float = 10.0
-
-var _damage_position: Vector2
-var _direction: Vector2
-var _animation_finished: bool = false
 
 @export_category("AI")
 
 @export_category("Item Drops")
 @export var drops: Array[DropData]
+#endregion
+
+var _damage_position: Vector2
+var _direction: Vector2
+var _animation_finished: bool = false
 
 func init() -> void:
 	enemy.enemy_destroyed.connect(_on_enemy_destroyed)
@@ -40,17 +42,17 @@ func process(_delta: float) -> EnemyState:
 func physics_process(_delta: float) -> EnemyState:
 	return null
 
-func _on_enemy_destroyed(hurt_box: HurtBox) -> void:
-	_damage_position = hurt_box.global_position
+func _on_enemy_destroyed(attack_area: AttackArea) -> void:
+	_damage_position = attack_area.global_position
 	state_machine.change_state(self)
 
 func _on_animation_finished(_a: String) -> void:
 	enemy.queue_free()
 
 func disable_hurt_box() -> void:
-	var hurt_box: HurtBox = enemy.get_node_or_null("HurtBox")
-	if hurt_box:
-		hurt_box.monitoring = false
+	var attack_area: AttackArea = enemy.get_node_or_null("HazardArea")
+	if attack_area:
+		attack_area.monitoring = false
 
 func drop_items() -> void:
 	if drops.size() == 0:

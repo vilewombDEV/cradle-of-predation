@@ -6,9 +6,9 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 func _on_body_entered(b: Node2D) -> void:
-	if b is PushableStatue:
+	if b is Pushable:
 		b.push_direction = PlayerManager.player.direction
 
 func _on_body_exited(b: Node2D) -> void:
-	if b is PushableStatue:
+	if b is Pushable:
 		b.push_direction = Vector2.ZERO

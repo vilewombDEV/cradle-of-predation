@@ -1,8 +1,8 @@
 [gd_scene load_steps=31 format=3 uid="uid://bapenkyakds1u"]
 
 [ext_resource type="Script" uid="uid://bex13kf7i2h0d" path="res://Scenes/Enemies/Enemy States/enemy.gd" id="1_fjg4h"]
-[ext_resource type="PackedScene" uid="uid://4j3ebxuimei1" path="res://Scenes/hit_box.tscn" id="2_qykqd"]
-[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="3_ymct7"]
+[ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="2_1oimy"]
+[ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="3_857sl"]
 [ext_resource type="Script" uid="uid://4n6ds180b6rx" path="res://Scenes/Enemies/Enemy States/enemy_state_machine.gd" id="4_1oimy"]
 [ext_resource type="Script" uid="uid://bslfgshxp5pbd" path="res://Scenes/Enemies/Enemy States/enemy_idle.gd" id="5_857sl"]
 [ext_resource type="Script" uid="uid://drso0anyjt0mp" path="res://Scenes/Enemies/Enemy States/enemy_wander.gd" id="6_xeuos"]
@@ -16,11 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://c50lff77vvpjg" path="res://Scenes/Enemies/vision_area.tscn" id="13_ymct7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymct7"]
-radius = 5.71892
+radius = 12.8676
 height = 34.7628
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1oimy"]
-radius = 9.0
+radius = 6.0
 height = 32.0
 
 [sub_resource type="Resource" id="Resource_6hqkn"]
@@ -596,28 +596,35 @@ _data = {
 }
 
 [node name="Skeleton" type="CharacterBody2D" groups=["enemies"]]
-collision_layer = 256
+collision_layer = 0
 collision_mask = 24
 script = ExtResource("1_fjg4h")
 hp = 4
 xp_reward = 5
 
-[node name="HitBox" parent="." instance=ExtResource("2_qykqd")]
+[node name="DamagedArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 9
+script = ExtResource("2_1oimy")
+metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamagedArea"]
 position = Vector2(0, -16)
 scale = Vector2(0.699433, 0.920524)
 shape = SubResource("CapsuleShape2D_ymct7")
-debug_color = Color(0.228816, 0.63801, 3.85046e-07, 0.42)
+debug_color = Color(0.229, 0.638, 0, 0)
 
-[node name="HurtBox" parent="." instance=ExtResource("3_ymct7")]
+[node name="HazardArea" type="Area2D" parent="."]
+collision_layer = 256
 collision_mask = 4
-damage = 3
+script = ExtResource("3_857sl")
+damage = 2
+metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
 position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_1oimy")
-debug_color = Color(1, 0.0027962, 0.0731365, 0.42)
+debug_color = Color(1, 0.003, 0.073, 0)
 
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("4_1oimy")
@@ -641,10 +648,9 @@ script = ExtResource("8_f41yo")
 knockback_speed = 20.0
 drops = Array[ExtResource("9_tyy5x")]([SubResource("Resource_6hqkn")])
 
-[node name="Chase" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("vision_area", "attack_area", "next_state")]
+[node name="Chase" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("vision_area", "next_state")]
 script = ExtResource("12_1oimy")
 vision_area = NodePath("../../VisionArea")
-attack_area = NodePath("../../HurtBox")
 next_state = NodePath("../Idle")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -656,6 +662,7 @@ vframes = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_qykqd")
+debug_color = Color(0, 0.6, 0.7, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -669,5 +676,6 @@ max_polyphony = 10
 [node name="VisionArea" parent="." instance=ExtResource("13_ymct7")]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea"]
-position = Vector2(0, -17)
+position = Vector2(-1, -16)
+scale = Vector2(0.472778, 0.472778)
 polygon = PackedVector2Array(-16, 0, 16, 0, 128, 128, -128, 128)

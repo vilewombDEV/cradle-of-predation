@@ -59,6 +59,7 @@ func update_max_hp(_max_hp: int) -> void:
 			hearts[i].visible = false
 
 func show_game_over_screen() -> void:
+	PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED
 	game_over.visible = true
 	game_over.mouse_filter = Control.MOUSE_FILTER_STOP
 	var can_continue: bool = SaveManager.get_save_file() != null
@@ -76,6 +77,7 @@ func hide_game_over_screen() -> void:
 	game_over.modulate = Color(1,1,1,0)
 
 func load_game() -> void:
+	PauseMenu.process_mode = Node.PROCESS_MODE_ALWAYS
 	play_audio(button_select_audio)
 	await fade_to_black()
 	SaveManager.load_game()

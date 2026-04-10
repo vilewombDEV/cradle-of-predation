@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bhto437pmyt0u" path="res://Props/barrel.gd" id="1_a6h66"]
 [ext_resource type="Texture2D" uid="uid://8t44tbxnkb15" path="res://Props/Prop Sprites/Destructible Objects Sprite Sheet - Edited.png" id="2_sprgd"]
 [ext_resource type="PackedScene" uid="uid://cuumgqu5w2unl" path="res://Singleton/persistent_data_handler.tscn" id="3_a6h66"]
-[ext_resource type="PackedScene" uid="uid://4j3ebxuimei1" path="res://Scenes/hit_box.tscn" id="3_sprgd"]
+[ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="3_sprgd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddmht"]
 atlas = ExtResource("2_sprgd")
@@ -100,33 +100,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lkf6n"]
-radius = 9.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddmht"]
 radius = 9.0
 
-[node name="Barrel" type="CharacterBody2D" groups=["enemies"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkf6n"]
+radius = 9.0
+
+[node name="Barrel" type="Node2D" groups=["enemies"]]
 process_mode = 3
-collision_layer = 272
-collision_mask = 9
 script = ExtResource("1_a6h66")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_63c4j")
-animation = &"Idle"
-frame_progress = 0.649789
+animation = &"Destroy"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 5)
-shape = SubResource("CircleShape2D_lkf6n")
+[node name="DamagedArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("3_sprgd")
+metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="HitBox" parent="." instance=ExtResource("3_sprgd")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagedArea"]
 position = Vector2(1, 5)
 shape = SubResource("CircleShape2D_ddmht")
-debug_color = Color(0.923409, 4.83233e-05, 0.683896, 0.42)
+debug_color = Color(0.923, 0, 0.684, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 16
@@ -135,5 +132,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1, 5)
 shape = SubResource("CircleShape2D_lkf6n")
+debug_color = Color(0, 0.6, 0.7, 0)
 
 [node name="IsDestroyed" parent="." instance=ExtResource("3_a6h66")]

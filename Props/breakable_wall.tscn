@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlq33de7aghxx"]
+
+[ext_resource type="Script" uid="uid://nvjf2w605epc" path="res://Props/breakable_wall.gd" id="1_55hhc"]
+[ext_resource type="Texture2D" uid="uid://6aroj13l5bwo" path="res://Assets/Tile Sets/tile_set_castle.png" id="2_55hhc"]
+[ext_resource type="PackedScene" uid="uid://cuumgqu5w2unl" path="res://Singleton/persistent_data_handler.tscn" id="2_n18ir"]
+[ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="3_55hhc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55hhc"]
+size = Vector2(32, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyvyl"]
+size = Vector2(26, 47)
+
+[node name="BreakableWall" type="Node2D" groups=["enemies"]]
+script = ExtResource("1_55hhc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_55hhc")
+region_enabled = true
+region_rect = Rect2(175, 128, 32, 47)
+
+[node name="DamagedArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("3_55hhc")
+metadata/_custom_type_script = "uid://dcakya56c46uh"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagedArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_55hhc")
+debug_color = Color(0.971857, 0, 0.445074, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_oyvyl")
+debug_color = Color(0, 0.6, 0.7, 0)
+
+[node name="IsTornDown" parent="." instance=ExtResource("2_n18ir")]

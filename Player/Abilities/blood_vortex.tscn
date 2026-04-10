@@ -2,11 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cnsietifhvcjq" path="res://Player/Abilities/blood_vortex.gd" id="1_aikkw"]
 [ext_resource type="Texture2D" uid="uid://llxkt8lx471i" path="res://Player/Player Assests/blood vortex.png" id="2_aikkw"]
-[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="3_d2ncp"]
+[ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="3_aikkw"]
 [ext_resource type="AudioStream" uid="uid://tsuu5faxscn5" path="res://Music & SFX/SFX/blood_vortex.wav" id="4_aikkw"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_m5ust"]
-radius = 4.0
 
 [sub_resource type="Animation" id="Animation_l2gmp"]
 length = 0.001
@@ -47,6 +44,8 @@ _data = {
 &"blood_vortex": SubResource("Animation_aikkw")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2gmp"]
+
 [node name="BloodVortex" type="Node2D"]
 script = ExtResource("1_aikkw")
 
@@ -58,21 +57,22 @@ texture = ExtResource("2_aikkw")
 hframes = 8
 vframes = 8
 
-[node name="BloodVortexHurtBox" parent="." instance=ExtResource("3_d2ncp")]
-unique_name_in_owner = true
-position = Vector2(0, -3.75)
-collision_layer = 8
-collision_mask = 256
-damage = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BloodVortexHurtBox"]
-shape = SubResource("CircleShape2D_m5ust")
-debug_color = Color(0.804159, 0.417336, 0, 0.42)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_8tcqj")
 }
+
+[node name="BloodVortexHurtBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 256
+script = ExtResource("3_aikkw")
+damage = 3
+metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BloodVortexHurtBox"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_l2gmp")
+debug_color = Color(0.989, 0, 0.301, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_aikkw")

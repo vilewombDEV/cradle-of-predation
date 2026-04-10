@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://coj72isa10w3y"]
+
+[ext_resource type="Texture2D" uid="uid://c763jl7ic5ilm" path="res://Assets/Tile Sets/bookshelf_2.png" id="1_7kxns"]
+
+[node name="Bookshelf1" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_7kxns")

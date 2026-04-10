@@ -1,3 +1,4 @@
+@tool
 extends CanvasLayer
 class_name DialogSystemNode
 
@@ -7,6 +8,7 @@ signal letter_added(letter: String)
 var is_active: bool = false
 var text_in_progress: bool = false
 var waiting_for_choice: bool = false
+var watching_cutscene: bool = false
 
 var text_speed: float = 0.02
 var text_length: int = 0
@@ -26,7 +28,6 @@ var dialog_item_index: int = 0
 @onready var choice_options: VBoxContainer = $DialogUI/VBoxContainer
 
 
-
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		if get_viewport() is Window:
@@ -38,7 +39,7 @@ func _ready() -> void:
 
 #Handle key presses, but only if Dialog System is active
 func _unhandled_input(event: InputEvent) -> void:
-	if is_active == false:
+	if is_active == false or watching_cutscene == true:
 		return
 	if event.is_action_pressed("advance_dialog"):
 		if text_in_progress == true:
@@ -49,19 +50,21 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		elif waiting_for_choice == true:
 			return
-		
-		dialog_item_index += 1
-		if dialog_item_index < dialog_items.size():
-			start_dialog()
-		else:
-			hide_dialog()
-	pass
+		advance_dialog()
 
-func show_dialog(items: Array[DialogItem]) -> void:
+func advance_dialog() -> void:
+	dialog_item_index += 1
+	if dialog_item_index < dialog_items.size():
+		start_dialog()
+	else:
+		hide_dialog()
+
+# Show Dialog System UI
+func show_dialog(_items: Array[DialogItem]) -> void:
 	is_active = true
 	dialog_ui.visible = true
 	dialog_ui.process_mode = Node.PROCESS_MODE_ALWAYS
-	dialog_items = items
+	dialog_items = _items
 	dialog_item_index = 0
 	get_tree().paused = true
 	await get_tree().process_frame
@@ -70,8 +73,7 @@ func show_dialog(items: Array[DialogItem]) -> void:
 	else:
 		start_dialog()
 
-
-#Hide Dialoug System UI
+# Hide Dialog System UI
 func hide_dialog() -> void:
 	is_active = false
 	choice_options.visible = false
@@ -86,19 +88,30 @@ func start_dialog() -> void:
 	waiting_for_choice = false
 	show_dialog_button_indicator(false)
 	var _d: DialogItem = dialog_items[dialog_item_index]
-	
 	if _d is DialogText:
 		set_dialog_text(_d as DialogText)
 	elif _d is DialogChoice:
 		set_dialog_choice(_d as DialogChoice)
+	elif _d is DialogCutscene:
+		start_dialog_cutscene(_d as DialogCutscene)
 
-
+func start_dialog_cutscene(_d: DialogCutscene) -> void:
+	watching_cutscene = true
+	_d.play()
+	choice_options.visible = false
+	dialog_ui.visible = false
+	await _d.finished
+	watching_cutscene = false
+	choice_options.visible = true
+	dialog_ui.visible = true
+	advance_dialog()
 
 ## Set dialog and NPC variables, etc based on dialog item parameters.
 ## Once set, start text typing timer.
 func set_dialog_text(_d: DialogText) -> void:
 	if _d is DialogText:
 		content.text = _d.text
+		choice_options.visible = false
 		name_label.text = _d.npc_info.npc_name
 		portrait_sprite.texture = _d.npc_info.portrait
 		content.visible_characters = 0
@@ -120,7 +133,8 @@ func set_dialog_choice(_d: DialogChoice) -> void:
 		_new_choice.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_new_choice.pressed.connect(_dialog_choice_selected.bind(_d.dialog_branches[i]))
 		choice_options.add_child(_new_choice)
-		
+	if Engine.is_editor_hint():
+		return
 	await get_tree().process_frame
 	choice_options.get_child(0).grab_focus()
 	pass
@@ -144,7 +158,6 @@ func start_timer() -> void:
 	timer.wait_time = text_speed
 	#Manipulate wait_time
 	timer.start()
-
 
 func show_dialog_button_indicator(_is_visible: bool) -> void:
 	dialog_progress_bar.visible = _is_visible

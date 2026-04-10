@@ -1,11 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt670mvtvcc17"]
+[gd_scene load_steps=8 format=3 uid="uid://dt670mvtvcc17"]
 
 [ext_resource type="Script" uid="uid://bvr6oxue3btt3" path="res://Interaction/Dialog System/dialog_interaction.gd" id="1_kvxpw"]
 [ext_resource type="Texture2D" uid="uid://h6cdcphgy4fw" path="res://Interaction/Dialog System/dialog_interactable.png" id="1_qbmgq"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kvxpw"]
-radius = 5.0
-height = 28.0
 
 [sub_resource type="Animation" id="Animation_kvxpw"]
 resource_name = "Default"
@@ -127,13 +123,13 @@ _data = {
 }
 
 [node name="DialogInteraction" type="Area2D"]
+process_mode = 3
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_kvxpw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_kvxpw")
 debug_color = Color(0.927, 0, 0.671, 0.398)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

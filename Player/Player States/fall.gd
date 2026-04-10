@@ -15,7 +15,7 @@ func enter() -> void:
 	player.animation_player.play("jump")
 	player.animation_player.pause()
 	player.gravity_multiplier = fall_gravity_multiplier
-	if player.previous_state == jump:
+	if player.previous_state == jump or player.previous_state == attack:
 		coyote_timer = 0
 	else:
 		coyote_timer = coyote_time
@@ -25,6 +25,8 @@ func exit() -> void:
 	buffer_timer = 0
 
 func handle_input(_event: InputEvent) -> PlayerState:
+	if _event.is_action_pressed("attack"):
+		return attack
 	if _event.is_action_pressed("jump"):
 		if coyote_timer > 0:
 			return jump

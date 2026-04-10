@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://p0x3uiy6x2xm"]
+
+[ext_resource type="Texture2D" uid="uid://ux1gngr228o7" path="res://Assets/Sprites/CANDLE.png" id="1_tnsfv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5gcm"]
+atlas = ExtResource("1_tnsfv")
+region = Rect2(0, 0, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k52y7"]
+atlas = ExtResource("1_tnsfv")
+region = Rect2(514, 0, 514, 514)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdtlv"]
+atlas = ExtResource("1_tnsfv")
+region = Rect2(1028, 0, 514, 514)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b83se"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5gcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k52y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdtlv")
+}],
+"loop": true,
+"name": &"Lit",
+"speed": 9.0
+}]
+
+[node name="Candle" type="AnimatedSprite2D"]
+position = Vector2(3.8147e-06, -3.8147e-06)
+scale = Vector2(0.0252918, 0.0252918)
+sprite_frames = SubResource("SpriteFrames_b83se")
+animation = &"Lit"
+autoplay = "Lit"
+frame_progress = 0.362906

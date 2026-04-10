@@ -51,7 +51,6 @@ func hide_pause_menu() -> void:
 	is_paused = false
 	hidden.emit()
 
-
 func _on_save_mouse_entered() -> void:
 	hover.play()
 func _on_load_mouse_entered() -> void:
@@ -87,7 +86,6 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 func _on_tab_container_tab_clicked(tab: int) -> void:
 	click_2.play()
-
 
 func focused_item_changed(slot: SlotData) -> void:
 	if slot:

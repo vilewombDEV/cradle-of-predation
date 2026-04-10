@@ -1,6 +1,7 @@
 extends EnemyState
 class_name EnemyStateWander
 
+#region /// Export Variables
 @export var animation_name: String = "walk"
 @export var wander_speed: float = 40.0
 
@@ -9,6 +10,7 @@ class_name EnemyStateWander
 @export var state_cycles_min: int = 1
 @export var state_cycles_max: int = 3
 @export var next_state: EnemyState
+#endregion
 
 var _timer: float = 0.0
 var _direction: Vector2

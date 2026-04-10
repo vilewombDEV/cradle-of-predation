@@ -1,3 +1,4 @@
+@tool 
 extends Area2D
 class_name DialogInteraction
 
@@ -11,6 +12,8 @@ var dialog_items: Array[DialogItem]
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
 	for c in get_children():
 		if c is DialogItem:
 			dialog_items.append(c)

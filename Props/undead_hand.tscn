@@ -206,7 +206,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqx7f"]
-size = Vector2(60, 3)
+size = Vector2(90, 3)
 
 [node name="UndeadHand" type="Node2D"]
 script = ExtResource("1_gv1jm")
@@ -223,7 +223,7 @@ frame_progress = 1.0
 [node name="TriggerArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea2D"]
-position = Vector2(0, -1.5)
+position = Vector2(-15, -1.5)
 shape = SubResource("RectangleShape2D_bqx7f")
 
 [connection signal="body_entered" from="TriggerArea2D" to="." method="_on_trigger_area_2d_body_entered"]

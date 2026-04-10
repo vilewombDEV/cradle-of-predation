@@ -1,13 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dy7oc4mlxwasw"]
+[gd_scene load_steps=13 format=3 uid="uid://dy7oc4mlxwasw"]
 
-[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="2_73sam"]
 [ext_resource type="Texture2D" uid="uid://c3lq4gxjwa41m" path="res://Player/Player Assests/fireball.png" id="3_c1soq"]
 [ext_resource type="Texture2D" uid="uid://q40soju4fk1m" path="res://Player/Player Assests/fireball_explode.png" id="4_778mx"]
 [ext_resource type="AudioStream" uid="uid://bdfyp0rqqrgbj" path="res://Music & SFX/SFX/Fireball 2.wav" id="4_c1soq"]
+[ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="5_778mx"]
+[ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="6_8tcqj"]
 [ext_resource type="Script" uid="uid://boymstu2tnukq" path="res://Player/Abilities/fireball.gd" id="32_73sam"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m5ust"]
-radius = 4.0
+radius = 5.00625
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8tcqj"]
+radius = 5.0
 
 [sub_resource type="Animation" id="Animation_c1soq"]
 length = 0.001
@@ -137,6 +141,7 @@ _data = {
 }
 
 [node name="Fireball" type="Node2D"]
+process_mode = 3
 script = ExtResource("32_73sam")
 fireball_audio = ExtResource("4_c1soq")
 
@@ -153,15 +158,29 @@ scale = Vector2(0.0327807, 0.0327807)
 texture = ExtResource("4_778mx")
 hframes = 3
 
-[node name="FireballHurtBox" parent="." instance=ExtResource("2_73sam")]
+[node name="FireballHitBox" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -3.75)
-collision_layer = 8
+collision_layer = 9
 collision_mask = 256
+script = ExtResource("5_778mx")
+metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballHurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballHitBox"]
 shape = SubResource("CircleShape2D_m5ust")
-debug_color = Color(0.994933, 0, 0.21392, 0.42)
+debug_color = Color(0, 0.639, 0.37, 0)
+
+[node name="HazardArea" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 256
+script = ExtResource("6_8tcqj")
+damage = 6
+metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_8tcqj")
+debug_color = Color(0.999, 0, 0.112, 0)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-5.96046e-08, -3.75)
@@ -176,4 +195,5 @@ libraries = {
 }
 autoplay = "fireball"
 
+[connection signal="body_entered" from="FireballHitBox" to="." method="_on_fireball_hit_box_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

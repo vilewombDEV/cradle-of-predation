@@ -9,6 +9,5 @@ class_name Shopkeeper
 func _ready() -> void:
 	dialog_branch_yes.selected.connect(show_shop_menu)
 
-
 func show_shop_menu() -> void:
 	ShopMenu.show_menu(shop_inventory)

@@ -1,16 +1,17 @@
-extends NPC
+extends CharacterBody2D
 class_name Player
 
-signal player_damaged(hurt_box: HurtBox)
+signal player_damaged(attack_area: AttackArea)
 signal direction_changed(new_direction: Vector2)
 
 #region /// On-Ready Variables
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var claw_attack_sprite: Sprite2D = %ClawAttackSprite
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
-@onready var hurt_box: HurtBox = %HurtBox
-@onready var hit_box: HitBox = %HitBox
+@onready var attack_area: AttackArea = %AttackArea
+@onready var damaged_area: DamagedArea = %DamagedArea
 @onready var audio_player: AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
 @onready var player_abilities: PlayerAbilities = $Abilities
 
@@ -20,6 +21,7 @@ signal direction_changed(new_direction: Vector2)
 @export var move_speed: float = 120.0
 @export var max_fall_velocity: float = 400.0
 @export var inventory: InventoryData = preload("res://Inventory/player_inventory.tres")
+@export var dialog_resource: NPCResource = preload("res://Interaction/NPC/NPC Resources/imp'zharoth_player.tres")
 #endregion
 
 #region /// State Machine Variables
@@ -31,38 +33,33 @@ var previous_state: PlayerState:
 #endregion
 
 #region /// Standard Variables
+var state: String = "idle"
 var direction: Vector2 = Vector2.ZERO
 var axis_direction: Vector2 = Vector2.RIGHT
 var gravity: float = 980
 var gravity_multiplier: float = 1.0
+
 var invulnerable: bool = false
 var hp: int = 6
 var max_hp: int = 6
+
 var level: int = 1
 var xp: int = 0
+
 var attack: int = 1: 
 	set(v):
 		attack = v
 		update_damage_values()
 var defense: int = 1
 var defense_bonus: int = 0
-
-var insight: int = 1: ####### MAY DELETE IF DOESNT WORK
-	set(iv): ####### MAY DELETE IF DOESNT WORK
-		insight = iv ####### MAY DELETE IF DOESNT WORK
-		update_insight_values() ####### MAY DELETE IF DOESNT WORK
-var attunement: int = 1 ####### MAY DELETE IF DOESNT WORK
-var attunement_bonus: int = 0 ####### MAY DELETE IF DOESNT WORK
-
 #endregion
 
 func _ready() -> void:
 	PlayerManager.player = self
 	initialize_states()
-	hit_box.damaged.connect(_take_damage)
+	damaged_area.damage_taken.connect(_take_damage)
 	update_hp(99)
 	update_damage_values()
-	update_insight_values() ####### MAY DELETE IF DOESNT WORK
 	PlayerManager.player_leveled_up.connect(_on_player_leveled_up)
 	PlayerManager.INVENTORY_DATA.equipment_changed.connect(_on_equipment_changed)
 
@@ -108,10 +105,15 @@ func update_direction() -> void:
 	direction = Vector2(x_axis, y_axis)
 	
 	if prev_direction.x != direction.x:
+		attack_area.flip(direction.x)
 		if direction.x < 0:
 			sprite.flip_h = true
+			claw_attack_sprite.flip_h = true
+			claw_attack_sprite.position.x = -12
 		elif direction.x > 0:
 			sprite.flip_h = false
+			claw_attack_sprite.flip_h = false
+			claw_attack_sprite.position.x = 12
 	direction_changed.emit(direction)
 
 func set_direction() -> bool:
@@ -124,43 +126,38 @@ func set_direction() -> bool:
 		new_dir = Vector2.UP if direction.y < 0 else Vector2.DOWN
 	return true
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released("jump") and velocity.y < 0:
+		velocity.y *= 0.5
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	change_state(current_state.handle_input(event))
 	if event.is_action_pressed("interact"):
 		PlayerManager.interact_pressed.emit()
 
-func _take_damage(hurt_box: HurtBox) -> void:
+func _take_damage(attack_area: AttackArea) -> void:
+	if current_state == PlayerStateDeath:
+		return
 	if invulnerable == true:
 		return
 	if hp > 0:
-		var dmg: int = hurt_box.damage
+		var dmg: int = attack_area.damage
 		if dmg > 0:
 			dmg = clampi(dmg - defense - defense_bonus, 1, dmg)
 		update_hp(-dmg)
-		player_damaged.emit(hurt_box)
+		player_damaged.emit(attack_area)
 
 func update_hp(delta: int) -> void:
 	hp = clampi(hp + delta, 0, max_hp)
 	PlayerHUD.update_hp(hp, max_hp)
 
-func make_invulnerable(_duration: float = 1.0) -> void:
-	invulnerable = true
-	hit_box.monitoring = false
-	await get_tree().create_timer(_duration).timeout
-	invulnerable = false
-	hit_box.monitoring = true
-
 func revive_player() -> void:
-	print("Player: ", hp)
 	update_hp(99)
 	change_state(%Idle)
 
 func update_damage_values() -> void:
 	var damage_value: int = attack + PlayerManager.INVENTORY_DATA.get_attack_bonus()
-	%HurtBox.damage = damage_value
-
-func update_insight_values() -> void: ####### MAY DELETE IF DOESNT WORK
-	var ability_value: int = insight + PlayerManager.INVENTORY_DATA.get_insight_bonus() ####### MAY DELETE IF DOESNT WORK
+	%AttackArea.damage = damage_value
 
 func _on_player_leveled_up() -> void:
 	effect_animation_player.play("level_up")
@@ -168,5 +165,4 @@ func _on_player_leveled_up() -> void:
 
 func _on_equipment_changed() -> void:
 	update_damage_values()
-	update_insight_values() ####### MAY DELETE IF DOESNT WORK
 	defense_bonus = PlayerManager.INVENTORY_DATA.get_defense_bonus()

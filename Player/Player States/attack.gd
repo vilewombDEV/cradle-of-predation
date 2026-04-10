@@ -2,46 +2,41 @@ extends PlayerState
 class_name PlayerStateAttack
 
 @export var attack_sound: AudioStream
-
-var attacking: bool = false
+@onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 
 func init() -> void:
 	pass
 
 func enter() -> void:
-	player.animation_player.play("attack")
-	player.animation_player.animation_finished.connect(end_attack)
-	attacking = true
-	await get_tree().create_timer(0.075).timeout
-	if attacking:
-		player.hurt_box.monitoring = true
+	do_attack()
+	player.animation_player.animation_finished.connect(_on_animation_finished)
 
 func exit() -> void:
-	player.animation_player.animation_finished.disconnect(end_attack)
-	attacking = false
-	player.hurt_box.monitoring = false
+	player.animation_player.animation_finished.disconnect(_on_animation_finished)
+	next_state = null
 
 func handle_input(_event: InputEvent) -> PlayerState:
 	return next_state 
 
 func process(_delta: float) -> PlayerState:
-	if attacking == false:
-		if player.direction == Vector2.ZERO:
-			return idle
-		else: 
-			return run
 	return next_state
 
 func physics_process(_delta: float) -> PlayerState:
-	player.velocity.x = 0
-	if player.is_on_floor() == false:
-		return fall
-	if attacking == false:
-		if player.direction == Vector2.ZERO:
-			return idle
-		else:
-			return run
-	return next_state
+	player.velocity.x = player.direction.x * player.move_speed
+	return null
 
-func end_attack(_new_animation_name: String) -> void:
-	attacking = false
+func do_attack() -> void:
+	player.animation_player.play("attack")
+	player.attack_area.activate()
+	audio.stream = attack_sound
+	audio.pitch_scale = randf_range(0.9, 1.1)
+	audio.play()
+
+func _end_attack() -> void:
+	if player.is_on_floor():
+		next_state = idle
+	else:
+		next_state = fall
+
+func _on_animation_finished(_anim_name: String) -> void:
+	_end_attack()

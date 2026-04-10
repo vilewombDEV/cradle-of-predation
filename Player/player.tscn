@@ -1,42 +1,44 @@
-[gd_scene load_steps=48 format=3 uid="uid://cf7bdays7hchv"]
+[gd_scene load_steps=51 format=3 uid="uid://cf7bdays7hchv"]
 
 [ext_resource type="Script" uid="uid://d0if8url3x6j4" path="res://Scripts/player.gd" id="1_pisgm"]
-[ext_resource type="Resource" uid="uid://8vq1mo48mwcb" path="res://Interaction/NPC/imp'zharoth_player.tres" id="2_b1ygp"]
 [ext_resource type="Script" uid="uid://dadl8lavnf3e4" path="res://Player/Player States/player_state.gd" id="3_o28un"]
 [ext_resource type="Script" uid="uid://cmfrsd6ge2usd" path="res://Player/Player States/idle.gd" id="4_n471f"]
 [ext_resource type="Script" uid="uid://du77ikfgsn2if" path="res://Player/Player States/run.gd" id="5_7emwf"]
 [ext_resource type="Script" uid="uid://bv7rj8qbu75a8" path="res://Player/Player States/jump.gd" id="6_hshwv"]
+[ext_resource type="Script" uid="uid://b2hv1myvve2jm" path="res://Player/Player States/dash.gd" id="6_qemgg"]
+[ext_resource type="AudioStream" uid="uid://q45dw704hn5f" path="res://Music & SFX/IMP SFX/CREAHmn_Short, Intimidating, Troll, MHCS14.wav" id="7_8viyr"]
 [ext_resource type="Script" uid="uid://bnhb3ihcx55ka" path="res://Player/Player States/fall.gd" id="7_gpjlu"]
 [ext_resource type="Script" uid="uid://bkrtmt8yhfoej" path="res://Player/Player States/attack.gd" id="8_8mwp6"]
-[ext_resource type="AudioStream" uid="uid://cycc2b12nejoi" path="res://Music & SFX/SFX/hammer_attack.ogg" id="9_7emwf"]
 [ext_resource type="Script" uid="uid://5r8nv8j0cru7" path="res://Player/Player States/stun.gd" id="9_qemgg"]
 [ext_resource type="Script" uid="uid://b6bvdqxywoejk" path="res://Player/Player States/death.gd" id="10_8viyr"]
+[ext_resource type="AudioStream" uid="uid://cavk1b25r6vbk" path="res://Music & SFX/SFX/22_Slash_04.wav" id="10_qemgg"]
 [ext_resource type="AudioStream" uid="uid://8lqlolt18xtr" path="res://Music & SFX/IMP SFX/CREAHmn_Short, Intimidating, Troll, MHCS15.wav" id="11_sm0op"]
 [ext_resource type="Texture2D" uid="uid://c1yepr6eudcky" path="res://Player/Player Assests/Imp Sprite Sheet.png" id="12_76lrf"]
 [ext_resource type="Script" uid="uid://cmtqs8jddtedc" path="res://Scripts/player_camera.gd" id="13_efx54"]
 [ext_resource type="Script" uid="uid://bw4iy7clhu6to" path="res://Player/Player States/fireball.gd" id="13_gpjlu"]
 [ext_resource type="Script" uid="uid://dfd6tc1oy4gsk" path="res://Player/Player States/psychic.gd" id="14_8mwp6"]
-[ext_resource type="PackedScene" uid="uid://4j3ebxuimei1" path="res://Scenes/hit_box.tscn" id="14_755ss"]
-[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="15_bbimk"]
-[ext_resource type="Script" uid="uid://qyvrsx3luoqa" path="res://Player/player_interactions_host.gd" id="16_hshwv"]
 [ext_resource type="Script" uid="uid://c2fghape1v3ut" path="res://Scripts/push_area.gd" id="16_m0h3t"]
+[ext_resource type="Texture2D" uid="uid://d4njotkr5t5vx" path="res://Player/Player Assests/claw_attack-sheet.png" id="17_8viyr"]
 [ext_resource type="AudioStream" uid="uid://bmnyh0dkqqaw" path="res://Music & SFX/IMP SFX/CREAHmn_Short, Angry, Zombie, MHCS11.wav" id="17_i4o1l"]
+[ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="18_8viyr"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="18_b1ygp"]
 [ext_resource type="AudioStream" uid="uid://bb0t0q05atjvi" path="res://Music & SFX/SFX/level_up.wav" id="18_o28un"]
 [ext_resource type="Script" uid="uid://bptcsh6qjiovk" path="res://Player/abilities.gd" id="21_8mwp6"]
+[ext_resource type="Script" uid="uid://b5dwvw2ktpplk" path="res://Player/attack_area.gd" id="22_8viyr"]
+[ext_resource type="PackedScene" uid="uid://dcfnfsulceshe" path="res://Scenes/item_magnet.tscn" id="26_8viyr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pu2lt"]
 radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qemgg"]
+size = Vector2(15, 3)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8erm5"]
 radius = 5.0
 height = 18.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_n471f"]
-radius = 6.99999
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd4e3"]
-size = Vector2(20, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8viyr"]
+size = Vector2(22, 17)
 
 [sub_resource type="Animation" id="Animation_f1ek2"]
 length = 0.001
@@ -51,6 +53,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/ClawAttackSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/ClawAttackSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/ClawAttackSprite:show_behind_parent")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_o28un"]
@@ -68,6 +106,59 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [16, 17, 18, 19, 20]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/ClawAttackSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/ClawAttackSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/ClawAttackSprite:show_behind_parent")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8viyr"]
+resource_name = "dash"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
 }
 
 [sub_resource type="Animation" id="Animation_igrcy"]
@@ -89,23 +180,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_gpjlu"]
 resource_name = "fireball"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [16, 17, 18, 19, 20]
-}
-
-[sub_resource type="Animation" id="Animation_qemgg"]
-resource_name = "frosthammer"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -211,9 +285,9 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_f1ek2"),
 &"attack": SubResource("Animation_o28un"),
+&"dash": SubResource("Animation_8viyr"),
 &"death": SubResource("Animation_igrcy"),
 &"fireball": SubResource("Animation_gpjlu"),
-&"frosthammer": SubResource("Animation_qemgg"),
 &"idle": SubResource("Animation_8erm5"),
 &"jump": SubResource("Animation_gymyn"),
 &"psychic": SubResource("Animation_8mwp6"),
@@ -367,7 +441,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.435294, 0.14902, 0.14902, 1), Color(1, 1, 1, 1)]
@@ -379,7 +453,7 @@ tracks/1/path = NodePath("LevelUpLabel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.4),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -458,14 +532,16 @@ gravity = Vector3(0, -100, 0)
 color = Color(0.760784, 0.0313726, 0, 1)
 color_ramp = SubResource("GradientTexture1D_o28un")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm0op"]
+radius = 50.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 top_level = true
 collision_layer = 7
-collision_mask = 287
+collision_mask = 319
 floor_constant_speed = true
 floor_snap_length = 3.0
 script = ExtResource("1_pisgm")
-npc_resource = ExtResource("2_b1ygp")
 
 [node name="States" type="Node" parent="."]
 script = ExtResource("3_o28un")
@@ -478,6 +554,11 @@ script = ExtResource("4_n471f")
 unique_name_in_owner = true
 script = ExtResource("5_7emwf")
 
+[node name="Dash" type="Node" parent="States"]
+unique_name_in_owner = true
+script = ExtResource("6_qemgg")
+dash_audio = ExtResource("7_8viyr")
+
 [node name="Jump" type="Node" parent="States"]
 unique_name_in_owner = true
 script = ExtResource("6_hshwv")
@@ -489,15 +570,15 @@ script = ExtResource("7_gpjlu")
 [node name="Attack" type="Node" parent="States"]
 unique_name_in_owner = true
 script = ExtResource("8_8mwp6")
-attack_sound = ExtResource("9_7emwf")
+attack_sound = ExtResource("10_qemgg")
 
 [node name="Stun" type="Node" parent="States"]
 unique_name_in_owner = true
 script = ExtResource("9_qemgg")
-decelerate_speed = 20.0
 
 [node name="Death" type="Node" parent="States"]
 unique_name_in_owner = true
+process_priority = 1
 script = ExtResource("10_8viyr")
 death_audio = ExtResource("11_sm0op")
 
@@ -516,25 +597,53 @@ texture = ExtResource("12_76lrf")
 hframes = 8
 vframes = 12
 
-[node name="HitBox" parent="." instance=ExtResource("14_755ss")]
+[node name="ClawAttackSprite" type="Sprite2D" parent="Sprite2D"]
 unique_name_in_owner = true
-collision_layer = 6
+visible = false
+show_behind_parent = true
+position = Vector2(12, 7)
+scale = Vector2(0.459245, 0.459245)
+texture = ExtResource("17_8viyr")
+hframes = 5
+vframes = 2
+frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="DamagedArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("18_8viyr")
+metadata/_custom_type_script = "uid://dcakya56c46uh"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamagedArea"]
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_pu2lt")
-debug_color = Color(0.216509, 0.639412, 0, 0.42)
+debug_color = Color(0.217, 0.639, 0, 0)
+
+[node name="PushArea" type="Area2D" parent="."]
+position = Vector2(0, -5)
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("16_m0h3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_qemgg")
+debug_color = Color(0, 0.648, 0.204, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_8erm5")
-debug_color = Color(0, 0.6, 0.701961, 0.262745)
+debug_color = Color(0, 0.6, 0.702, 0)
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 limit_smoothed = true
 editor_draw_limits = true
 script = ExtResource("13_efx54")
+shake_power = 0.6
+shake_decay = 1.5
 metadata/_custom_type_script = "uid://cmtqs8jddtedc"
 
 [node name="Audio" type="Node2D" parent="."]
@@ -544,28 +653,18 @@ process_mode = 3
 max_polyphony = 10
 
 [node name="Interactions" type="Node2D" parent="."]
-script = ExtResource("16_hshwv")
 
-[node name="HurtBox" parent="Interactions" instance=ExtResource("15_bbimk")]
+[node name="AttackArea" type="Area2D" parent="Interactions"]
 unique_name_in_owner = true
-position = Vector2(0, -7)
+position = Vector2(0, -6)
 collision_mask = 256
-monitoring = false
+script = ExtResource("22_8viyr")
+metadata/_custom_type_script = "uid://b5dwvw2ktpplk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
-shape = SubResource("CircleShape2D_n471f")
-debug_color = Color(0.997027, 0, 0.175987, 0.42)
-
-[node name="PushArea" type="Area2D" parent="Interactions"]
-collision_layer = 0
-collision_mask = 16
-monitorable = false
-script = ExtResource("16_m0h3t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PushArea"]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fd4e3")
-debug_color = Color(1.92523e-06, 0.647691, 0.203856, 0.42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/AttackArea"]
+position = Vector2(21, -4.5)
+shape = SubResource("RectangleShape2D_8viyr")
+debug_color = Color(0.758, 0, 0.101, 0)
 
 [node name="Abilities" type="Node2D" parent="."]
 script = ExtResource("21_8mwp6")
@@ -599,8 +698,17 @@ text = "Level Up!"
 horizontal_alignment = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -4)
 emitting = false
 amount = 100
 one_shot = true
 explosiveness = 0.25
 process_material = SubResource("ParticleProcessMaterial_n471f")
+
+[node name="ItemMagnet" parent="." instance=ExtResource("26_8viyr")]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_sm0op")
+debug_color = Color(0.455, 0.595, 0, 0)

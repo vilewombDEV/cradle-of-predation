@@ -7,12 +7,13 @@ class_name Chest
 
 var is_open: bool = false
 
+#region /// On-Ready Variables
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var item_sprite: Sprite2D = $ItemSprite
 @onready var label: Label = $ItemSprite/Label
 @onready var interact_area: Area2D = $Area2D
 @onready var is_open_data: PersistentDataHandler = $IsOpen
-
+#endregion
 
 func _ready() -> void:
 	_update_texture()
@@ -30,7 +31,6 @@ func set_chest_state() -> void:
 		animation_player.play("Opened")
 	else:
 		animation_player.play("RESET")
-
 
 func player_interact() -> void:
 	if is_open == true:

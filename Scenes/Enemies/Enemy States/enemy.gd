@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Enemy
 
 signal direction_changed(new_direction: Vector2)
-signal enemy_damaged(hurt_box: HurtBox)
-signal enemy_destroyed(hurt_box: HurtBox)
+signal enemy_damaged(attack_area: AttackArea)
+signal enemy_destroyed(attack_area: AttackArea)
 
 const DIR_2 = [Vector2.RIGHT, Vector2.LEFT]
 
@@ -18,22 +18,21 @@ var invulnerable: bool = false
 #region /// On-Ready Variables
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var hit_box: HitBox = $HitBox
-@onready var hurt_box: HurtBox = $HurtBox
+@onready var damaged_area: DamagedArea = $DamagedArea
+@onready var hazard_area: HazardArea = $HazardArea
 @onready var enemy_state_machine: EnemyStateMachine = $EnemyStateMachine
-
 #endregion
-
 
 func _ready() -> void:
 	enemy_state_machine.initialize(self)
 	player = PlayerManager.player
-	hit_box.damaged.connect(_take_damage)
+	damaged_area.damage_taken.connect(_take_damage)
 
 func _process(_delta) -> void:
 	pass
 
-func _physics_process(_delta) -> void:
+func _physics_process(delta) -> void:
+	velocity += get_gravity() * delta
 	move_and_slide()
 
 func set_direction(_new_direction: Vector2) -> bool:
@@ -65,12 +64,13 @@ func animation_direction() -> String:
 	else:
 		return ""
 
-func _take_damage(hurt_box: HurtBox) -> void:
+func _take_damage(attack_area: AttackArea) -> void:
 	if invulnerable == true:
 		return
-	hp -= hurt_box.damage
-	EffectManager.damage_text( hurt_box.damage, global_position + Vector2(0, -36) )
+	hp -= attack_area.damage
+	PlayerManager.shake_camera()
+	EffectManager.damage_text( attack_area.damage, global_position + Vector2(0, -36) )
 	if hp > 0:
-		enemy_damaged.emit(hurt_box)
+		enemy_damaged.emit(attack_area)
 	else:
-		enemy_destroyed.emit(hurt_box)
+		enemy_destroyed.emit(attack_area)

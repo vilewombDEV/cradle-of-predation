@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_70j48")
 name = "Eyeballs"
-description = "A peculiar type of currency. "
+description = "A very peculiar type of currency. "
 texture = ExtResource("3_70j48")
 cost = 10
 effects = Array[ExtResource("1_ycqgi")]([])

@@ -1,12 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmkc0uc4t0jq"]
+[gd_scene load_steps=11 format=3 uid="uid://cmkc0uc4t0jq"]
 
 [ext_resource type="Texture2D" uid="uid://8ncnna0s5r2y" path="res://Player/Player Assests/psychic.png" id="1_4hs7l"]
 [ext_resource type="Script" uid="uid://cwp2hgwx07y48" path="res://Player/Abilities/psychic.gd" id="1_emods"]
 [ext_resource type="AudioStream" uid="uid://d04fq2rgiuidm" path="res://Music & SFX/SFX/psychic.wav" id="2_4u3b2"]
-[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="5_w36of"]
+[ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="4_emods"]
+[ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="5_4u3b2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m5ust"]
 radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvc2b"]
+radius = 7.0
 
 [sub_resource type="Animation" id="Animation_emods"]
 length = 0.001
@@ -82,15 +86,29 @@ texture = ExtResource("1_4hs7l")
 hframes = 8
 vframes = 8
 
-[node name="PsychicHurtBox" parent="." instance=ExtResource("5_w36of")]
+[node name="PsychicHitBox" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -7)
-collision_layer = 8
+collision_layer = 9
 collision_mask = 256
+script = ExtResource("4_emods")
+metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PsychicHurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PsychicHitBox"]
 shape = SubResource("CircleShape2D_m5ust")
-debug_color = Color(0.994933, 0, 0.21392, 0.42)
+debug_color = Color(0, 0.638, 0.381, 0)
+
+[node name="HazardArea" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 256
+script = ExtResource("5_4u3b2")
+damage = 8
+metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_cvc2b")
+debug_color = Color(0.978, 0.149, 0, 0)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-0.249999, -7.25)
@@ -105,4 +123,5 @@ libraries = {
 }
 autoplay = "psychic"
 
+[connection signal="body_entered" from="PsychicHitBox" to="." method="_on_psychic_hit_box_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

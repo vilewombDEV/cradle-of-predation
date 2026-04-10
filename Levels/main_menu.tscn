@@ -1,15 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2irbqb228ebu"]
+[gd_scene load_steps=18 format=3 uid="uid://c2irbqb228ebu"]
 
 [ext_resource type="Texture2D" uid="uid://ooddd3aupq3s" path="res://Assets/Misc UI/MM BG.png" id="1_1ehe0"]
+[ext_resource type="Script" uid="uid://bbk0aoo0bpqim" path="res://Levels/main_menu.gd" id="1_6e2af"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="1_28flt"]
-[ext_resource type="Script" uid="uid://bbk0aoo0bpqim" path="res://Scripts/main_menu.gd" id="1_trj04"]
 [ext_resource type="AudioStream" uid="uid://cm3efh64yixwo" path="res://Music & SFX/juanjo_sound - Decisions.ogg" id="2_16hvj"]
+[ext_resource type="AudioStream" uid="uid://b0lt00cgv1rgr" path="res://Music & SFX/SFX/hover.mp3" id="3_b8u61"]
 [ext_resource type="Texture2D" uid="uid://d2t6awa0mbco" path="res://Splash Scene/vw LOGO.png" id="3_ce3w2"]
 [ext_resource type="AudioStream" uid="uid://bd3vaoqo1psh7" path="res://Music & SFX/SFX/click_pm.wav" id="4_1brcv"]
 [ext_resource type="FontFile" uid="uid://kp6rccpff4uq" path="res://Assets/Fonts/MM FONT.ttf" id="4_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://duxfwe5mrbtr6" path="res://Splash Scene/vile_DEV (trans2).png" id="5_trj04"]
-[ext_resource type="Script" uid="uid://dqdpo076pxigs" path="res://Levels/player_spawn.gd" id="8_yhxw7"]
-[ext_resource type="PackedScene" uid="uid://ewn7p1on468q" path="res://Scenes/splash_screen.tscn" id="10_vr1f0"]
+[ext_resource type="PackedScene" uid="uid://c5ykmin26do5a" path="res://Levels/player_spawn.tscn" id="9_6e2af"]
+[ext_resource type="PackedScene" uid="uid://ewn7p1on468q" path="res://Splash Scene/splash_screen.tscn" id="10_vr1f0"]
 [ext_resource type="AudioStream" uid="uid://um1mti2yr473" path="res://Music & SFX/SFX/hover_pm.wav" id="12_b8u61"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n45e2"]
@@ -40,9 +41,9 @@ texture = ExtResource("5_trj04")
 texture = ExtResource("3_ce3w2")
 
 [node name="TitleScene" type="Node2D"]
-script = ExtResource("1_trj04")
+script = ExtResource("1_6e2af")
 music = ExtResource("2_16hvj")
-button_focus = ExtResource("12_b8u61")
+button_focus = ExtResource("3_b8u61")
 button_pressed = ExtResource("4_1brcv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -75,17 +76,16 @@ anchor_left = 0.5
 anchor_top = 0.541
 anchor_right = 0.5
 anchor_bottom = 0.541
-offset_left = -144.0
-offset_top = -82.28
-offset_right = 180.0
-offset_bottom = 161.72
+offset_left = -152.0
+offset_top = -104.28
+offset_right = 172.0
+offset_bottom = 139.72
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="New Game" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
-process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_28flt")
@@ -96,7 +96,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_48xlc")
 text = "New Game"
 
 [node name="Load Game" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
-process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_28flt")
@@ -107,7 +106,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_48xlc")
 text = "Load Game"
 
 [node name="Exit" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
-process_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_28flt")
@@ -115,7 +113,7 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_48xlc")
-text = "Exit"
+text = "Quit"
 
 [node name="GAME NAME" type="Label" parent="CanvasLayer/MainMenu"]
 layout_mode = 1
@@ -167,8 +165,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -14.0
-offset_top = 894.0
-offset_right = -1681.0
+offset_top = 882.0
+offset_right = -1668.0
 offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -183,10 +181,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -169.0
-offset_top = -113.0
-offset_right = -13.0
-offset_bottom = -9.0
+offset_left = -191.0
+offset_top = -127.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
@@ -194,13 +190,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_opfnp")
 
 [node name="SplashScene" parent="CanvasLayer" instance=ExtResource("10_vr1f0")]
 
-[node name="PlayerSpawn" type="Node2D" parent="."]
-position = Vector2(962, 584)
-script = ExtResource("8_yhxw7")
-metadata/_custom_type_script = "uid://dqdpo076pxigs"
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_b8u61")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("9_6e2af")]
+position = Vector2(48, 7)
 
 [connection signal="mouse_entered" from="CanvasLayer/MainMenu/VBoxContainer/New Game" to="." method="_on_new_game_mouse_entered"]
 [connection signal="mouse_entered" from="CanvasLayer/MainMenu/VBoxContainer/Load Game" to="." method="_on_load_game_mouse_entered"]

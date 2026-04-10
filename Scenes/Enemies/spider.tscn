@@ -1,19 +1,22 @@
-[gd_scene load_steps=26 format=3 uid="uid://c5eq5pm52pw5i"]
+[gd_scene load_steps=27 format=3 uid="uid://c5eq5pm52pw5i"]
 
 [ext_resource type="Texture2D" uid="uid://ckvbbrloc2tgq" path="res://Scenes/Enemies/Enemy Sprites/SPIDERS.png" id="1_k3kcl"]
 [ext_resource type="Script" uid="uid://bex13kf7i2h0d" path="res://Scenes/Enemies/Enemy States/enemy.gd" id="1_thv0l"]
+[ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="2_6hqkn"]
 [ext_resource type="Script" uid="uid://4n6ds180b6rx" path="res://Scenes/Enemies/Enemy States/enemy_state_machine.gd" id="2_x8t5f"]
 [ext_resource type="Script" uid="uid://bslfgshxp5pbd" path="res://Scenes/Enemies/Enemy States/enemy_idle.gd" id="3_51pgp"]
-[ext_resource type="PackedScene" uid="uid://4j3ebxuimei1" path="res://Scenes/hit_box.tscn" id="3_kvhtq"]
+[ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="3_rxrcf"]
 [ext_resource type="Script" uid="uid://drso0anyjt0mp" path="res://Scenes/Enemies/Enemy States/enemy_wander.gd" id="4_x8t5f"]
 [ext_resource type="Script" uid="uid://d4d8mbsnxqk41" path="res://Scenes/Enemies/Enemy States/enemy_stun.gd" id="5_wloym"]
-[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="8_ud1yb"]
 [ext_resource type="Script" uid="uid://mw37cjulc2af" path="res://Scenes/Enemies/Enemy States/enemy_destroy.gd" id="8_wloym"]
 [ext_resource type="Script" uid="uid://cqydt761s6qn0" path="res://Scenes/Enemies/Enemy States/drop_data.gd" id="9_6hqkn"]
 [ext_resource type="AudioStream" uid="uid://drmvbvldhl27j" path="res://Music & SFX/SFX/spider_death.wav" id="10_ox5xr"]
 [ext_resource type="Resource" uid="uid://bw2kdyiiney4s" path="res://Inventory/Items/eyeballs.tres" id="10_rxrcf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x8t5f"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hqkn"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxrcf"]
 radius = 4.0
 
 [sub_resource type="Resource" id="Resource_6hqkn"]
@@ -130,7 +133,7 @@ tracks/3/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("10_ox5xr")
 }],
-"times": PackedFloat32Array(0.2)
+"times": PackedFloat32Array(0)
 }
 tracks/3/use_blend = true
 
@@ -186,7 +189,7 @@ tracks/3/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("10_ox5xr")
 }],
-"times": PackedFloat32Array(0.2)
+"times": PackedFloat32Array(0)
 }
 tracks/3/use_blend = true
 
@@ -478,26 +481,33 @@ _data = {
 }
 
 [node name="Spider" type="CharacterBody2D" groups=["enemies"]]
-collision_layer = 256
+collision_layer = 0
 collision_mask = 24
 script = ExtResource("1_thv0l")
 hp = 2
 xp_reward = 2
 
-[node name="HitBox" parent="." instance=ExtResource("3_kvhtq")]
+[node name="DamagedArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 9
+script = ExtResource("2_6hqkn")
+metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamagedArea"]
 position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_x8t5f")
-debug_color = Color(0.228816, 0.63801, 3.85046e-07, 0.42)
+shape = SubResource("CircleShape2D_6hqkn")
+debug_color = Color(0, 0.638, 0.387, 0)
 
-[node name="HurtBox" parent="." instance=ExtResource("8_ud1yb")]
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="HazardArea" type="Area2D" parent="."]
 position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_x8t5f")
-debug_color = Color(1, 0.0027962, 0.0731365, 0.42)
+collision_layer = 256
+collision_mask = 5
+script = ExtResource("3_rxrcf")
+metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+shape = SubResource("CircleShape2D_rxrcf")
+debug_color = Color(0.992, 0, 0.264, 0)
 
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("2_x8t5f")
@@ -528,6 +538,7 @@ vframes = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_k3kcl")
+debug_color = Color(0, 0.6, 0.7, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

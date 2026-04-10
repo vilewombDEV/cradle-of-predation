@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://b46u7f850w025"
 
 [resource]
 script = ExtResource("3_fk4kv")
-type = 1
+type = 2
 modifiers = Array[ExtResource("2_bbvqo")]([SubResource("Resource_q4o0o")])
 name = "Shield of Unyielding Vigil"
 description = "A battle-worn shield, decorated with dents & aged blood."

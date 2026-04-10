@@ -1,6 +1,7 @@
 extends Node
 
 signal interact_pressed
+signal camera_shook(trauma: float)
 signal player_leveled_up
 
 const PLAYER = preload("res://Player/player.tscn")
@@ -47,7 +48,8 @@ func check_for_level_advance() -> void:
 		player.level += 1
 		player.attack += 2
 		player.defense += 2
-		player.insight += 2 ####### MAY DELETE IF DOESNT WORK
-		player.attunement += 2 ####### MAY DELETE IF DOESNT WORK
 		player_leveled_up.emit()
 		check_for_level_advance()
+
+func shake_camera(trauma: float = 1) -> void:
+	camera_shook.emit(trauma)

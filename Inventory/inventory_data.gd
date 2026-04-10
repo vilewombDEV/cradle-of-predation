@@ -9,7 +9,6 @@ var equipment_slot_count: int = 4
 
 func _init() -> void:
 	connect_slots()
-	pass
 
 func inventory_slots() -> Array[SlotData]:
 	return slots.slice(0, -equipment_slot_count)
@@ -115,11 +114,10 @@ func equip_item(slot: SlotData) -> void:
 			equipment_index += 0
 		EquipableItemData.Type.WEAPON:
 			equipment_index += 1
-		EquipableItemData.Type.MAGIC_BOOK:
-			equipment_index += 2
 		EquipableItemData.Type.RING:
+			equipment_index += 2
+		EquipableItemData.Type.MAGIC_BOOK:
 			equipment_index += 3
-		
 	var unequiped_slot: SlotData = slots[equipment_index]
 	slots[slot_index] = unequiped_slot
 	slots[equipment_index] = slot
@@ -142,26 +140,6 @@ func get_defense_bonus_diff(item: EquipableItemData) -> int:
 	var before: int = get_defense_bonus()
 	var after: int = get_equipment_bonus(EquipableItemModifier.Type.DEFENSE, item)
 	return after - before
-
-
-####### MAY DELETE IF DOESNT WORK
-func get_insight_bonus() -> int:
-	return get_equipment_bonus(EquipableItemModifier.Type.INSIGHT)
-
-func get_insight_bonus_diff(item: EquipableItemData) -> int:
-	var before: int = get_insight_bonus()
-	var after: int = get_equipment_bonus(EquipableItemModifier.Type.INSIGHT, item)
-	return after - before
-
-func get_attunement_bonus() -> int:
-	return get_equipment_bonus(EquipableItemModifier.Type.ATTUNEMENT)
-
-func get_attunement_bonus_diff(item: EquipableItemData) -> int:
-	var before: int = get_attunement_bonus()
-	var after: int = get_equipment_bonus(EquipableItemModifier.Type.ATTUNEMENT, item)
-	return after - before
-####### MAY DELETE IF DOESNT WORK
-
 
 func get_equipment_bonus(bonus_type: EquipableItemModifier.Type, compare: EquipableItemData = null) -> int:
 	var bonus: int = 0

@@ -1,12 +1,14 @@
 extends EnemyState
 class_name EnemyStateIdle
 
+#region /// Export Variables
 @export var animation_name: String = "idle"
 
 @export_category("AI")
 @export var state_duration_min: float = 0.5
 @export var state_duration_max: float = 1.0
 @export var after_idle_state: EnemyState
+#endregion
 
 var _timer: float = 0.0
 

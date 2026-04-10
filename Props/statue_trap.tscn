@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dsdwu6uqfh80"]
 
-[ext_resource type="Script" uid="uid://dsxc3mjroc5gk" path="res://Props/statue_trap.gd" id="1_bkhy2"]
+[ext_resource type="Script" uid="uid://dsxc3mjroc5gk" path="res://Props/trap.gd" id="1_bkhy2"]
 [ext_resource type="Texture2D" uid="uid://b7p2pinfgi0dn" path="res://Props/Prop Sprites/Traps/BLK STATUE TRAP.png" id="1_nklho"]
-[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="2_70qyu"]
+[ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="3_bkhy2"]
 
 [sub_resource type="Animation" id="Animation_70qyu"]
 length = 0.001
@@ -118,8 +118,12 @@ position = Vector2(0, -1)
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_70qyu")
 
-[node name="HurtBox" parent="." instance=ExtResource("2_70qyu")]
+[node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(6, -53)
+collision_layer = 256
+collision_mask = 4
+script = ExtResource("3_bkhy2")
+metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_gdwux")

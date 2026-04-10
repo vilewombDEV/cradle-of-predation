@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bd4ofu6fitfqc"]
+
+[ext_resource type="Texture2D" uid="uid://dj5r0hk0d60lc" path="res://Assets/Tile Sets/Library Decorations/small candelabrum.png" id="1_b1v2n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gmwn"]
+atlas = ExtResource("1_b1v2n")
+region = Rect2(0, 0, 18, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np0vo"]
+atlas = ExtResource("1_b1v2n")
+region = Rect2(18, 0, 18, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s51kr"]
+atlas = ExtResource("1_b1v2n")
+region = Rect2(36, 0, 18, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wt8e"]
+atlas = ExtResource("1_b1v2n")
+region = Rect2(54, 0, 18, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbwgv"]
+atlas = ExtResource("1_b1v2n")
+region = Rect2(72, 0, 18, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tupxp"]
+atlas = ExtResource("1_b1v2n")
+region = Rect2(90, 0, 18, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_goa21"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gmwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np0vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s51kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wt8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbwgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tupxp")
+}],
+"loop": true,
+"name": &"Lit",
+"speed": 9.0
+}]
+
+[node name="Small Candelabrum" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_goa21")
+animation = &"Lit"
+autoplay = "Lit"
+frame_progress = 0.121885

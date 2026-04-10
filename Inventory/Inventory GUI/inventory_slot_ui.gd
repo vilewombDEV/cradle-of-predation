@@ -14,8 +14,8 @@ var drag_threshold: float = 16.0
 func _ready() -> void:
 	texture_rect.texture = null
 	label.text = ""
-	focus_entered.connect(item_focused)
-	focus_exited.connect(item_unfocused)
+	mouse_entered.connect(item_focused)
+	mouse_exited.connect(item_unfocused)
 	pressed.connect(item_pressed)
 	button_down.connect(_on_button_down)
 	button_up.connect(_on_button_up)
@@ -71,7 +71,6 @@ func _on_button_down() -> void:
 	drag_texture.z_index = 10
 	drag_texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(drag_texture)
-	
 
 func _on_button_up() -> void:
 	dragging = false

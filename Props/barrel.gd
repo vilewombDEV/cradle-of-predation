@@ -1,13 +1,16 @@
-extends CharacterBody2D
+extends Node2D
 class_name Barrel
 
+#region /// On-Ready Variables
+@onready var damaged_area: DamagedArea = $DamagedArea
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var is_destroyed_data: PersistentDataHandler = $IsDestroyed
+#endregion
 
 var is_destroyed: bool = false
 
 func _ready() -> void:
-	$HitBox.damaged.connect(take_damage)
+	damaged_area.damage_taken.connect(_on_damage_taken)
 	is_destroyed_data.data_loaded.connect(set_barrel_state)
 	set_barrel_state()
 
@@ -18,7 +21,7 @@ func set_barrel_state() -> void:
 	else:
 		animated_sprite.play("Idle")
 
-func take_damage(hurt_box: HurtBox) -> void:
+func _on_damage_taken(attack_area: AttackArea) -> void:
 	if is_destroyed:
 		return
 	if !is_destroyed:

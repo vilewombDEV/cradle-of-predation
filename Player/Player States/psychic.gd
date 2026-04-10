@@ -7,7 +7,6 @@ var direction: Vector2 = Vector2.ZERO
 
 @onready var ability_marker: Marker2D = %AbilityMarker2D
 
-
 func init() -> void:
 	pass
 

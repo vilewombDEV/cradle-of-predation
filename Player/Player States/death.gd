@@ -17,11 +17,12 @@ func exit() -> void:
 	pass
 
 func handle_input(_event: InputEvent) -> PlayerState:
-	return next_state 
+	return null
 
 func process(_delta: float) -> PlayerState:
-	player.velocity = Vector2.ZERO
-	return next_state
+	return null
 
 func physics_process(_delta: float) -> PlayerState:
-	return next_state
+	player.velocity.x = 0
+	player.velocity.y = 0
+	return null

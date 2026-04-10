@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://lo2wni1h7brt"]
+
+[ext_resource type="Script" uid="uid://cqwtrcb3jhlmr" path="res://Props/pushable.gd" id="1_kw811"]
+[ext_resource type="Texture2D" uid="uid://xrcr1pa81kvk" path="res://Assets/Tile Sets/prison.png" id="2_kw811"]
+[ext_resource type="AudioStream" uid="uid://rjnq2fxf83sm" path="res://Music & SFX/SFX/push_stone.wav" id="3_cnl1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rvlb"]
+atlas = ExtResource("2_kw811")
+region = Rect2(240, 144, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfnnp"]
+size = Vector2(32, 32)
+
+[node name="PushableWoodenBox" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 273
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_kw811")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_2rvlb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dfnnp")
+debug_color = Color(0, 0.6, 0.7, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cnl1y")

@@ -16,7 +16,6 @@ func _free_level() -> void:
 	PlayerManager.unparent_player(self)
 	queue_free()
 
-
 func _on_portal_area_body_entered(body: Node2D) -> void:
 	if portal_open: return
 	if body == PlayerManager.player:

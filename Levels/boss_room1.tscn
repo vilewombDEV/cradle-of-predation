@@ -1,25 +1,24 @@
-[gd_scene load_steps=47 format=4 uid="uid://bb0aon8eig3nu"]
+[gd_scene load_steps=46 format=4 uid="uid://bb0aon8eig3nu"]
 
 [ext_resource type="Script" uid="uid://dfawrkv1bwgwu" path="res://Levels/level.gd" id="1_dnxwx"]
+[ext_resource type="AudioStream" uid="uid://djkbigtw2c5nd" path="res://Music & SFX/juanjo_sound - Shrine of Insanity.ogg" id="2_gyng1"]
 [ext_resource type="Texture2D" uid="uid://kud64db3x24e" path="res://Assets/Tile Sets/LIVING TISSUE BG.png" id="2_mnk4c"]
 [ext_resource type="Script" uid="uid://cxvuob6p6e6a" path="res://Levels/Tilemaps/level_tilemap.gd" id="2_t6gla"]
 [ext_resource type="PackedScene" uid="uid://c5ykmin26do5a" path="res://Levels/player_spawn.tscn" id="3_hbrin"]
 [ext_resource type="Texture2D" uid="uid://baoy3kbcel1uq" path="res://Assets/Tile Sets/LIVING TISSUE TILESET.png" id="3_pd45t"]
 [ext_resource type="Texture2D" uid="uid://bpxitoc3f8cpd" path="res://Assets/Tile Sets/DOOR - PORTALS.png" id="5_pd45t"]
 [ext_resource type="Texture2D" uid="uid://dylj7ll2lxhk7" path="res://Assets/Tile Sets/Goth Tileset.png" id="6_wmqup"]
-[ext_resource type="PackedScene" uid="uid://dnmqmd6eiqvuj" path="res://Scenes/torch.tscn" id="8_y47pe"]
-[ext_resource type="PackedScene" uid="uid://clbxbjfdfip7a" path="res://Interaction/Interactable Items/chest.tscn" id="9_o315r"]
-[ext_resource type="Resource" uid="uid://b6ph0x2dcl4ek" path="res://Inventory/Discoverable (Ability) Items/ability_bloodvortex.tres" id="10_vf8gy"]
 [ext_resource type="PackedScene" uid="uid://cuumgqu5w2unl" path="res://Singleton/persistent_data_handler.tscn" id="11_c0tl3"]
 [ext_resource type="PackedScene" uid="uid://c5xqpwoa8wsve" path="res://Scenes/Enemies/energy_beam.tscn" id="11_fbdh6"]
 [ext_resource type="Texture2D" uid="uid://bmo35ecfccm7x" path="res://Scenes/Enemies/Enemy Sprites/Ulthrex.png" id="11_fd63c"]
 [ext_resource type="Script" uid="uid://3xj507ka488s" path="res://Scenes/Enemies/ulthrex,_the_psion_hierophant.gd" id="11_vf8gy"]
-[ext_resource type="PackedScene" uid="uid://1fmqqceq8ow5" path="res://Scenes/hurt_box.tscn" id="12_fd63c"]
-[ext_resource type="PackedScene" uid="uid://4j3ebxuimei1" path="res://Scenes/hit_box.tscn" id="13_c0tl3"]
+[ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="12_aqc7j"]
+[ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="13_y26fk"]
 [ext_resource type="AudioStream" uid="uid://c16sk3v3piu2y" path="res://Music & SFX/SFX/ulthrex_defeat.mp3" id="16_ky7q4"]
 [ext_resource type="PackedScene" uid="uid://c6c5ogs46xbip" path="res://Interaction/Interactable Items/lock_1.tscn" id="18_hb8h0"]
 [ext_resource type="Resource" uid="uid://cojfs18pqyq7e" path="res://Inventory/Items/ulthrex_key.tres" id="19_aqc7j"]
 [ext_resource type="PackedScene" uid="uid://dg4p2e6o2nwpt" path="res://Inventory/item_pickup.tscn" id="20_y26fk"]
+[ext_resource type="PackedScene" uid="uid://bw6gxq0t8wvsm" path="res://Levels/level_transition.tscn" id="22_tp1aq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wmqup"]
 texture = ExtResource("2_mnk4c")
@@ -1699,6 +1698,7 @@ fill_to = Vector2(1, 0.5)
 
 [node name="BossRoom1" type="Node2D"]
 script = ExtResource("1_dnxwx")
+music = ExtResource("2_gyng1")
 
 [node name="BG" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -1713,43 +1713,28 @@ tile_set = SubResource("TileSet_hbrin")
 script = ExtResource("2_t6gla")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_hbrin")]
-position = Vector2(1492, 205)
+position = Vector2(1410, 781)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.12549, 0, 0, 1)
 energy = 0.4
 blend_mode = 2
 
-[node name="Torches" type="Node" parent="."]
-
-[node name="Torch" parent="Torches" instance=ExtResource("8_y47pe")]
-position = Vector2(286, 48)
-
-[node name="Torch2" parent="Torches" instance=ExtResource("8_y47pe")]
-position = Vector2(716, 46)
-
-[node name="Torch3" parent="Torches" instance=ExtResource("8_y47pe")]
-position = Vector2(1538, 172)
-
-[node name="Chest2" parent="." instance=ExtResource("9_o315r")]
-position = Vector2(1555, 214)
-item_data = ExtResource("10_vf8gy")
-
-[node name="Ulthrex, the Psyion Hierophant" type="Node2D" parent="."]
+[node name="Ulthrex, the Psion Hierophant" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("11_vf8gy")
 
-[node name="PersistentDataHandler" parent="Ulthrex, the Psyion Hierophant" instance=ExtResource("11_c0tl3")]
+[node name="PersistentDataHandler" parent="Ulthrex, the Psion Hierophant" instance=ExtResource("11_c0tl3")]
 
-[node name="BossNode" type="Node2D" parent="Ulthrex, the Psyion Hierophant"]
+[node name="BossNode" type="Node2D" parent="Ulthrex, the Psion Hierophant"]
 position = Vector2(1120, 928)
 
-[node name="ShadowSprite" type="Sprite2D" parent="Ulthrex, the Psyion Hierophant/BossNode"]
+[node name="ShadowSprite" type="Sprite2D" parent="Ulthrex, the Psion Hierophant/BossNode"]
 position = Vector2(0, 102)
 scale = Vector2(1, 0.666665)
 texture = SubResource("GradientTexture2D_2xm5h")
 
-[node name="Ulthrex" type="Sprite2D" parent="Ulthrex, the Psyion Hierophant/BossNode"]
+[node name="Ulthrex" type="Sprite2D" parent="Ulthrex, the Psion Hierophant/BossNode"]
 texture_filter = 1
 position = Vector2(2.67029e-05, 7.99997)
 scale = Vector2(0.827297, 0.827297)
@@ -1757,82 +1742,97 @@ texture = ExtResource("11_fd63c")
 hframes = 70
 vframes = 9
 
-[node name="PointLight2D" type="PointLight2D" parent="Ulthrex, the Psyion Hierophant/BossNode"]
+[node name="PointLight2D" type="PointLight2D" parent="Ulthrex, the Psion Hierophant/BossNode"]
 texture = SubResource("GradientTexture2D_au644")
 
-[node name="HurtBox" parent="Ulthrex, the Psyion Hierophant/BossNode" instance=ExtResource("12_fd63c")]
+[node name="HazardArea" type="Area2D" parent="Ulthrex, the Psion Hierophant/BossNode"]
 position = Vector2(0, 88)
+collision_layer = 256
+collision_mask = 4
+script = ExtResource("12_aqc7j")
+damage = 2
+metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ulthrex, the Psyion Hierophant/BossNode/HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ulthrex, the Psion Hierophant/BossNode/HazardArea"]
 shape = SubResource("CircleShape2D_vf8gy")
 debug_color = Color(0.665223, 0, 0.023272, 0.42)
 
-[node name="HitBox" parent="Ulthrex, the Psyion Hierophant/BossNode" instance=ExtResource("13_c0tl3")]
-position = Vector2(0, 43)
+[node name="DamagedArea" type="Area2D" parent="Ulthrex, the Psion Hierophant/BossNode"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("13_y26fk")
+metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ulthrex, the Psyion Hierophant/BossNode/HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ulthrex, the Psion Hierophant/BossNode/DamagedArea"]
+position = Vector2(0, 43)
 shape = SubResource("CapsuleShape2D_fd63c")
 debug_color = Color(0.215, 0.64, 0, 0.492)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Ulthrex, the Psyion Hierophant/BossNode"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Ulthrex, the Psion Hierophant/BossNode"]
 max_polyphony = 10
 
-[node name="BossAnimationPlayer" type="AnimationPlayer" parent="Ulthrex, the Psyion Hierophant/BossNode"]
+[node name="BossAnimationPlayer" type="AnimationPlayer" parent="Ulthrex, the Psion Hierophant/BossNode"]
 libraries = {
 &"": SubResource("AnimationLibrary_vf8gy")
 }
 autoplay = "idle"
 
-[node name="DamagedAnimationPlayer" type="AnimationPlayer" parent="Ulthrex, the Psyion Hierophant/BossNode"]
+[node name="DamagedAnimationPlayer" type="AnimationPlayer" parent="Ulthrex, the Psion Hierophant/BossNode"]
 libraries = {
 &"": SubResource("AnimationLibrary_cqxwa")
 }
 
-[node name="BeamAttacks" type="Node2D" parent="Ulthrex, the Psyion Hierophant"]
+[node name="BeamAttacks" type="Node2D" parent="Ulthrex, the Psion Hierophant"]
 
-[node name="EB_H1" parent="Ulthrex, the Psyion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
-position = Vector2(416, 967)
+[node name="EB_H1" parent="Ulthrex, the Psion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
+position = Vector2(424, 967)
 
-[node name="EB_H2" parent="Ulthrex, the Psyion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
-position = Vector2(416, 998)
+[node name="EB_H2" parent="Ulthrex, the Psion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
+position = Vector2(424, 998)
 
-[node name="EB_H3" parent="Ulthrex, the Psyion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
-position = Vector2(416, 1019)
+[node name="EB_H3" parent="Ulthrex, the Psion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
+position = Vector2(424, 1019)
 
-[node name="EB_V1" parent="Ulthrex, the Psyion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
-position = Vector2(168, 920)
+[node name="EB_V1" parent="Ulthrex, the Psion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
+position = Vector2(192, 920)
 rotation = 1.57079
 
-[node name="EB_V2" parent="Ulthrex, the Psyion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
-position = Vector2(480, 920)
+[node name="EB_V2" parent="Ulthrex, the Psion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
+position = Vector2(488, 920)
 rotation = 1.57079
 
-[node name="EB_V3" parent="Ulthrex, the Psyion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
-position = Vector2(808, 920)
+[node name="EB_V3" parent="Ulthrex, the Psion Hierophant/BeamAttacks" instance=ExtResource("11_fbdh6")]
+position = Vector2(816, 920)
 rotation = 1.57079
 
-[node name="PositionTargets" type="Node2D" parent="Ulthrex, the Psyion Hierophant"]
+[node name="PositionTargets" type="Node2D" parent="Ulthrex, the Psion Hierophant"]
 
-[node name="1" type="Sprite2D" parent="Ulthrex, the Psyion Hierophant/PositionTargets"]
+[node name="1" type="Sprite2D" parent="Ulthrex, the Psion Hierophant/PositionTargets"]
 position = Vector2(192, 928)
 texture = SubResource("GradientTexture2D_fbdh6")
 
-[node name="2" type="Sprite2D" parent="Ulthrex, the Psyion Hierophant/PositionTargets"]
-position = Vector2(412, 928)
+[node name="2" type="Sprite2D" parent="Ulthrex, the Psion Hierophant/PositionTargets"]
+position = Vector2(384, 928)
 texture = SubResource("GradientTexture2D_fbdh6")
 
-[node name="3" type="Sprite2D" parent="Ulthrex, the Psyion Hierophant/PositionTargets"]
-position = Vector2(641, 928)
+[node name="3" type="Sprite2D" parent="Ulthrex, the Psion Hierophant/PositionTargets"]
+position = Vector2(608, 928)
 texture = SubResource("GradientTexture2D_fbdh6")
 
-[node name="4" type="Sprite2D" parent="Ulthrex, the Psyion Hierophant/PositionTargets"]
-position = Vector2(900, 928)
+[node name="4" type="Sprite2D" parent="Ulthrex, the Psion Hierophant/PositionTargets"]
+position = Vector2(880, 928)
 texture = SubResource("GradientTexture2D_fbdh6")
 
-[node name="Lock2" parent="." instance=ExtResource("18_hb8h0")]
+[node name="Lock1" parent="." instance=ExtResource("18_hb8h0")]
 position = Vector2(1824, 987)
 key_item = ExtResource("19_aqc7j")
 
 [node name="ItemPickup" parent="." instance=ExtResource("20_y26fk")]
 position = Vector2(35.8348, 1018)
 item_data = ExtResource("19_aqc7j")
+
+[node name="LevelTransition" parent="." instance=ExtResource("22_tp1aq")]
+position = Vector2(1411, 427)
+level = "uid://cgqhj3ksr777j"
+size = 50
+side = 2

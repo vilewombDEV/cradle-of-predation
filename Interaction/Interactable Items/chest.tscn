@@ -242,6 +242,7 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_pmguq")
+debug_color = Color(0, 0.6, 0.7, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
@@ -251,6 +252,6 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_yngqm")
-debug_color = Color(0.790352, 0.0893577, 1, 0.42)
+debug_color = Color(0.79, 0.089, 1, 0)
 
 [node name="IsOpen" parent="." instance=ExtResource("5_eofq2")]

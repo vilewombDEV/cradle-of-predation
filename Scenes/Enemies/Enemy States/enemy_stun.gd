@@ -1,12 +1,14 @@
 extends EnemyState
 class_name EnemyStateStun
 
+#region /// Export Variables
 @export var animation_name: String = "stun"
 @export var knockback_speed: float = 15.0
 @export var decelerate_speed: float = 10.0
 
 @export_category("AI")
 @export var next_state: EnemyState
+#endregion
 
 var _damage_position: Vector2
 var _direction: Vector2
@@ -22,7 +24,7 @@ func enter() -> void:
 	_direction = enemy.global_position.direction_to(_damage_position)
 	
 	enemy.set_direction(_direction)
-	enemy.velocity = _direction * -knockback_speed
+	enemy.velocity.x = _direction.x * -knockback_speed
 	
 	enemy.update_animation(animation_name)
 	enemy.animation_player.animation_finished.connect(_on_animation_finished)
@@ -34,14 +36,14 @@ func exit() -> void:
 func process(_delta: float) -> EnemyState:
 	if _animation_finished == true:
 		return next_state
-	enemy.velocity -= enemy.velocity * decelerate_speed * _delta
+	enemy.velocity.x -= enemy.velocity.x * decelerate_speed * _delta
 	return null
 
 func physics_process(_delta: float) -> EnemyState:
 	return null
 
-func _on_enemy_damaged(hurt_box: HurtBox) -> void:
-	_damage_position = hurt_box.global_position
+func _on_enemy_damaged(attack_area: AttackArea) -> void:
+	_damage_position = attack_area.global_position
 	state_machine.change_state(self)
 
 func _on_animation_finished(_a: String) -> void:

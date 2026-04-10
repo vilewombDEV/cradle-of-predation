@@ -7,6 +7,7 @@ var next_state: PlayerState
 #region /// State References
 @onready var idle: PlayerStateIdle = %Idle
 @onready var run: PlayerStateRun = %Run
+@onready var dash: PlayerStateDash = %Dash
 @onready var jump: PlayerStateJump = %Jump
 @onready var fall: PlayerStateFall = %Fall
 @onready var attack: PlayerStateAttack = %Attack
@@ -14,7 +15,6 @@ var next_state: PlayerState
 @onready var death: PlayerStateDeath = %Death
 @onready var fireball: PlayerStateFireball = %Fireball
 @onready var psychic: PlayerStatePsychic = %Psychic
-
 #endregion 
 
 func init() -> void:
