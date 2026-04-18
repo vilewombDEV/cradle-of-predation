@@ -53,3 +53,16 @@ func check_for_level_advance() -> void:
 
 func shake_camera(trauma: float = 1) -> void:
 	camera_shook.emit(trauma)
+
+func reset_camera_on_player(tween_duration: float = 0.5) -> void:
+	var camera: Camera2D = get_viewport().get_camera_2d()
+	if camera:
+		if camera.get_parent() == player:
+			print("Camera already on player")
+			return
+		camera.reparent(player)
+		
+		var tween: Tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(camera, "position", Vector2.ZERO, tween_duration)

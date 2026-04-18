@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d16uck00gbmao"]
+[gd_scene format=3 uid="uid://d16uck00gbmao"]
 
 [ext_resource type="Script" uid="uid://bhto437pmyt0u" path="res://Props/barrel.gd" id="1_a6h66"]
 [ext_resource type="Texture2D" uid="uid://8t44tbxnkb15" path="res://Props/Prop Sprites/Destructible Objects Sprite Sheet - Edited.png" id="2_sprgd"]
@@ -106,7 +106,7 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkf6n"]
 radius = 9.0
 
-[node name="Barrel" type="Node2D" groups=["enemies"]]
+[node name="Barrel" type="Node2D" groups=["Enemies"]]
 process_mode = 3
 script = ExtResource("1_a6h66")
 

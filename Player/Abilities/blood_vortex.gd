@@ -12,7 +12,8 @@ var state
 @export var max_speed: float = 400.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var blood_audio: AudioStreamPlayer = $AudioStreamPlayer
+@onready var blood_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 
 func _ready() -> void:
 	visible = false

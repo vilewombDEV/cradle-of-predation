@@ -20,8 +20,10 @@ func _ready() -> void:
 
 func player_interact() -> void:
 	player_interacted.emit()
-	DialogSystem.show_dialog(dialog_items)
+	await get_tree().process_frame
+	await get_tree().process_frame
 	DialogSystem.finished.connect(on_dialog_finished)
+	DialogSystem.show_dialog(dialog_items)
 
 func on_dialog_finished() -> void:
 	DialogSystem.finished.disconnect(on_dialog_finished)

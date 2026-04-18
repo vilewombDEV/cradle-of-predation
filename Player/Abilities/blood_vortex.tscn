@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwcx77juf3hwj"]
+[gd_scene format=3 uid="uid://dwcx77juf3hwj"]
 
 [ext_resource type="Script" uid="uid://cnsietifhvcjq" path="res://Player/Abilities/blood_vortex.gd" id="1_aikkw"]
 [ext_resource type="Texture2D" uid="uid://llxkt8lx471i" path="res://Player/Player Assests/blood vortex.png" id="2_aikkw"]
@@ -46,10 +46,10 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l2gmp"]
 
-[node name="BloodVortex" type="Node2D"]
+[node name="BloodVortex" type="Node2D" unique_id=257621453]
 script = ExtResource("1_aikkw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=234464048]
 self_modulate = Color(0.678431, 0, 0, 1)
 position = Vector2(0, -4)
 scale = Vector2(0.263236, 0.263236)
@@ -57,23 +57,22 @@ texture = ExtResource("2_aikkw")
 hframes = 8
 vframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8tcqj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1063312386]
+libraries/ = SubResource("AnimationLibrary_8tcqj")
 
-[node name="BloodVortexHurtBox" type="Area2D" parent="."]
+[node name="BloodVortexHurtBox" type="Area2D" parent="." unique_id=1755350917]
 collision_layer = 8
 collision_mask = 256
 script = ExtResource("3_aikkw")
 damage = 3
 metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BloodVortexHurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BloodVortexHurtBox" unique_id=1153664514]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_l2gmp")
 debug_color = Color(0.989, 0, 0.301, 0)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1835522011]
 stream = ExtResource("4_aikkw")
 max_polyphony = 10
+bus = &"SFX"

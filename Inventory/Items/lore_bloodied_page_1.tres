@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://ok048kd4m8ha"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ok048kd4m8ha"]
 
 [ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_7qg0l"]
 [ext_resource type="Script" uid="uid://biyd2cvsmp6a5" path="res://Inventory/item_data.gd" id="2_6e7mn"]
@@ -8,7 +8,6 @@
 [sub_resource type="Resource" id="Resource_1gu18"]
 script = ExtResource("2_f5kmo")
 health_increase = 0
-use_description = ""
 metadata/_custom_type_script = "uid://446llnfkvpvp"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_np40p"]
@@ -22,6 +21,5 @@ description = "A bloodied page ripped from a diabolical book.
 
 \"...and if it is found outside of its cradle, it must be re-contained.\""
 texture = SubResource("AtlasTexture_np40p")
-cost = 10
 effects = Array[ExtResource("1_7qg0l")]([SubResource("Resource_1gu18")])
 metadata/_custom_type_script = "uid://biyd2cvsmp6a5"

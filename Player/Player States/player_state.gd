@@ -15,6 +15,7 @@ var next_state: PlayerState
 @onready var death: PlayerStateDeath = %Death
 @onready var fireball: PlayerStateFireball = %Fireball
 @onready var psychic: PlayerStatePsychic = %Psychic
+@onready var cutscene: PlayerStateCutscene = %Cutscene
 #endregion 
 
 func init() -> void:

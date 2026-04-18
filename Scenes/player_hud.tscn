@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://72cs0kq6i3tm"]
+[gd_scene format=3 uid="uid://72cs0kq6i3tm"]
 
 [ext_resource type="Script" uid="uid://y46lm5pnahly" path="res://Scripts/player_hud.gd" id="1_54pr6"]
 [ext_resource type="PackedScene" uid="uid://7ymp8gaqu27o" path="res://Scenes/heart_gui.tscn" id="2_iori6"]
@@ -481,11 +481,11 @@ region = Rect2(9, 40, 14, 15)
 atlas = ExtResource("11_o8xso")
 region = Rect2(40, 40, 15, 15)
 
-[node name="PlayerHUD" type="CanvasLayer"]
+[node name="PlayerHUD" type="CanvasLayer" unique_id=1834956788]
 layer = 2
 script = ExtResource("1_54pr6")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1088700654]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -497,7 +497,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+[node name="HFlowContainer" type="HFlowContainer" parent="Control" unique_id=1003639874]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -510,67 +510,67 @@ scale = Vector2(3, 3)
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 
-[node name="Heart" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart" parent="Control/HFlowContainer" unique_id=1520539984 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart2" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart2" parent="Control/HFlowContainer" unique_id=476056148 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart3" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart3" parent="Control/HFlowContainer" unique_id=343707607 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart4" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart4" parent="Control/HFlowContainer" unique_id=1382792698 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart5" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart5" parent="Control/HFlowContainer" unique_id=1814882577 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart6" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart6" parent="Control/HFlowContainer" unique_id=243403061 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart7" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart7" parent="Control/HFlowContainer" unique_id=333588595 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart8" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart8" parent="Control/HFlowContainer" unique_id=560619430 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart9" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart9" parent="Control/HFlowContainer" unique_id=320445234 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart10" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart10" parent="Control/HFlowContainer" unique_id=1635503273 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart11" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart11" parent="Control/HFlowContainer" unique_id=274566551 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart12" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart12" parent="Control/HFlowContainer" unique_id=1744421798 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart13" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart13" parent="Control/HFlowContainer" unique_id=639203644 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart14" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart14" parent="Control/HFlowContainer" unique_id=1116467453 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart15" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart15" parent="Control/HFlowContainer" unique_id=1094269630 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart16" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart16" parent="Control/HFlowContainer" unique_id=607301885 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart17" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart17" parent="Control/HFlowContainer" unique_id=359250828 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart18" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart18" parent="Control/HFlowContainer" unique_id=1491342870 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart19" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart19" parent="Control/HFlowContainer" unique_id=648833177 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="Heart20" parent="Control/HFlowContainer" instance=ExtResource("2_iori6")]
+[node name="Heart20" parent="Control/HFlowContainer" unique_id=1855858283 instance=ExtResource("2_iori6")]
 layout_mode = 2
 
-[node name="GameOver" type="Control" parent="Control"]
+[node name="GameOver" type="Control" parent="Control" unique_id=1268336363]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -579,7 +579,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control/GameOver"]
+[node name="ColorRect" type="ColorRect" parent="Control/GameOver" unique_id=1657629976]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -588,7 +588,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="You" type="Label" parent="Control/GameOver"]
+[node name="You" type="Label" parent="Control/GameOver" unique_id=360715164]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -608,7 +608,7 @@ theme_override_font_sizes/font_size = 50
 text = "-You-"
 horizontal_alignment = 1
 
-[node name="DIED" type="Label" parent="Control/GameOver"]
+[node name="DIED" type="Label" parent="Control/GameOver" unique_id=1333503788]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -630,7 +630,7 @@ theme_override_fonts/font = ExtResource("4_54pr6")
 theme_override_font_sizes/font_size = 200
 text = "DIED"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/GameOver"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/GameOver" unique_id=2091651391]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -646,19 +646,19 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 15
 
-[node name="Continue" type="Button" parent="Control/GameOver/VBoxContainer"]
+[node name="Continue" type="Button" parent="Control/GameOver/VBoxContainer" unique_id=620688745]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_uc0x4")
 theme_override_font_sizes/font_size = 25
 text = "Continue"
 
-[node name="Main Menu" type="Button" parent="Control/GameOver/VBoxContainer"]
+[node name="Main Menu" type="Button" parent="Control/GameOver/VBoxContainer" unique_id=55598769]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_uc0x4")
 theme_override_font_sizes/font_size = 25
 text = "Main Menu"
 
-[node name="FadetoBlack" type="ColorRect" parent="Control/GameOver"]
+[node name="FadetoBlack" type="ColorRect" parent="Control/GameOver" unique_id=1584915629]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -668,19 +668,17 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/GameOver"]
-libraries = {
-&"": SubResource("AnimationLibrary_188kt")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/GameOver" unique_id=643709832]
+libraries/ = SubResource("AnimationLibrary_188kt")
 
-[node name="Notification" type="Control" parent="Control"]
+[node name="Notification" type="Control" parent="Control" unique_id=456109090]
 process_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_imajn")
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/Notification"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/Notification" unique_id=1136692088]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 0
 offset_left = 15.0
@@ -690,10 +688,10 @@ offset_bottom = 115.0
 scale = Vector2(1.2, 1.2)
 theme_override_styles/panel = SubResource("StyleBoxTexture_188kt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Notification/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Notification/PanelContainer" unique_id=1666818937]
 layout_mode = 2
 
-[node name="NotificationType" type="Label" parent="Control/Notification/PanelContainer/VBoxContainer"]
+[node name="NotificationType" type="Label" parent="Control/Notification/PanelContainer/VBoxContainer" unique_id=1901443816]
 modulate = Color(1, 0.858824, 0.552941, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(250, 25)
@@ -706,7 +704,7 @@ theme_override_font_sizes/font_size = 25
 text = "Notification Type "
 autowrap_mode = 3
 
-[node name="NotificationMessage" type="Label" parent="Control/Notification/PanelContainer/VBoxContainer"]
+[node name="NotificationMessage" type="Label" parent="Control/Notification/PanelContainer/VBoxContainer" unique_id=1147388418]
 texture_filter = 1
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
@@ -716,12 +714,10 @@ theme_override_font_sizes/font_size = 15
 text = "Notification Message"
 autowrap_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Notification"]
-libraries = {
-&"": SubResource("AnimationLibrary_tfrlj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Notification" unique_id=1580038044]
+libraries/ = SubResource("AnimationLibrary_tfrlj")
 
-[node name="Abilities" type="Control" parent="Control"]
+[node name="Abilities" type="Control" parent="Control" unique_id=211929929]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -732,7 +728,7 @@ offset_bottom = 62.0
 grow_horizontal = 2
 scale = Vector2(1.2, 1.2)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities" unique_id=664320250]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -742,11 +738,11 @@ offset_right = 268.0
 grow_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="TextureRect1" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+[node name="TextureRect1" type="TextureRect" parent="Control/Abilities/HBoxContainer" unique_id=456840354]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_vfwc5")
 
-[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect1"]
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect1" unique_id=1524383574]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -759,11 +755,11 @@ grow_horizontal = 2
 texture = ExtResource("8_buav2")
 stretch_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Control/Abilities/HBoxContainer" unique_id=793646972]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_vfwc5")
 
-[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect2"]
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect2" unique_id=1721080698]
 texture_filter = 1
 layout_mode = 0
 offset_right = 64.0
@@ -771,11 +767,11 @@ offset_bottom = 64.0
 texture = ExtResource("8_2627f")
 stretch_mode = 3
 
-[node name="TextureRect3" type="TextureRect" parent="Control/Abilities/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="Control/Abilities/HBoxContainer" unique_id=1903353217]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_vfwc5")
 
-[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect3"]
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/HBoxContainer/TextureRect3" unique_id=420757774]
 texture_filter = 1
 layout_mode = 0
 offset_right = 64.0
@@ -783,7 +779,7 @@ offset_bottom = 64.0
 texture = ExtResource("10_advre")
 stretch_mode = 3
 
-[node name="BossUI" type="Control" parent="Control"]
+[node name="BossUI" type="Control" parent="Control" unique_id=1212623047]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -797,7 +793,7 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/BossUI"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/BossUI" unique_id=580693090]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -811,7 +807,7 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = SubResource("AtlasTexture_kt5xe")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/BossUI"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/BossUI" unique_id=173247114]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -829,7 +825,7 @@ nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_vfwc5")
 texture_progress = SubResource("AtlasTexture_8rgen")
 
-[node name="Label" type="Label" parent="Control/BossUI"]
+[node name="Label" type="Label" parent="Control/BossUI" unique_id=500292829]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -846,4 +842,6 @@ theme_override_font_sizes/font_size = 17
 text = "BOSS NAME"
 horizontal_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1982947571]
+max_polyphony = 10
+bus = &"SFX"

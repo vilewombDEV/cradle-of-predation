@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlq33de7aghxx"]
+[gd_scene format=3 uid="uid://dlq33de7aghxx"]
 
 [ext_resource type="Script" uid="uid://nvjf2w605epc" path="res://Props/breakable_wall.gd" id="1_55hhc"]
 [ext_resource type="Texture2D" uid="uid://6aroj13l5bwo" path="res://Assets/Tile Sets/tile_set_castle.png" id="2_55hhc"]
@@ -11,7 +11,7 @@ size = Vector2(32, 47)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyvyl"]
 size = Vector2(26, 47)
 
-[node name="BreakableWall" type="Node2D" groups=["enemies"]]
+[node name="BreakableWall" type="Node2D" groups=["Enemies"]]
 script = ExtResource("1_55hhc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

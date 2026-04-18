@@ -2,6 +2,7 @@
 extends CanvasLayer
 class_name DialogSystemNode
 
+signal started
 signal finished
 signal letter_added(letter: String)
 
@@ -17,6 +18,7 @@ var plain_text: String
 var dialog_items: Array[DialogItem]
 var dialog_item_index: int = 0
 
+#region /// On-Ready Variables
 @onready var dialog_ui: Control = $DialogUI
 @onready var content: RichTextLabel = $DialogUI/PanelContainer/RichTextLabel
 @onready var name_label: Label = $DialogUI/NameLabel
@@ -26,7 +28,7 @@ var dialog_item_index: int = 0
 @onready var timer: Timer = $DialogUI/Timer
 @onready var default_text_sound: AudioStreamPlayer = $DialogUI/AudioStreamPlayer
 @onready var choice_options: VBoxContainer = $DialogUI/VBoxContainer
-
+#endregion
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -62,12 +64,20 @@ func advance_dialog() -> void:
 # Show Dialog System UI
 func show_dialog(_items: Array[DialogItem]) -> void:
 	is_active = true
-	dialog_ui.visible = true
+	if _items:
+		if _items[0] is DialogCutscene:
+			dialog_ui.visible = false
+		else:
+			dialog_ui.visible = true
+		for i in _items:
+			if i is DialogCutscene:
+				$CinematicUI/AnimationPlayer.play("start")
 	dialog_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 	dialog_items = _items
 	dialog_item_index = 0
 	get_tree().paused = true
 	await get_tree().process_frame
+	started.emit()
 	if dialog_items.size() == 0:
 		hide_dialog()
 	else:
@@ -81,6 +91,8 @@ func hide_dialog() -> void:
 	dialog_ui.process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().paused = false
 	finished.emit()
+	PlayerManager.reset_camera_on_player()
+	$CinematicUI/AnimationPlayer.play("end")
 
 
 #Initialize UI variables for a new Dialog Interaction

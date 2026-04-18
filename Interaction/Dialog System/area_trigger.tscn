@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://wex0vwvfcouv"]
+
+[ext_resource type="Script" uid="uid://cxpt7umthsvdc" path="res://Interaction/Dialog System/area_trigger.gd" id="1_akv20"]
+
+[node name="AreaTrigger" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_akv20")

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AbilityItemData" load_steps=5 format=3 uid="uid://8mftm2w6witv"]
+[gd_resource type="Resource" script_class="AbilityItemData" format=3 uid="uid://8mftm2w6witv"]
 
 [ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_uitoy"]
 [ext_resource type="Script" uid="uid://bwd8y5xaetk57" path="res://Inventory/ability_item_data.gd" id="2_byyyj"]
@@ -12,8 +12,5 @@ region = Rect2(114, 114, 12, 12)
 script = ExtResource("2_byyyj")
 type = 2
 name = "Psychic"
-description = ""
 texture = SubResource("AtlasTexture_wh5wf")
-cost = 10
-effects = Array[ExtResource("1_uitoy")]([])
 metadata/_custom_type_script = "uid://bwd8y5xaetk57"

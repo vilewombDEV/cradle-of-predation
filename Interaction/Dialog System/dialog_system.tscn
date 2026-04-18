@@ -1,11 +1,136 @@
-[gd_scene load_steps=14 format=3 uid="uid://xcvm7rno44v4"]
+[gd_scene load_steps=17 format=3 uid="uid://xcvm7rno44v4"]
 
 [ext_resource type="Script" uid="uid://ceqh0gdrht76h" path="res://Interaction/Dialog System/dialog_system.gd" id="1_4alfp"]
 [ext_resource type="Texture2D" uid="uid://dybjub3o5oyrk" path="res://Assets/Misc UI/UI/text-bubble.png" id="2_utdsk"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="3_f8p31"]
-[ext_resource type="Texture2D" uid="uid://okwn210tbuyn" path="res://Assets/Misc UI/UI/L GYPSY PORTRAIT.png" id="4_f8p31"]
 [ext_resource type="AudioStream" uid="uid://b5gddfx3f40wk" path="res://Music & SFX/SFX/voice_blip.wav" id="5_6y2ig"]
 [ext_resource type="Theme" uid="uid://bdfspsta5x5aj" path="res://Interaction/Dialog System/dialog_choice_these.tres" id="6_e71ex"]
+
+[sub_resource type="Animation" id="Animation_v5gwv"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackBar1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -140)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackBar2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1081)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0te6m"]
+resource_name = "end"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackBar1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -140)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackBar2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 940), Vector2(0, 1081)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5vt24"]
+resource_name = "start"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackBar1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -140), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackBar2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1081), Vector2(0, 940)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0te6m"]
+_data = {
+&"default": SubResource("Animation_v5gwv"),
+&"end": SubResource("Animation_0te6m"),
+&"start": SubResource("Animation_5vt24")
+}
 
 [sub_resource type="Gradient" id="Gradient_utdsk"]
 offsets = PackedFloat32Array(0.111111, 0.724868)
@@ -78,6 +203,41 @@ process_mode = 3
 layer = 3
 script = ExtResource("1_4alfp")
 
+[node name="CinematicUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackBar1" type="ColorRect" parent="CinematicUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -140.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackBar2" type="ColorRect" parent="CinematicUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CinematicUI"]
+libraries = {
+&"": SubResource("AnimationLibrary_0te6m")
+}
+autoplay = "default"
+
 [node name="DialogUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -88,7 +248,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="DialogUI"]
-modulate = Color(1, 1, 1, 0.531)
+modulate = Color(1, 1, 1, 0.26)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -121,13 +281,13 @@ theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
 theme_override_fonts/normal_font = ExtResource("3_f8p31")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[shake]Shaking Text[/shake]
+text = "[shake][/shake]
 
 [wave]Wavy Text[/wave]
 
 [color=red]Colored Text[/color]"
 scroll_active = false
-visible_characters = 2
+visible_characters = 1
 visible_ratio = 0.0540541
 
 [node name="NameLabel" type="Label" parent="DialogUI"]
@@ -148,7 +308,6 @@ horizontal_alignment = 3
 [node name="PortraitSprite" type="Sprite2D" parent="DialogUI"]
 position = Vector2(267, 903.759)
 scale = Vector2(0.622137, 0.622137)
-texture = ExtResource("4_f8p31")
 
 [node name="Timer" type="Timer" parent="DialogUI"]
 one_shot = true

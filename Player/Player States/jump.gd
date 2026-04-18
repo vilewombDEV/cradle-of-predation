@@ -2,7 +2,7 @@ extends PlayerState
 class_name PlayerStateJump
 
 @export var jump_velocity: float = 300.0
-
+@export var jump_audio: AudioStream
 func init() -> void:
 	pass
 
@@ -15,6 +15,10 @@ func enter() -> void:
 		await get_tree().physics_frame
 		player.velocity.y *= 0.5
 		player.change_state(fall)
+		
+	if jump_audio:
+		player.audio_player.stream = jump_audio
+		player.audio_player.play()
 
 func exit() -> void:
 	pass

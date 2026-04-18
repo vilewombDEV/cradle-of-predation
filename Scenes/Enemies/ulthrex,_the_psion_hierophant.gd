@@ -3,6 +3,8 @@ class_name UlthrexBoss
 
 const ENERGY_ORB: PackedScene = preload("res://Scenes/Enemies/energy_orb.tscn")
 
+var ULTHREX_KEY = preload("uid://cojfs18pqyq7e")
+
 @export var max_hp: int = 15
 
 #region /// Standard Variables
@@ -111,6 +113,7 @@ func _damage_taken(attack_area: AttackArea) -> void:
 	damaged_animation_player.play("damaged")
 	damaged_animation_player.seek(0)
 	damaged_animation_player.queue("default")
+	PlayerManager.shake_camera()
 	if hp < 1:
 		defeat()
 
@@ -120,6 +123,7 @@ func defeat() -> void:
 	PlayerHUD.hide_boss_health()
 	boss_defeated.set_value()
 	await boss_animation_player.animation_finished
+
 
 func enable_hit_boxes(_v: bool = true) -> void:
 	damaged_area.set_deferred("monitorable", _v)

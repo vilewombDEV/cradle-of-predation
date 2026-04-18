@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cstqm2inckfvc"]
+[gd_scene format=4 uid="uid://cstqm2inckfvc"]
 
 [ext_resource type="Script" uid="uid://dfawrkv1bwgwu" path="res://Levels/level.gd" id="1_aoy5m"]
 [ext_resource type="AudioStream" uid="uid://bslqh6e56kxfg" path="res://Music & SFX/juanjo_sound - The Hollow Path.ogg" id="2_a6p5l"]
@@ -33,18 +33,25 @@ texture = ExtResource("10_yftvn")
 5:0/0 = 0
 7:0/0 = 0
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0/custom_data_0 = 1
 8:0/0 = 0
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0/custom_data_0 = 1
 9:0/0 = 0
 9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0/custom_data_0 = 1
 10:0/0 = 0
 10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:0/0/custom_data_0 = 1
 11:0/0 = 0
 11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:0/0/custom_data_0 = 1
 12:0/0 = 0
 12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:0/0/custom_data_0 = 1
 13:0/0 = 0
 13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:0/0/custom_data_0 = 1
 15:0/0 = 0
 16:0/0 = 0
 18:0/0 = 0
@@ -66,18 +73,25 @@ texture = ExtResource("10_yftvn")
 5:1/0 = 0
 7:1/0 = 0
 7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0/custom_data_0 = 1
 8:1/0 = 0
 8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0/custom_data_0 = 1
 9:1/0 = 0
 9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0/custom_data_0 = 1
 10:1/0 = 0
 10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:1/0/custom_data_0 = 1
 11:1/0 = 0
 11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:1/0/custom_data_0 = 1
 12:1/0 = 0
 12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:1/0/custom_data_0 = 1
 13:1/0 = 0
 13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:1/0/custom_data_0 = 1
 15:1/0 = 0
 16:1/0 = 0
 18:1/0 = 0
@@ -316,10 +330,13 @@ texture = ExtResource("10_yftvn")
 16:15/0 = 0
 18:15/0 = 0
 18:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+18:15/0/custom_data_0 = 1
 19:15/0 = 0
 19:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+19:15/0/custom_data_0 = 1
 20:15/0 = 0
 20:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+20:15/0/custom_data_0 = 1
 22:15/0 = 0
 23:15/0 = 0
 27:15/0 = 0
@@ -342,10 +359,13 @@ texture = ExtResource("10_yftvn")
 16:16/0 = 0
 18:16/0 = 0
 18:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+18:16/0/custom_data_0 = 1
 19:16/0 = 0
 19:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+19:16/0/custom_data_0 = 1
 20:16/0 = 0
 20:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+20:16/0/custom_data_0 = 1
 22:16/0 = 0
 23:16/0 = 0
 27:16/0 = 0
@@ -356,10 +376,13 @@ texture = ExtResource("10_yftvn")
 7:17/0 = 0
 8:17/0 = 0
 8:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:17/0/custom_data_0 = 1
 9:17/0 = 0
 9:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:17/0/custom_data_0 = 1
 10:17/0 = 0
 10:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:17/0/custom_data_0 = 1
 11:17/0 = 0
 22:17/0 = 0
 23:17/0 = 0
@@ -398,10 +421,13 @@ texture = ExtResource("10_yftvn")
 22:19/0 = 0
 24:19/0 = 0
 24:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4.13675, 8, 0.359717, 8, 8, -8, 8)
+24:19/0/custom_data_0 = 1
 25:19/0 = 0
 25:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.359717, 8, 0.539577, 8, 8, -8, 8)
+25:19/0/custom_data_0 = 1
 26:19/0 = 0
 26:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.359717, 8, 4.49647, 8, 8, -8, 8)
+26:19/0/custom_data_0 = 1
 27:19/0 = 0
 28:19/0 = 0
 29:19/0 = 0
@@ -430,10 +456,13 @@ texture = ExtResource("10_yftvn")
 22:20/0 = 0
 24:20/0 = 0
 24:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+24:20/0/custom_data_0 = 1
 25:20/0 = 0
 25:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+25:20/0/custom_data_0 = 1
 26:20/0 = 0
 26:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+26:20/0/custom_data_0 = 1
 27:20/0 = 0
 28:20/0 = 0
 29:20/0 = 0
@@ -464,208 +493,213 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 16
 physics_layer_1/collision_layer = 32
 physics_layer_1/collision_mask = 32
+custom_data_layer_0/name = "Footstep_Type"
+custom_data_layer_0/type = 2
 sources/0 = SubResource("TileSetAtlasSource_738kn")
 
-[node name="OurdoorPath" type="Node2D"]
+[node name="OurdoorPath" type="Node2D" unique_id=1167471906]
 script = ExtResource("1_aoy5m")
 music = ExtResource("2_a6p5l")
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1266768347]
 color = Color(0.0901961, 0.129412, 0.156863, 1)
 energy = 0.3
 blend_mode = 2
 
-[node name="Parallax2D-BG" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG" type="Parallax2D" parent="." unique_id=854985796]
 z_index = -1
 scroll_scale = Vector2(0.5, 1)
 scroll_offset = Vector2(-3, -61)
 
-[node name="BG1-1" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG1-1" type="Sprite2D" parent="Parallax2D-BG" unique_id=509811298]
 position = Vector2(256, 227)
 texture = ExtResource("2_pdoyq")
 
-[node name="BG1-2" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG1-2" type="Sprite2D" parent="Parallax2D-BG" unique_id=1843754570]
 position = Vector2(768, 227)
 texture = ExtResource("2_pdoyq")
 
-[node name="BG1-3" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG1-3" type="Sprite2D" parent="Parallax2D-BG" unique_id=1142116773]
 position = Vector2(1278, 227)
 texture = ExtResource("2_pdoyq")
 
-[node name="BG1-4" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG1-4" type="Sprite2D" parent="Parallax2D-BG" unique_id=12151956]
 position = Vector2(1792, 227)
 texture = ExtResource("2_pdoyq")
 
-[node name="BG2-1" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG2-1" type="Sprite2D" parent="Parallax2D-BG" unique_id=251374968]
 position = Vector2(256, 227)
 texture = ExtResource("3_a6p5l")
 
-[node name="BG2-2" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG2-2" type="Sprite2D" parent="Parallax2D-BG" unique_id=902708134]
 position = Vector2(768, 227)
 texture = ExtResource("3_a6p5l")
 
-[node name="BG2-3" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG2-3" type="Sprite2D" parent="Parallax2D-BG" unique_id=464565613]
 position = Vector2(1280, 227)
 texture = ExtResource("3_a6p5l")
 
-[node name="BG2-4" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG2-4" type="Sprite2D" parent="Parallax2D-BG" unique_id=169577913]
 position = Vector2(1792, 227)
 texture = ExtResource("3_a6p5l")
 
-[node name="BG3-1" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG3-1" type="Sprite2D" parent="Parallax2D-BG" unique_id=427741476]
 position = Vector2(256, 227)
 texture = ExtResource("4_phkg6")
 
-[node name="BG3-2" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG3-2" type="Sprite2D" parent="Parallax2D-BG" unique_id=1630556603]
 position = Vector2(768, 227)
 texture = ExtResource("4_phkg6")
 
-[node name="BG3-3" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG3-3" type="Sprite2D" parent="Parallax2D-BG" unique_id=589811505]
 position = Vector2(1281, 227)
 texture = ExtResource("4_phkg6")
 
-[node name="BG3-4" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG3-4" type="Sprite2D" parent="Parallax2D-BG" unique_id=405734489]
 position = Vector2(1793, 227)
 texture = ExtResource("4_phkg6")
 
-[node name="Parallax2D-BG-3" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG-3" type="Parallax2D" parent="." unique_id=1207719144]
 scroll_scale = Vector2(0.9, 1)
 scroll_offset = Vector2(-3, -61)
 
-[node name="BG4-1" type="Sprite2D" parent="Parallax2D-BG-3"]
+[node name="BG4-1" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=983308888]
 z_index = -1
 position = Vector2(256, 227)
 texture = ExtResource("5_ytdl4")
 
-[node name="BG4-2" type="Sprite2D" parent="Parallax2D-BG-3"]
+[node name="BG4-2" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=1109323458]
 z_index = -1
 position = Vector2(767, 227)
 texture = ExtResource("5_ytdl4")
 
-[node name="BG4-3" type="Sprite2D" parent="Parallax2D-BG-3"]
+[node name="BG4-3" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=2031620536]
 z_index = -1
 position = Vector2(1277, 227)
 texture = ExtResource("5_ytdl4")
 
-[node name="BG4-4" type="Sprite2D" parent="Parallax2D-BG-3"]
+[node name="BG4-4" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=1172182576]
 z_index = -1
 position = Vector2(1788, 227)
 texture = ExtResource("5_ytdl4")
 
-[node name="Parallax2D-BG-LEAVES" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG-LEAVES" type="Parallax2D" parent="." unique_id=2120655170]
 scroll_scale = Vector2(1.1, 1)
 scroll_offset = Vector2(-3, -61)
 
-[node name="BG-TOPLEAVES" type="Sprite2D" parent="Parallax2D-BG-LEAVES"]
+[node name="BG-TOPLEAVES" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=1095811701]
 position = Vector2(248, 227)
 texture = ExtResource("6_ojs2h")
 
-[node name="BG-TOPLEAVES2" type="Sprite2D" parent="Parallax2D-BG-LEAVES"]
+[node name="BG-TOPLEAVES2" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=183584596]
 position = Vector2(751, 227)
 texture = ExtResource("6_ojs2h")
 
-[node name="BG-TOPLEAVES3" type="Sprite2D" parent="Parallax2D-BG-LEAVES"]
+[node name="BG-TOPLEAVES3" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=1883787594]
 position = Vector2(1254, 227)
 texture = ExtResource("6_ojs2h")
 
-[node name="BG-TOPLEAVES4" type="Sprite2D" parent="Parallax2D-BG-LEAVES"]
+[node name="BG-TOPLEAVES4" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=1078961050]
 position = Vector2(1757, 227)
 texture = ExtResource("6_ojs2h")
 
-[node name="Parallax2D-BG-TREES" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG-TREES" type="Parallax2D" parent="." unique_id=655898884]
 scroll_scale = Vector2(0.95, 1)
 scroll_offset = Vector2(-2, 0)
 
-[node name="TREES" type="Sprite2D" parent="Parallax2D-BG-TREES"]
+[node name="TREES" type="Sprite2D" parent="Parallax2D-BG-TREES" unique_id=1361920246]
 z_index = -1
 position = Vector2(256, 166)
 texture = ExtResource("7_nyewu")
 
-[node name="TREES2" type="Sprite2D" parent="Parallax2D-BG-TREES"]
+[node name="TREES2" type="Sprite2D" parent="Parallax2D-BG-TREES" unique_id=2012507524]
 z_index = -1
 position = Vector2(982, 166)
 texture = ExtResource("7_nyewu")
 
-[node name="TREES3" type="Sprite2D" parent="Parallax2D-BG-TREES"]
+[node name="TREES3" type="Sprite2D" parent="Parallax2D-BG-TREES" unique_id=2034288090]
 z_index = -1
 position = Vector2(1664, 166)
 texture = ExtResource("7_nyewu")
 
-[node name="Parallax2D-BG-BUSHES" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG-BUSHES" type="Parallax2D" parent="." unique_id=446364542]
 scroll_offset = Vector2(-2, 0)
 
-[node name="BUSHES" type="Sprite2D" parent="Parallax2D-BG-BUSHES"]
+[node name="BUSHES" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=206471016]
 z_index = -1
 position = Vector2(256, 158)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-BG-BUSHES"]
+[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=1432987818]
 z_index = -1
 position = Vector2(768, 158)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-BG-BUSHES"]
+[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=241864580]
 z_index = -1
 position = Vector2(1280, 158)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-BG-BUSHES"]
+[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=427814670]
 z_index = -1
 position = Vector2(1792, 158)
 texture = ExtResource("8_t5vqj")
 
-[node name="Parallax2D-FG-BUSHES2" type="Parallax2D" parent="."]
+[node name="Parallax2D-FG-BUSHES2" type="Parallax2D" parent="." unique_id=1589631384]
 z_index = 1
 scroll_scale = Vector2(1.1, 1)
 scroll_offset = Vector2(-2, 0)
 
-[node name="BUSHES" type="Sprite2D" parent="Parallax2D-FG-BUSHES2"]
+[node name="BUSHES" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=1391239169]
 position = Vector2(178, 230)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-FG-BUSHES2"]
+[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=191638699]
 position = Vector2(690, 230)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-FG-BUSHES2"]
+[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=29944396]
 position = Vector2(1202, 230)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-FG-BUSHES2"]
+[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=466307129]
 position = Vector2(1714, 230)
 texture = ExtResource("8_t5vqj")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1474780272]
 position = Vector2(-10, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=5463812]
 position = Vector2(5, 148)
 shape = SubResource("RectangleShape2D_3phl1")
 debug_color = Color(0.993094, 0, 0.242669, 0.42)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=760350370]
 position = Vector2(1915, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=219952013]
 position = Vector2(5, 148)
 shape = SubResource("RectangleShape2D_3phl1")
 debug_color = Color(0.993094, 0, 0.242669, 0.42)
 
-[node name="BG" type="TileMapLayer" parent="."]
+[node name="BG" type="TileMapLayer" parent="." unique_id=152957463]
 position = Vector2(6, 115)
 tile_set = SubResource("TileSet_xgrgd")
 script = ExtResource("9_rbq4e")
 
-[node name="FG" type="TileMapLayer" parent="."]
+[node name="FG" type="TileMapLayer" parent="." unique_id=370354632 groups=["Tilemaps"]]
 z_index = -1
 tile_map_data = PackedByteArray("AAAAAAAAAAAIAAAAAAABAAAAAAAIAAAAAAACAAAAAAAIAAAAAAADAAAAAAAIAAAAAAAGAAAAAAAIAAAAAAAFAAAAAAAIAAAAAAAEAAAAAAAIAAAAAAAHAAAAAAAIAAAAAAAIAAAAAAAIAAAAAAAJAAAAAAAIAAAAAAAKAAAAAAAIAAAAAAALAAAAAAAIAAAAAAAMAAAAAAAIAAAAAAANAAAAAAAIAAAAAAAOAAAAAAAIAAAAAAAPAAAAAAAIAAAAAAAQAAAAAAAIAAAAAAARAAAAAAAIAAAAAAASAAAAAAAIAAAAAAATAAAAAAAIAAAAAAAUAAAAAAAIAAAAAAAVAAAAAAAIAAAAAAAWAAAAAAAIAAAAAAAXAAAAAAAIAAAAAAAYAAAAAAAIAAAAAAAZAAAAAAAIAAAAAAAaAAAAAAAIAAAAAAAbAAAAAAAIAAAAAAAcAAAAAAAIAAAAAAAdAAAAAAAIAAAAAAAeAAAAAAAIAAAAAAAfAAAAAAAIAAAAAAAgAAAAAAAIAAAAAAAhAAAAAAAIAAAAAAAiAAAAAAAIAAAAAAAjAAAAAAAIAAAAAAAkAAAAAAAIAAAAAAAlAAAAAAAIAAAAAAAmAAAAAAAIAAAAAAAnAAAAAAAIAAAAAAAoAAAAAAAIAAAAAAApAAAAAAAIAAAAAAAqAAAAAAAIAAAAAAArAAAAAAAIAAAAAAAsAAAAAAAIAAAAAAAtAAAAAAAIAAAAAAAuAAAAAAAIAAAAAAAvAAAAAAAIAAAAAAAwAAAAAAAIAAAAAAAxAAAAAAAIAAAAAAAyAAAAAAAIAAAAAAAzAAAAAAAIAAAAAAA0AAAAAAAIAAAAAAA1AAAAAAAIAAAAAAA2AAAAAAAIAAAAAAA3AAAAAAAIAAAAAAA4AAAAAAAIAAAAAAA5AAAAAAAIAAAAAAA6AAAAAAAIAAAAAAA7AAAAAAAIAAAAAAA8AAAAAAAIAAAAAAA9AAAAAAAIAAAAAAA+AAAAAAAIAAAAAAA/AAAAAAAIAAAAAABAAAAAAAAIAAAAAABBAAAAAAAIAAAAAABCAAAAAAAIAAAAAABDAAAAAAAIAAAAAABEAAAAAAAIAAAAAABFAAAAAAAIAAAAAABGAAAAAAAIAAAAAABHAAAAAAAIAAAAAABIAAAAAAAIAAAAAABJAAAAAAAIAAAAAABKAAAAAAAIAAAAAABLAAAAAAAIAAAAAABMAAAAAAAIAAAAAABNAAAAAAAIAAAAAABOAAAAAAAIAAAAAABPAAAAAAAIAAAAAABQAAAAAAAIAAAAAABRAAAAAAAIAAAAAABSAAAAAAAIAAAAAABTAAAAAAAIAAAAAABUAAAAAAAIAAAAAABVAAAAAAAIAAAAAABWAAAAAAAIAAAAAABXAAAAAAAIAAAAAABYAAAAAAAIAAAAAABZAAAAAAAIAAAAAABaAAAAAAAIAAAAAABbAAAAAAAIAAAAAABcAAAAAAAIAAAAAABdAAAAAAAIAAAAAABeAAAAAAAIAAAAAABfAAAAAAAIAAAAAABgAAAAAAAIAAAAAABhAAAAAAAIAAAAAABiAAAAAAAIAAAAAABjAAAAAAAIAAAAAABkAAAAAAAIAAAAAABlAAAAAAAIAAAAAABmAAAAAAAIAAAAAABnAAAAAAAIAAAAAAAAABIAAAAIABEAAAABABIAAAAJABEAAAACABIAAAAKABEAAAADABIAAAAIABEAAAAEABIAAAAJABEAAAAFABIAAAAKABEAAAAGABIAAAAIABEAAAAHABIAAAAJABEAAAAIABIAAAAKABEAAAAJABIAAAAIABEAAAAKABIAAAAJABEAAAALABIAAAAKABEAAAAMABIAAAAIABEAAAANABIAAAAJABEAAAAOABIAAAAKABEAAAAPABIAAAAIABEAAAAQABIAAAAJABEAAAARABIAAAAKABEAAAASABIAAAAIABEAAAATABIAAAAJABEAAAAUABIAAAAKABEAAAAVABIAAAAIABEAAAAWABIAAAAJABEAAAAXABIAAAAKABEAAAAYABIAAAAIABEAAAAZABIAAAAJABEAAAAaABIAAAAKABEAAAAbABIAAAAIABEAAAAcABIAAAAJABEAAAAdABIAAAAKABEAAAAeABIAAAAIABEAAAAfABIAAAAJABEAAAAgABIAAAAKABEAAAAhABIAAAAIABEAAAAiABIAAAAJABEAAAAjABIAAAAKABEAAAAkABIAAAAIABEAAAAlABIAAAAJABEAAAAmABIAAAAKABEAAAAnABIAAAAIABEAAAAoABIAAAAJABEAAAApABIAAAAKABEAAAAqABIAAAAIABEAAAArABIAAAAJABEAAAAsABIAAAAKABEAAAAtABIAAAAIABEAAAAuABIAAAAJABEAAAAvABIAAAAKABEAAAAwABIAAAAIABEAAAAxABIAAAAJABEAAAAyABIAAAAKABEAAAAzABIAAAAIABEAAAA0ABIAAAAJABEAAAA1ABIAAAAKABEAAAA2ABIAAAAIABEAAAA3ABIAAAAJABEAAAA4ABIAAAAKABEAAAA5ABIAAAAIABEAAAA6ABIAAAAJABEAAAA7ABIAAAAKABEAAAA8ABIAAAAIABEAAAA9ABIAAAAJABEAAAA+ABIAAAAKABEAAAA/ABIAAAAIABEAAABAABIAAAAJABEAAABBABIAAAAKABEAAABCABIAAAAIABEAAABDABIAAAAJABEAAABEABIAAAAKABEAAABFABIAAAAIABEAAABGABIAAAAJABEAAABHABIAAAAKABEAAABIABIAAAAIABEAAABJABIAAAAJABEAAABKABIAAAAKABEAAABLABIAAAAIABEAAABMABIAAAAJABEAAABNABIAAAAKABEAAABOABIAAAAIABEAAABPABIAAAAJABEAAABQABIAAAAKABEAAABRABIAAAAIABEAAABSABIAAAAJABEAAABTABIAAAAKABEAAABUABIAAAAIABEAAABVABIAAAAJABEAAABWABIAAAAKABEAAABXABIAAAAIABEAAABYABIAAAAJABEAAABZABIAAAAKABEAAABaABIAAAAIABEAAABbABIAAAAJABEAAABcABIAAAAKABEAAABdABIAAAAIABEAAABeABIAAAAJABEAAABfABIAAAAKABEAAABgABIAAAAIABEAAABhABIAAAAJABEAAABiABIAAAAKABEAAABjABIAAAAIABEAAABkABIAAAAJABEAAABlABIAAAAKABEAAABmABIAAAAIABEAAABnABIAAAAJABEAAABoABIAAAAKABEAAABpABIAAAAIABEAAABqABIAAAAJABEAAABrABIAAAAKABEAAABsABIAAAAIABEAAABtABIAAAAJABEAAABuABIAAAAKABEAAABvABIAAAAIABEAAABwABIAAAAJABEAAABxABIAAAAKABEAAAByABIAAAAIABEAAABzABIAAAAJABEAAAB0ABIAAAAKABEAAAB1ABIAAAAIABEAAAB2ABIAAAAJABEAAAB3ABIAAAAKABEAAABoAAAAAAAIAAAAAABpAAAAAAAJAAAAAABqAAAAAAAKAAAAAABrAAAAAAALAAAAAABsAAAAAAAMAAAAAABtAAAAAAAIAAAAAABuAAAAAAAJAAAAAABvAAAAAAAKAAAAAABwAAAAAAALAAAAAABxAAAAAAAMAAAAAAByAAAAAAAIAAAAAABzAAAAAAAJAAAAAAB0AAAAAAAKAAAAAAB1AAAAAAALAAAAAAB2AAAAAAAMAAAAAAB3AAAAAAAMAAAAAAA=")
 tile_set = SubResource("TileSet_cdo1u")
 script = ExtResource("9_rbq4e")
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("11_vwddi")]
+[node name="PlayerSpawn" parent="." unique_id=1925384080 instance=ExtResource("11_vwddi")]
 position = Vector2(27, 258)
 
-[node name="LevelTransition1" parent="." instance=ExtResource("13_a6p5l")]
+[node name="LevelTransition" parent="." unique_id=191167811 instance=ExtResource("13_a6p5l")]
+position = Vector2(14, 274)
+
+[node name="LevelTransition1" parent="." unique_id=1471142310 instance=ExtResource("13_a6p5l")]
 position = Vector2(1893, 286)
 level = "uid://bmd1dmi3g1p3u"
 target_transition_area = "LevelTransition2"

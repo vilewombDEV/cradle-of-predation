@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt670mvtvcc17"]
+[gd_scene format=3 uid="uid://dt670mvtvcc17"]
 
 [ext_resource type="Script" uid="uid://bvr6oxue3btt3" path="res://Interaction/Dialog System/dialog_interaction.gd" id="1_kvxpw"]
 [ext_resource type="Texture2D" uid="uid://h6cdcphgy4fw" path="res://Interaction/Dialog System/dialog_interactable.png" id="1_qbmgq"]
@@ -122,29 +122,24 @@ _data = {
 &"Show": SubResource("Animation_eqvar")
 }
 
-[node name="DialogInteraction" type="Area2D"]
+[node name="DialogInteraction" type="Area2D" unique_id=1631752112]
 process_mode = 3
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_kvxpw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-debug_color = Color(0.927, 0, 0.671, 0.398)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=479126930]
 modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 position = Vector2(4, -21)
 texture = ExtResource("1_qbmgq")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1149084011]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_u0ver")
-}
-autoplay = "Default"
+libraries/ = SubResource("AnimationLibrary_u0ver")
+autoplay = &"Default"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

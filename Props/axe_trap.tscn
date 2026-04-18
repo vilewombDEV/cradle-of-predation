@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1mavos7bvos2"]
+[gd_scene format=3 uid="uid://d1mavos7bvos2"]
 
 [ext_resource type="Script" uid="uid://dsxc3mjroc5gk" path="res://Props/trap.gd" id="1_gf1oj"]
 [ext_resource type="Texture2D" uid="uid://dba6tola8rssj" path="res://Props/Prop Sprites/Traps/AXE TRAP.png" id="1_y7kji"]
 [ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="3_gf1oj"]
 [ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="4_0hdin"]
+[ext_resource type="AudioStream" uid="uid://dwt2re8wib5wn" path="res://Music & SFX/SFX/axe_trap_sound.ogg" id="5_rec8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70qyu"]
 size = Vector2(46, 7)
@@ -90,6 +91,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-3, 16), Vector2(-82, 39), Vector2(-49, 49)]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_rec8u")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_40pf8"]
 _data = {
@@ -97,50 +113,52 @@ _data = {
 &"triggered": SubResource("Animation_bkhy2")
 }
 
-[node name="AxeTrap" type="Node2D" groups=["enemies"]]
+[node name="AxeTrap" type="Node2D" unique_id=1439724211 groups=["Enemies"]]
 script = ExtResource("1_gf1oj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=698929351]
 texture_filter = 1
 position = Vector2(17, -31)
 texture = ExtResource("1_y7kji")
 hframes = 22
 vframes = 4
 
-[node name="TriggerArea2D" type="Area2D" parent="."]
+[node name="TriggerArea2D" type="Area2D" parent="." unique_id=1924327052]
 position = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea2D" unique_id=1655665856]
 position = Vector2(-23, 0.5)
 shape = SubResource("RectangleShape2D_70qyu")
 
-[node name="DamagedArea" type="Area2D" parent="."]
+[node name="DamagedArea" type="Area2D" parent="." unique_id=506464524]
 position = Vector2(63, -75)
 collision_layer = 256
 collision_mask = 4
 script = ExtResource("3_gf1oj")
 metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagedArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagedArea" unique_id=1427746731]
 shape = SubResource("RectangleShape2D_gf1oj")
 disabled = true
 debug_color = Color(0.579105, 0, 0.0104893, 0.42)
 
-[node name="HazardArea" type="Area2D" parent="DamagedArea"]
+[node name="HazardArea" type="Area2D" parent="DamagedArea" unique_id=598917828]
 collision_layer = 256
 collision_mask = 4
 script = ExtResource("4_0hdin")
 metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagedArea/HazardArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagedArea/HazardArea" unique_id=1518987429]
 shape = SubResource("RectangleShape2D_gf1oj")
 disabled = true
 debug_color = Color(0.579105, 0, 0.0104893, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_40pf8")
-}
-autoplay = "RESET"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1567266977]
+libraries/ = SubResource("AnimationLibrary_40pf8")
+autoplay = &"RESET"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=678123531]
+max_polyphony = 10
+bus = &"SFX"
 
 [connection signal="body_entered" from="TriggerArea2D" to="." method="_on_trigger_area_2d_body_entered"]

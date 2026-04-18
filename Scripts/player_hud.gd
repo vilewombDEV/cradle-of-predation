@@ -1,9 +1,13 @@
 extends CanvasLayer
 
+var hearts: Array[HeartGUI] = []
+
+const DEATH_AUDIO = preload("uid://8lqlolt18xtr")
+
+#region /// Export Variables
 @export var button_focus_audio: AudioStream = preload("res://Music & SFX/SFX/hover_pm.wav")
 @export var button_select_audio: AudioStream = preload("res://Music & SFX/SFX/click_pm.wav")
-
-var hearts: Array[HeartGUI] = []
+#endregion
 
 #region /// Basic On-Ready References
 @onready var game_over: Control = $Control/GameOver
@@ -15,7 +19,6 @@ var hearts: Array[HeartGUI] = []
 @onready var boss_ui: Control = $Control/BossUI
 @onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
 @onready var boss_label: Label = $Control/BossUI/Label
-
 #endregion
 
 #region /// Ability-related On-Ready References
@@ -31,7 +34,7 @@ func _ready() -> void:
 	hide_game_over_screen()
 	continue_button.focus_entered.connect(play_audio.bind(button_focus_audio))
 	continue_button.pressed.connect(load_game)
-	main_menu_button.focus_entered.connect(play_audio.bind(button_focus_audio))
+	main_menu_button.mouse_entered.connect(play_audio.bind(button_focus_audio))
 	main_menu_button.pressed.connect(title_screen)
 	LevelManager.level_load_started.connect(hide_game_over_screen)
 	
@@ -64,6 +67,7 @@ func show_game_over_screen() -> void:
 	game_over.mouse_filter = Control.MOUSE_FILTER_STOP
 	var can_continue: bool = SaveManager.get_save_file() != null
 	continue_button.visible = can_continue
+	play_audio(DEATH_AUDIO)
 	animation_player.play("show_game_over")
 	await animation_player.animation_finished
 	if can_continue == true:

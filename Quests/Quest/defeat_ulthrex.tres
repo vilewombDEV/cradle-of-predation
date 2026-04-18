@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://c3jweyiifw8hj"]
+
+[ext_resource type="Script" uid="uid://dlw318g6uy0tj" path="res://Quests/quest_reward_item.gd" id="1_7dw8d"]
+[ext_resource type="Resource" uid="uid://bw2kdyiiney4s" path="res://Inventory/Items/eyeballs.tres" id="2_qfjvt"]
+[ext_resource type="Resource" uid="uid://8mftm2w6witv" path="res://Inventory/Discoverable (Ability) Items/ability_psychic.tres" id="3_nb5q1"]
+[ext_resource type="Script" uid="uid://yo73vrm3o2tb" path="res://Quests/quest_resource.gd" id="3_qfjvt"]
+[ext_resource type="Resource" uid="uid://txhp4iwmckwl" path="res://Inventory/Items/heart.tres" id="4_a0x6x"]
+
+[sub_resource type="Resource" id="Resource_ka11v"]
+script = ExtResource("1_7dw8d")
+item = ExtResource("2_qfjvt")
+quantity = 15
+metadata/_custom_type_script = "uid://dlw318g6uy0tj"
+
+[sub_resource type="Resource" id="Resource_a0x6x"]
+script = ExtResource("1_7dw8d")
+item = ExtResource("3_nb5q1")
+metadata/_custom_type_script = "uid://dlw318g6uy0tj"
+
+[sub_resource type="Resource" id="Resource_w2skw"]
+script = ExtResource("1_7dw8d")
+item = ExtResource("4_a0x6x")
+metadata/_custom_type_script = "uid://dlw318g6uy0tj"
+
+[resource]
+script = ExtResource("3_qfjvt")
+title = "Defeat Ulthrex"
+description = "You've learned that there's an entity who's grown quite envious of your potential. He seeks to destroy you - destroy him first."
+steps = Array[String](["Enter the Sepulchre", "Defeat Ulthrex"])
+reward_xp = 300
+reward_items = Array[ExtResource("1_7dw8d")]([SubResource("Resource_ka11v"), SubResource("Resource_a0x6x"), SubResource("Resource_w2skw")])
+metadata/_custom_type_script = "uid://yo73vrm3o2tb"

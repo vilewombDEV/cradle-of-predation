@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5xqpwoa8wsve"]
+[gd_scene format=3 uid="uid://c5xqpwoa8wsve"]
 
 [ext_resource type="Script" uid="uid://k3gdq73jlpps" path="res://Scenes/Enemies/energy_beam_attack.gd" id="1_kp208"]
 [ext_resource type="Material" uid="uid://b20tbr422r0ei" path="res://Materials/light_material.tres" id="1_tn1f7"]
@@ -200,10 +200,10 @@ _data = {
 &"default": SubResource("Animation_mn7oa")
 }
 
-[node name="EnergyBeam" type="Node2D" groups=["enemies"]]
+[node name="EnergyBeam" type="Node2D" unique_id=672838099 groups=["Enemies"]]
 script = ExtResource("1_kp208")
 
-[node name="EnergyWarningSprite" type="Sprite2D" parent="."]
+[node name="EnergyWarningSprite" type="Sprite2D" parent="." unique_id=1033519721]
 modulate = Color(1, 1, 1, 0.415)
 z_index = 1
 texture_repeat = 2
@@ -214,7 +214,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1080, 16)
 script = ExtResource("3_wkt7b")
 
-[node name="EnergyBeamSprite" type="Sprite2D" parent="."]
+[node name="EnergyBeamSprite" type="Sprite2D" parent="." unique_id=2141724187]
 visible = false
 z_index = 1
 texture_repeat = 2
@@ -226,22 +226,21 @@ region_rect = Rect2(0, 0, 1080, 96)
 script = ExtResource("3_wkt7b")
 speed = 400.0
 
-[node name="EBHurtBox" type="Area2D" parent="."]
+[node name="EBHurtBox" type="Area2D" parent="." unique_id=1316821988]
 collision_layer = 256
 collision_mask = 4
 monitoring = false
 script = ExtResource("7_kp208")
 metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EBHurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EBHurtBox" unique_id=1409966550]
 shape = SubResource("RectangleShape2D_jw5h8")
 disabled = true
 debug_color = Color(0.746, 0, 0.06, 0.11)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1044126372]
+bus = &"Boss SFX"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_kp208")
-}
-autoplay = "default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2039778872]
+libraries/ = SubResource("AnimationLibrary_kp208")
+autoplay = &"default"

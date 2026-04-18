@@ -10,8 +10,8 @@ enum Method {DURATION, SPEED}
 @export var transition_type: Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR
 @export var easing_method: Tween.EaseType = Tween.EaseType.EASE_IN_OUT
 @export_range(0.0, 10.0, 0.05, "s") var move_duration: float = 0.5
-@export_range(10, 1000.0, 1, "px/s") var move_speed: float = 200.0
-@export var animation_speed_factor: float = 40.0
+@export_range(10, 1000.0, 1, "px/s") var move_speed: float = 120.0
+@export var animation_speed_factor: float = 120.0
 #endregion
 
 var target_location: Vector2 = Vector2.ZERO
@@ -34,7 +34,7 @@ func play() -> void:
 		if object_to_move is NPC:
 			var npc: NPC = object_to_move
 			npc.do_behavior = false
-			npc.state = "walk"
+			npc.state = "run"
 			npc.direction = move_direction
 			npc.update_direction(target_location)
 			npc.update_animation()
@@ -57,12 +57,16 @@ func calculate_distance_to_target() -> float:
 
 func _on_tween_finished() -> void:
 	object_to_move.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	if object_to_move is NPC:
 		var npc: NPC = object_to_move
 		npc.do_behavior = true
 		npc.state = "idle"
 		npc.animation.speed_scale = 1
+		npc.do_behavior_enabled.emit()
+		npc.update_animation()
 		npc.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	finished.emit()
 
 func _draw() -> void:

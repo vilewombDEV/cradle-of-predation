@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dy7oc4mlxwasw"]
+[gd_scene format=3 uid="uid://dy7oc4mlxwasw"]
 
 [ext_resource type="Texture2D" uid="uid://c3lq4gxjwa41m" path="res://Player/Player Assests/fireball.png" id="3_c1soq"]
 [ext_resource type="Texture2D" uid="uid://q40soju4fk1m" path="res://Player/Player Assests/fireball_explode.png" id="4_778mx"]
@@ -140,25 +140,25 @@ _data = {
 &"fireball_explode": SubResource("Animation_8tcqj")
 }
 
-[node name="Fireball" type="Node2D"]
+[node name="Fireball" type="Node2D" unique_id=1936204528]
 process_mode = 3
 script = ExtResource("32_73sam")
 fireball_audio = ExtResource("4_c1soq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=357579803]
 position = Vector2(-5, -2.75)
 scale = Vector2(0.426471, 0.426471)
 texture = ExtResource("3_c1soq")
 hframes = 5
 
-[node name="ExplodeSprite" type="Sprite2D" parent="."]
+[node name="ExplodeSprite" type="Sprite2D" parent="." unique_id=1647954681]
 visible = false
 position = Vector2(0, -4)
 scale = Vector2(0.0327807, 0.0327807)
 texture = ExtResource("4_778mx")
 hframes = 3
 
-[node name="FireballHitBox" type="Area2D" parent="."]
+[node name="FireballHitBox" type="Area2D" parent="." unique_id=898160796]
 unique_name_in_owner = true
 position = Vector2(0, -3.75)
 collision_layer = 9
@@ -166,34 +166,34 @@ collision_mask = 256
 script = ExtResource("5_778mx")
 metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballHitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballHitBox" unique_id=1214047526]
 shape = SubResource("CircleShape2D_m5ust")
 debug_color = Color(0, 0.639, 0.37, 0)
 
-[node name="HazardArea" type="Area2D" parent="."]
+[node name="HazardArea" type="Area2D" parent="." unique_id=441853330]
 collision_layer = 9
 collision_mask = 256
 script = ExtResource("6_8tcqj")
 damage = 6
 metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=623562347]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_8tcqj")
 debug_color = Color(0.999, 0, 0.112, 0)
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=254303142]
 position = Vector2(-5.96046e-08, -3.75)
 scale = Vector2(0.4, 0.4)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1945476889]
+stream = ExtResource("4_c1soq")
 max_polyphony = 10
+bus = &"SFX"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8tcqj")
-}
-autoplay = "fireball"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1231231876]
+libraries/ = SubResource("AnimationLibrary_8tcqj")
+autoplay = &"fireball"
 
 [connection signal="body_entered" from="FireballHitBox" to="." method="_on_fireball_hit_box_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

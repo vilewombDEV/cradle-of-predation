@@ -42,3 +42,6 @@ func fade_out_and_stop(player: AudioStreamPlayer) -> void:
 	tween.tween_property(player, 'volume_db', -40, music_fade_duration)
 	await tween.finished
 	player.stop()
+
+func get_current_track() -> AudioStream:
+	return music_players[current_music_player].stream

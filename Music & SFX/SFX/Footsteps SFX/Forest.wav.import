@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnomgp8smkclm"
+path="res://.godot/imported/Forest.wav-99be83fc418d24241bfb086d651d4559.sample"
+
+[deps]
+
+source_file="res://Music & SFX/SFX/Footsteps SFX/Forest.wav"
+dest_files=["res://.godot/imported/Forest.wav-99be83fc418d24241bfb086d651d4559.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

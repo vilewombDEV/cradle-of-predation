@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://do1s8dqlbgo1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bmas"]
+size = Vector2(9, 145)
+
+[node name="EnemyBarrier" type="StaticBody2D" unique_id=1063588255]
+collision_layer = 4096
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1953175837]
+position = Vector2(0, -62.5)
+shape = SubResource("RectangleShape2D_6bmas")
+debug_color = Color(1, 0.012920001, 0.03876, 0)

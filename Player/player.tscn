@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cf7bdays7hchv"]
+[gd_scene format=3 uid="uid://cf7bdays7hchv"]
 
 [ext_resource type="Script" uid="uid://d0if8url3x6j4" path="res://Scripts/player.gd" id="1_pisgm"]
 [ext_resource type="Script" uid="uid://dadl8lavnf3e4" path="res://Player/Player States/player_state.gd" id="3_o28un"]
@@ -12,19 +12,21 @@
 [ext_resource type="Script" uid="uid://5r8nv8j0cru7" path="res://Player/Player States/stun.gd" id="9_qemgg"]
 [ext_resource type="Script" uid="uid://b6bvdqxywoejk" path="res://Player/Player States/death.gd" id="10_8viyr"]
 [ext_resource type="AudioStream" uid="uid://cavk1b25r6vbk" path="res://Music & SFX/SFX/22_Slash_04.wav" id="10_qemgg"]
-[ext_resource type="AudioStream" uid="uid://8lqlolt18xtr" path="res://Music & SFX/IMP SFX/CREAHmn_Short, Intimidating, Troll, MHCS15.wav" id="11_sm0op"]
 [ext_resource type="Texture2D" uid="uid://c1yepr6eudcky" path="res://Player/Player Assests/Imp Sprite Sheet.png" id="12_76lrf"]
 [ext_resource type="Script" uid="uid://cmtqs8jddtedc" path="res://Scripts/player_camera.gd" id="13_efx54"]
 [ext_resource type="Script" uid="uid://bw4iy7clhu6to" path="res://Player/Player States/fireball.gd" id="13_gpjlu"]
 [ext_resource type="Script" uid="uid://dfd6tc1oy4gsk" path="res://Player/Player States/psychic.gd" id="14_8mwp6"]
 [ext_resource type="Script" uid="uid://c2fghape1v3ut" path="res://Scripts/push_area.gd" id="16_m0h3t"]
+[ext_resource type="Script" uid="uid://dw0vfsbllxsg2" path="res://Player/Player States/cutscene.gd" id="16_sm0op"]
 [ext_resource type="Texture2D" uid="uid://d4njotkr5t5vx" path="res://Player/Player Assests/claw_attack-sheet.png" id="17_8viyr"]
 [ext_resource type="AudioStream" uid="uid://bmnyh0dkqqaw" path="res://Music & SFX/IMP SFX/CREAHmn_Short, Angry, Zombie, MHCS11.wav" id="17_i4o1l"]
 [ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="18_8viyr"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="18_b1ygp"]
 [ext_resource type="AudioStream" uid="uid://bb0t0q05atjvi" path="res://Music & SFX/SFX/level_up.wav" id="18_o28un"]
 [ext_resource type="Script" uid="uid://bptcsh6qjiovk" path="res://Player/abilities.gd" id="21_8mwp6"]
+[ext_resource type="PackedScene" uid="uid://kks1c84sf1dy" path="res://Music & SFX/SFX/Footsteps SFX/footstep_audio_2d.tscn" id="21_sm0op"]
 [ext_resource type="Script" uid="uid://b5dwvw2ktpplk" path="res://Player/attack_area.gd" id="22_8viyr"]
+[ext_resource type="AudioStream" uid="uid://bg2mla5r4lyx4" path="res://Music & SFX/IMP SFX/dash_audio.wav" id="24_76lrf"]
 [ext_resource type="PackedScene" uid="uid://dcfnfsulceshe" path="res://Scenes/item_magnet.tscn" id="26_8viyr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pu2lt"]
@@ -262,6 +264,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/FootstepAudio2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_footstep"
+}, {
+"args": [],
+"method": &"play_footstep"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ukyrk"]
@@ -535,7 +554,7 @@ color_ramp = SubResource("GradientTexture1D_o28un")
 [sub_resource type="CircleShape2D" id="CircleShape2D_sm0op"]
 radius = 50.0
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1015784498 groups=["Player"]]
 top_level = true
 collision_layer = 7
 collision_mask = 319
@@ -543,61 +562,64 @@ floor_constant_speed = true
 floor_snap_length = 3.0
 script = ExtResource("1_pisgm")
 
-[node name="States" type="Node" parent="."]
+[node name="States" type="Node" parent="." unique_id=2109967222]
 script = ExtResource("3_o28un")
 
-[node name="Idle" type="Node" parent="States"]
+[node name="Idle" type="Node" parent="States" unique_id=2144477423]
 unique_name_in_owner = true
 script = ExtResource("4_n471f")
 
-[node name="Run" type="Node" parent="States"]
+[node name="Run" type="Node" parent="States" unique_id=1004066226]
 unique_name_in_owner = true
 script = ExtResource("5_7emwf")
 
-[node name="Dash" type="Node" parent="States"]
+[node name="Dash" type="Node" parent="States" unique_id=2136662101]
 unique_name_in_owner = true
 script = ExtResource("6_qemgg")
-dash_audio = ExtResource("7_8viyr")
+dash_audio = ExtResource("24_76lrf")
 
-[node name="Jump" type="Node" parent="States"]
+[node name="Jump" type="Node" parent="States" unique_id=451389251]
 unique_name_in_owner = true
 script = ExtResource("6_hshwv")
+jump_audio = ExtResource("7_8viyr")
 
-[node name="Fall" type="Node" parent="States"]
+[node name="Fall" type="Node" parent="States" unique_id=79625300]
 unique_name_in_owner = true
 script = ExtResource("7_gpjlu")
 
-[node name="Attack" type="Node" parent="States"]
+[node name="Attack" type="Node" parent="States" unique_id=674291896]
 unique_name_in_owner = true
 script = ExtResource("8_8mwp6")
 attack_sound = ExtResource("10_qemgg")
 
-[node name="Stun" type="Node" parent="States"]
+[node name="Stun" type="Node" parent="States" unique_id=610088228]
 unique_name_in_owner = true
 script = ExtResource("9_qemgg")
 
-[node name="Death" type="Node" parent="States"]
+[node name="Death" type="Node" parent="States" unique_id=1174744013]
 unique_name_in_owner = true
-process_priority = 1
 script = ExtResource("10_8viyr")
-death_audio = ExtResource("11_sm0op")
 
-[node name="Fireball" type="Node" parent="States"]
+[node name="Fireball" type="Node" parent="States" unique_id=578500475]
 unique_name_in_owner = true
 script = ExtResource("13_gpjlu")
 
-[node name="Psychic" type="Node" parent="States"]
+[node name="Psychic" type="Node" parent="States" unique_id=1677272925]
 unique_name_in_owner = true
 script = ExtResource("14_8mwp6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Cutscene" type="Node" parent="States" unique_id=1107047639]
+unique_name_in_owner = true
+script = ExtResource("16_sm0op")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=374522080]
 position = Vector2(0, -22)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("12_76lrf")
 hframes = 8
 vframes = 12
 
-[node name="ClawAttackSprite" type="Sprite2D" parent="Sprite2D"]
+[node name="ClawAttackSprite" type="Sprite2D" parent="Sprite2D" unique_id=660722208]
 unique_name_in_owner = true
 visible = false
 show_behind_parent = true
@@ -608,36 +630,36 @@ hframes = 5
 vframes = 2
 frame = 1
 
-[node name="DamagedArea" type="Area2D" parent="."]
+[node name="DamagedArea" type="Area2D" parent="." unique_id=696407693]
 unique_name_in_owner = true
 collision_layer = 7
 collision_mask = 0
 script = ExtResource("18_8viyr")
 metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamagedArea"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamagedArea" unique_id=549984234]
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_pu2lt")
 debug_color = Color(0.217, 0.639, 0, 0)
 
-[node name="PushArea" type="Area2D" parent="."]
+[node name="PushArea" type="Area2D" parent="." unique_id=1082947091]
 position = Vector2(0, -5)
 collision_layer = 0
 collision_mask = 16
 monitorable = false
 script = ExtResource("16_m0h3t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea" unique_id=701609676]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_qemgg")
 debug_color = Color(0, 0.648, 0.204, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1829683393]
 position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_8erm5")
 debug_color = Color(0, 0.6, 0.702, 0)
 
-[node name="PlayerCamera" type="Camera2D" parent="."]
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=1486247221]
 zoom = Vector2(4, 4)
 limit_smoothed = true
 editor_draw_limits = true
@@ -646,45 +668,44 @@ shake_power = 0.6
 shake_decay = 1.5
 metadata/_custom_type_script = "uid://cmtqs8jddtedc"
 
-[node name="Audio" type="Node2D" parent="."]
+[node name="Audio" type="Node2D" parent="." unique_id=367211236]
 process_mode = 3
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
-max_polyphony = 10
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio" unique_id=342809948]
+max_polyphony = 100
+bus = &"SFX"
 
-[node name="Interactions" type="Node2D" parent="."]
+[node name="FootstepAudio2D" parent="Audio" unique_id=673353833 instance=ExtResource("21_sm0op")]
 
-[node name="AttackArea" type="Area2D" parent="Interactions"]
+[node name="Interactions" type="Node2D" parent="." unique_id=874949445]
+
+[node name="AttackArea" type="Area2D" parent="Interactions" unique_id=1070786516]
 unique_name_in_owner = true
 position = Vector2(0, -6)
 collision_mask = 256
 script = ExtResource("22_8viyr")
 metadata/_custom_type_script = "uid://b5dwvw2ktpplk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/AttackArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/AttackArea" unique_id=1341139387]
 position = Vector2(21, -4.5)
 shape = SubResource("RectangleShape2D_8viyr")
 debug_color = Color(0.758, 0, 0.101, 0)
 
-[node name="Abilities" type="Node2D" parent="."]
+[node name="Abilities" type="Node2D" parent="." unique_id=125851174]
 script = ExtResource("21_8mwp6")
 
-[node name="AbilityMarker2D" type="Marker2D" parent="Abilities"]
+[node name="AbilityMarker2D" type="Marker2D" parent="Abilities" unique_id=1634312281]
 unique_name_in_owner = true
 position = Vector2(4, -6)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tx1dd")
-}
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1188734831]
+libraries/ = SubResource("AnimationLibrary_tx1dd")
+autoplay = &"idle"
 
-[node name="EffectAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_fd4e3")
-}
+[node name="EffectAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1804478659]
+libraries/ = SubResource("AnimationLibrary_fd4e3")
 
-[node name="LevelUpLabel" type="Label" parent="."]
+[node name="LevelUpLabel" type="Label" parent="." unique_id=2048201817]
 visible = false
 texture_filter = 1
 offset_left = -40.0
@@ -697,7 +718,7 @@ theme_override_font_sizes/font_size = 10
 text = "Level Up!"
 horizontal_alignment = 1
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1441748482]
 position = Vector2(0, -4)
 emitting = false
 amount = 100
@@ -705,10 +726,10 @@ one_shot = true
 explosiveness = 0.25
 process_material = SubResource("ParticleProcessMaterial_n471f")
 
-[node name="ItemMagnet" parent="." instance=ExtResource("26_8viyr")]
+[node name="ItemMagnet" parent="." unique_id=627577278 instance=ExtResource("26_8viyr")]
 position = Vector2(0, -5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet" unique_id=1767831395]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_sm0op")
 debug_color = Color(0.455, 0.595, 0, 0)

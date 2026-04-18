@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AbilityItemData" load_steps=5 format=3 uid="uid://i5wfphumicjk"]
+[gd_resource type="Resource" script_class="AbilityItemData" format=3 uid="uid://i5wfphumicjk"]
 
 [ext_resource type="Script" uid="uid://4h53h6vlmgwf" path="res://Inventory/item_effect.gd" id="1_2idmx"]
 [ext_resource type="Script" uid="uid://bwd8y5xaetk57" path="res://Inventory/ability_item_data.gd" id="2_6t236"]
@@ -12,8 +12,5 @@ region = Rect2(98, 113, 12, 13)
 script = ExtResource("2_6t236")
 type = 1
 name = "Fireball"
-description = ""
 texture = SubResource("AtlasTexture_wh5wf")
-cost = 10
-effects = Array[ExtResource("1_2idmx")]([])
 metadata/_custom_type_script = "uid://bwd8y5xaetk57"

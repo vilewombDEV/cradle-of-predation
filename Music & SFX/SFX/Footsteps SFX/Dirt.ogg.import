@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://chakxtkdtr8cu"
+path="res://.godot/imported/Dirt.ogg-6512d96c9970c0c4991b031616d3c0ab.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music & SFX/SFX/Footsteps SFX/Dirt.ogg"
+dest_files=["res://.godot/imported/Dirt.ogg-6512d96c9970c0c4991b031616d3c0ab.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

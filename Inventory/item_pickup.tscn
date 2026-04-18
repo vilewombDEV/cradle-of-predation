@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dg4p2e6o2nwpt"]
+[gd_scene format=3 uid="uid://dg4p2e6o2nwpt"]
 
 [ext_resource type="Script" uid="uid://pa18x4s50mi7" path="res://Inventory/item_pickup.gd" id="1_4sn25"]
 [ext_resource type="Texture2D" uid="uid://db1kf7b7x08o4" path="res://Assets/Icons/eye sprite placeholder.png" id="2_4t16j"]
 [ext_resource type="Texture2D" uid="uid://colclvbuh5jr4" path="res://Assets/Misc UI/Shadow.png" id="2_6ysnt"]
-[ext_resource type="AudioStream" uid="uid://cpqxw6wtbe4rg" path="res://Music & SFX/SFX/pickup_item.wav" id="4_6ysnt"]
+[ext_resource type="AudioStream" uid="uid://chk8642fhgcu1" path="res://Music & SFX/SFX/pickup_item.wav" id="4_6ysnt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4sn25"]
 radius = 6.0
@@ -69,35 +69,35 @@ _data = {
 &"bounce": SubResource("Animation_6ysnt")
 }
 
-[node name="ItemPickup" type="CharacterBody2D"]
+[node name="ItemPickup" type="CharacterBody2D" unique_id=374945537]
 collision_layer = 0
 collision_mask = 17
 motion_mode = 1
 script = ExtResource("1_4sn25")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237286389]
 shape = SubResource("CircleShape2D_4sn25")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=2054977532]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1090229580]
 shape = SubResource("CircleShape2D_4sn25")
 
-[node name="Sprite2DShadow" type="Sprite2D" parent="."]
+[node name="Sprite2DShadow" type="Sprite2D" parent="." unique_id=66323927]
 modulate = Color(0, 0, 0, 0.682353)
 position = Vector2(0, 4)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_6ysnt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=387068931]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4t16j")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1316658117]
 stream = ExtResource("4_6ysnt")
+max_polyphony = 10
+bus = &"SFX"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_54iqs")
-}
-autoplay = "bounce"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=540233883]
+libraries/ = SubResource("AnimationLibrary_54iqs")
+autoplay = &"bounce"

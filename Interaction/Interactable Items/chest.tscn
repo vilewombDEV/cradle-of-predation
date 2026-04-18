@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://clbxbjfdfip7a"]
+[gd_scene format=3 uid="uid://clbxbjfdfip7a"]
 
 [ext_resource type="Script" uid="uid://ct6orawjs1cac" path="res://Interaction/Interactable Items/chest.gd" id="1_edati"]
 [ext_resource type="Texture2D" uid="uid://bre180yio6r0h" path="res://Assets/Sprites/Animated Chests.png" id="2_26t8h"]
 [ext_resource type="Texture2D" uid="uid://cdls3nbcqqykr" path="res://Assets/Icons/hp icon sprite 2.png" id="4_yngqm"]
 [ext_resource type="PackedScene" uid="uid://cuumgqu5w2unl" path="res://Singleton/persistent_data_handler.tscn" id="5_eofq2"]
-[ext_resource type="AudioStream" uid="uid://fskfxfse01iq" path="res://Music & SFX/SFX/Chest Open 1.wav" id="6_chfoe"]
+[ext_resource type="AudioStream" uid="uid://fskfxfse01iq" path="res://Music & SFX/SFX/chest_open.wav" id="6_chfoe"]
 
 [sub_resource type="Animation" id="Animation_dq33m"]
 resource_name = "Open"
@@ -201,20 +201,20 @@ size = Vector2(21.5, 17.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_yngqm"]
 radius = 12.0
 
-[node name="Chest" type="Node2D"]
+[node name="Chest" type="Node2D" unique_id=1854834248]
 process_mode = 3
 script = ExtResource("1_edati")
 
-[node name="ChestSprite" type="Sprite2D" parent="."]
+[node name="ChestSprite" type="Sprite2D" parent="." unique_id=1599653082]
 texture = ExtResource("2_26t8h")
 vframes = 5
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
+[node name="ItemSprite" type="Sprite2D" parent="." unique_id=1817229927]
 visible = false
 position = Vector2(0, -5)
 texture = ExtResource("4_yngqm")
 
-[node name="Label" type="Label" parent="ItemSprite"]
+[node name="Label" type="Label" parent="ItemSprite" unique_id=1550249376]
 texture_filter = 1
 offset_left = 10.0
 offset_top = -14.0
@@ -226,32 +226,30 @@ theme_override_font_sizes/font_size = 10
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=408608221]
 root_node = NodePath("../StaticBody2D")
-libraries = {
-&"": SubResource("AnimationLibrary_25pds")
-}
-autoplay = "RESET"
+libraries/ = SubResource("AnimationLibrary_25pds")
+autoplay = &"RESET"
 
-[node name="ChestSound" type="AudioStreamPlayer2D" parent="."]
+[node name="ChestSound" type="AudioStreamPlayer2D" parent="." unique_id=1379530999]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2008850659]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=304257688]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_pmguq")
 debug_color = Color(0, 0.6, 0.7, 0)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1463918862]
 collision_layer = 3
 collision_mask = 3
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1244642192]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_yngqm")
 debug_color = Color(0.79, 0.089, 1, 0)
 
-[node name="IsOpen" parent="." instance=ExtResource("5_eofq2")]
+[node name="IsOpen" parent="." unique_id=1749943949 instance=ExtResource("5_eofq2")]

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://rvqwxr7v3iss"]
+
+[ext_resource type="Script" uid="uid://cnujjh5i2hcag" path="res://Scenes/item_dropper.gd" id="1_7whuw"]
+[ext_resource type="Script" uid="uid://fk6xu28v3eue" path="res://Singleton/persistent_data_handler.gd" id="2_u07ia"]
+[ext_resource type="AudioStream" uid="uid://2mbibfujnyod" path="res://Music & SFX/item_discovery.wav" id="2_vcybq"]
+
+[node name="ItemDropper" type="Node2D" unique_id=979415453]
+script = ExtResource("1_7whuw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1896735543]
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=1756597542]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_constants/outline_size = 6
+text = "ITEM DROP"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1567957361]
+stream = ExtResource("2_vcybq")
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="PersistentDataHandler" type="Node" parent="." unique_id=357782145]
+script = ExtResource("2_u07ia")
+metadata/_custom_type_script = "uid://fk6xu28v3eue"

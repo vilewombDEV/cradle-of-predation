@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmkc0uc4t0jq"]
+[gd_scene format=3 uid="uid://cmkc0uc4t0jq"]
 
 [ext_resource type="Texture2D" uid="uid://8ncnna0s5r2y" path="res://Player/Player Assests/psychic.png" id="1_4hs7l"]
 [ext_resource type="Script" uid="uid://cwp2hgwx07y48" path="res://Player/Abilities/psychic.gd" id="1_emods"]
@@ -75,18 +75,18 @@ _data = {
 &"psychic": SubResource("Animation_cmdkr")
 }
 
-[node name="Psychic" type="Node2D"]
+[node name="Psychic" type="Node2D" unique_id=1020435104]
 script = ExtResource("1_emods")
 psychic_audio = ExtResource("2_4u3b2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=888873985]
 position = Vector2(9.53674e-07, -8)
 scale = Vector2(0.241618, 0.241618)
 texture = ExtResource("1_4hs7l")
 hframes = 8
 vframes = 8
 
-[node name="PsychicHitBox" type="Area2D" parent="."]
+[node name="PsychicHitBox" type="Area2D" parent="." unique_id=2037996375]
 unique_name_in_owner = true
 position = Vector2(0, -7)
 collision_layer = 9
@@ -94,34 +94,34 @@ collision_mask = 256
 script = ExtResource("4_emods")
 metadata/_custom_type_script = "uid://dcakya56c46uh"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PsychicHitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PsychicHitBox" unique_id=2044707389]
 shape = SubResource("CircleShape2D_m5ust")
 debug_color = Color(0, 0.638, 0.381, 0)
 
-[node name="HazardArea" type="Area2D" parent="."]
+[node name="HazardArea" type="Area2D" parent="." unique_id=1280529812]
 collision_layer = 9
 collision_mask = 256
 script = ExtResource("5_4u3b2")
 damage = 8
 metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=18964480]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_cvc2b")
 debug_color = Color(0.978, 0.149, 0, 0)
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=302596736]
 position = Vector2(-0.249999, -7.25)
 scale = Vector2(0.725, 0.725)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=843605833]
+stream = ExtResource("2_4u3b2")
 max_polyphony = 10
+bus = &"SFX"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8tcqj")
-}
-autoplay = "psychic"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1152061433]
+libraries/ = SubResource("AnimationLibrary_8tcqj")
+autoplay = &"psychic"
 
 [connection signal="body_entered" from="PsychicHitBox" to="." method="_on_psychic_hit_box_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

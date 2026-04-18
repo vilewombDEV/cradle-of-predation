@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bmd1dmi3g1p3u"]
+[gd_scene format=4 uid="uid://bmd1dmi3g1p3u"]
 
 [ext_resource type="Script" uid="uid://dfawrkv1bwgwu" path="res://Levels/level.gd" id="1_cy5s8"]
 [ext_resource type="Texture2D" uid="uid://scdc3r77ekqr" path="res://Assets/Tile Sets/Garden's Forest/background4.png" id="2_qrr7b"]
@@ -649,206 +649,206 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[node name="RattleandClaw" type="Node2D"]
+[node name="RattleandClaw" type="Node2D" unique_id=1118714802]
 script = ExtResource("1_cy5s8")
 music = ExtResource("2_y7qvs")
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=831974220]
 color = Color(0.0901961, 0.129412, 0.156863, 1)
 energy = 0.3
 blend_mode = 2
 
-[node name="Parallax2D-BG" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG" type="Parallax2D" parent="." unique_id=1428739521]
 z_index = -1
 scroll_scale = Vector2(0.5, 1)
 scroll_offset = Vector2(-3, -61)
 
-[node name="BG1-1" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG1-1" type="Sprite2D" parent="Parallax2D-BG" unique_id=1028417363]
 position = Vector2(256, 227)
 texture = ExtResource("2_qrr7b")
 
-[node name="BG1-2" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG1-2" type="Sprite2D" parent="Parallax2D-BG" unique_id=1706148304]
 position = Vector2(768, 227)
 texture = ExtResource("2_qrr7b")
 
-[node name="BG1-3" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG1-3" type="Sprite2D" parent="Parallax2D-BG" unique_id=72672150]
 position = Vector2(1278, 227)
 texture = ExtResource("2_qrr7b")
 
-[node name="BG1-4" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG1-4" type="Sprite2D" parent="Parallax2D-BG" unique_id=1316105089]
 position = Vector2(1792, 227)
 texture = ExtResource("2_qrr7b")
 
-[node name="BG2-1" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG2-1" type="Sprite2D" parent="Parallax2D-BG" unique_id=2062059725]
 position = Vector2(256, 227)
 texture = ExtResource("3_y7qvs")
 
-[node name="BG2-2" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG2-2" type="Sprite2D" parent="Parallax2D-BG" unique_id=22997939]
 position = Vector2(768, 227)
 texture = ExtResource("3_y7qvs")
 
-[node name="BG2-3" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG2-3" type="Sprite2D" parent="Parallax2D-BG" unique_id=1669900545]
 position = Vector2(1280, 227)
 texture = ExtResource("3_y7qvs")
 
-[node name="BG2-4" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG2-4" type="Sprite2D" parent="Parallax2D-BG" unique_id=1921946510]
 position = Vector2(1792, 227)
 texture = ExtResource("3_y7qvs")
 
-[node name="BG3-1" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG3-1" type="Sprite2D" parent="Parallax2D-BG" unique_id=265493440]
 position = Vector2(256, 227)
 texture = ExtResource("4_7au8u")
 
-[node name="BG3-2" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG3-2" type="Sprite2D" parent="Parallax2D-BG" unique_id=95496083]
 position = Vector2(768, 227)
 texture = ExtResource("4_7au8u")
 
-[node name="BG3-3" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG3-3" type="Sprite2D" parent="Parallax2D-BG" unique_id=10242787]
 position = Vector2(1281, 227)
 texture = ExtResource("4_7au8u")
 
-[node name="BG3-4" type="Sprite2D" parent="Parallax2D-BG"]
+[node name="BG3-4" type="Sprite2D" parent="Parallax2D-BG" unique_id=1891845858]
 position = Vector2(1793, 227)
 texture = ExtResource("4_7au8u")
 
-[node name="Parallax2D-BG-3" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG-3" type="Parallax2D" parent="." unique_id=1819701159]
 scroll_scale = Vector2(0.9, 1)
 scroll_offset = Vector2(-3, -61)
 
-[node name="BG4-1" type="Sprite2D" parent="Parallax2D-BG-3"]
+[node name="BG4-1" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=1702012191]
 z_index = -1
 position = Vector2(256, 227)
 texture = ExtResource("5_qq7vn")
 
-[node name="BG4-2" type="Sprite2D" parent="Parallax2D-BG-3"]
+[node name="BG4-2" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=1513713050]
 z_index = -1
 position = Vector2(767, 227)
 texture = ExtResource("5_qq7vn")
 
-[node name="BG4-3" type="Sprite2D" parent="Parallax2D-BG-3"]
+[node name="BG4-3" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=838767005]
 z_index = -1
 position = Vector2(1277, 227)
 texture = ExtResource("5_qq7vn")
 
-[node name="BG4-4" type="Sprite2D" parent="Parallax2D-BG-3"]
+[node name="BG4-4" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=9579154]
 z_index = -1
 position = Vector2(1788, 227)
 texture = ExtResource("5_qq7vn")
 
-[node name="Parallax2D-BG-LEAVES" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG-LEAVES" type="Parallax2D" parent="." unique_id=1355910096]
 scroll_scale = Vector2(1.1, 1)
 scroll_offset = Vector2(-3, -61)
 
-[node name="BG-TOPLEAVES" type="Sprite2D" parent="Parallax2D-BG-LEAVES"]
+[node name="BG-TOPLEAVES" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=381144906]
 position = Vector2(248, 227)
 texture = ExtResource("6_ulo1v")
 
-[node name="BG-TOPLEAVES2" type="Sprite2D" parent="Parallax2D-BG-LEAVES"]
+[node name="BG-TOPLEAVES2" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=1008974747]
 position = Vector2(751, 227)
 texture = ExtResource("6_ulo1v")
 
-[node name="BG-TOPLEAVES3" type="Sprite2D" parent="Parallax2D-BG-LEAVES"]
+[node name="BG-TOPLEAVES3" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=797771717]
 position = Vector2(1254, 227)
 texture = ExtResource("6_ulo1v")
 
-[node name="BG-TOPLEAVES4" type="Sprite2D" parent="Parallax2D-BG-LEAVES"]
+[node name="BG-TOPLEAVES4" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=1426290356]
 position = Vector2(1757, 227)
 texture = ExtResource("6_ulo1v")
 
-[node name="Parallax2D-BG-TREES" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG-TREES" type="Parallax2D" parent="." unique_id=1267019561]
 scroll_scale = Vector2(0.95, 1)
 scroll_offset = Vector2(-2, 0)
 
-[node name="TREES" type="Sprite2D" parent="Parallax2D-BG-TREES"]
+[node name="TREES" type="Sprite2D" parent="Parallax2D-BG-TREES" unique_id=1967135736]
 z_index = -1
 position = Vector2(256, 166)
 texture = ExtResource("7_2dvsr")
 
-[node name="TREES2" type="Sprite2D" parent="Parallax2D-BG-TREES"]
+[node name="TREES2" type="Sprite2D" parent="Parallax2D-BG-TREES" unique_id=1156907498]
 z_index = -1
 position = Vector2(982, 166)
 texture = ExtResource("7_2dvsr")
 
-[node name="TREES3" type="Sprite2D" parent="Parallax2D-BG-TREES"]
+[node name="TREES3" type="Sprite2D" parent="Parallax2D-BG-TREES" unique_id=118021511]
 z_index = -1
 position = Vector2(1664, 166)
 texture = ExtResource("7_2dvsr")
 
-[node name="Parallax2D-BG-BUSHES" type="Parallax2D" parent="."]
+[node name="Parallax2D-BG-BUSHES" type="Parallax2D" parent="." unique_id=1414560904]
 scroll_offset = Vector2(-2, 0)
 
-[node name="BUSHES" type="Sprite2D" parent="Parallax2D-BG-BUSHES"]
+[node name="BUSHES" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=1914500837]
 z_index = -1
 position = Vector2(256, 158)
 texture = ExtResource("8_g4bk5")
 
-[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-BG-BUSHES"]
+[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=1051261749]
 z_index = -1
 position = Vector2(768, 158)
 texture = ExtResource("8_g4bk5")
 
-[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-BG-BUSHES"]
+[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=1249598097]
 z_index = -1
 position = Vector2(1280, 158)
 texture = ExtResource("8_g4bk5")
 
-[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-BG-BUSHES"]
+[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=2083384951]
 z_index = -1
 position = Vector2(1792, 158)
 texture = ExtResource("8_g4bk5")
 
-[node name="Parallax2D-FG-BUSHES2" type="Parallax2D" parent="."]
+[node name="Parallax2D-FG-BUSHES2" type="Parallax2D" parent="." unique_id=1845779513]
 z_index = 1
 scroll_scale = Vector2(1.1, 1)
 scroll_offset = Vector2(-2, 0)
 
-[node name="BUSHES" type="Sprite2D" parent="Parallax2D-FG-BUSHES2"]
+[node name="BUSHES" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=1532748354]
 position = Vector2(178, 230)
 texture = ExtResource("8_g4bk5")
 
-[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-FG-BUSHES2"]
+[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=1427370420]
 position = Vector2(690, 230)
 texture = ExtResource("8_g4bk5")
 
-[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-FG-BUSHES2"]
+[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=1494602855]
 position = Vector2(1202, 239)
 texture = ExtResource("8_g4bk5")
 
-[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-FG-BUSHES2"]
+[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=1252274943]
 position = Vector2(1714, 230)
 texture = ExtResource("8_g4bk5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2094658865]
 position = Vector2(-10, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1683016200]
 position = Vector2(5, 148)
 shape = SubResource("RectangleShape2D_3phl1")
 debug_color = Color(0.993094, 0, 0.242669, 0.42)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1223902399]
 position = Vector2(1915, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1712521884]
 position = Vector2(5, 148)
 shape = SubResource("RectangleShape2D_3phl1")
 debug_color = Color(0.993094, 0, 0.242669, 0.42)
 
-[node name="BG" type="TileMapLayer" parent="."]
+[node name="BG" type="TileMapLayer" parent="." unique_id=73058577]
 position = Vector2(6, 115)
 tile_set = SubResource("TileSet_xgrgd")
 script = ExtResource("9_5hkht")
 
-[node name="FG" type="TileMapLayer" parent="."]
+[node name="FG" type="TileMapLayer" parent="." unique_id=697818909 groups=["Tilemaps"]]
 z_index = -1
 tile_map_data = PackedByteArray("AAAAAAAAAAAIAAAAAAABAAAAAAAIAAAAAAACAAAAAAAIAAAAAAADAAAAAAAIAAAAAAAGAAAAAAAIAAAAAAAFAAAAAAAIAAAAAAAEAAAAAAAIAAAAAAAHAAAAAAAIAAAAAAAIAAAAAAAIAAAAAAAJAAAAAAAIAAAAAAAKAAAAAAAIAAAAAAALAAAAAAAIAAAAAAAMAAAAAAAIAAAAAAANAAAAAAAIAAAAAAAOAAAAAAAIAAAAAAAPAAAAAAAIAAAAAAAQAAAAAAAIAAAAAAARAAAAAAAIAAAAAAASAAAAAAAIAAAAAAATAAAAAAAIAAAAAAAUAAAAAAAIAAAAAAAVAAAAAAAIAAAAAAAWAAAAAAAIAAAAAAAXAAAAAAAIAAAAAAAYAAAAAAAIAAAAAAAZAAAAAAAIAAAAAAAaAAAAAAAIAAAAAAAbAAAAAAAIAAAAAAAcAAAAAAAIAAAAAAAdAAAAAAAIAAAAAAAeAAAAAAAIAAAAAAAfAAAAAAAIAAAAAAAgAAAAAAAIAAAAAAAhAAAAAAAIAAAAAAAiAAAAAAAIAAAAAAAjAAAAAAAIAAAAAAAkAAAAAAAIAAAAAAAlAAAAAAAIAAAAAAAmAAAAAAAIAAAAAAAnAAAAAAAIAAAAAAAoAAAAAAAIAAAAAAApAAAAAAAIAAAAAAAqAAAAAAAIAAAAAAArAAAAAAAIAAAAAAAsAAAAAAAIAAAAAAAtAAAAAAAIAAAAAAAuAAAAAAAIAAAAAAAvAAAAAAAIAAAAAAAwAAAAAAAIAAAAAAAxAAAAAAAIAAAAAAAyAAAAAAAIAAAAAAAzAAAAAAAIAAAAAAA0AAAAAAAIAAAAAAA1AAAAAAAIAAAAAAA2AAAAAAAIAAAAAAA3AAAAAAAIAAAAAAA4AAAAAAAIAAAAAAA5AAAAAAAIAAAAAAA6AAAAAAAIAAAAAAA7AAAAAAAIAAAAAAA8AAAAAAAIAAAAAAA9AAAAAAAIAAAAAAA+AAAAAAAIAAAAAAA/AAAAAAAIAAAAAABAAAAAAAAIAAAAAABBAAAAAAAIAAAAAABCAAAAAAAIAAAAAABDAAAAAAAIAAAAAABEAAAAAAAIAAAAAABFAAAAAAAIAAAAAABGAAAAAAAIAAAAAABHAAAAAAAIAAAAAABIAAAAAAAIAAAAAABJAAAAAAAIAAAAAABKAAAAAAAIAAAAAABLAAAAAAAIAAAAAABMAAAAAAAIAAAAAABNAAAAAAAIAAAAAABOAAAAAAAIAAAAAABPAAAAAAAIAAAAAABQAAAAAAAIAAAAAABRAAAAAAAIAAAAAABSAAAAAAAIAAAAAABTAAAAAAAIAAAAAABUAAAAAAAIAAAAAABVAAAAAAAIAAAAAABWAAAAAAAIAAAAAABXAAAAAAAIAAAAAABYAAAAAAAIAAAAAABZAAAAAAAIAAAAAABaAAAAAAAIAAAAAABbAAAAAAAIAAAAAABcAAAAAAAIAAAAAABdAAAAAAAIAAAAAABeAAAAAAAIAAAAAABfAAAAAAAIAAAAAABgAAAAAAAIAAAAAABhAAAAAAAIAAAAAABiAAAAAAAIAAAAAABjAAAAAAAIAAAAAABkAAAAAAAIAAAAAABlAAAAAAAIAAAAAABmAAAAAAAIAAAAAABnAAAAAAAIAAAAAAAAABIAAAAIABEAAAABABIAAAAJABEAAAACABIAAAAKABEAAAADABIAAAAIABEAAAAEABIAAAAJABEAAAAFABIAAAAKABEAAAAGABIAAAAIABEAAAAHABIAAAAJABEAAAAIABIAAAAKABEAAAAJABIAAAAIABEAAAAKABIAAAAJABEAAAALABIAAAAKABEAAAAMABIAAAAIABEAAAANABIAAAAJABEAAAAOABIAAAAKABEAAAAPABIAAAAIABEAAAAQABIAAAAJABEAAAARABIAAAAKABEAAAASABIAAAAIABEAAAATABIAAAAJABEAAAAUABIAAAAKABEAAAAVABIAAAAIABEAAAAWABIAAAAJABEAAAAXABIAAAAKABEAAAAYABIAAAAIABEAAAAZABIAAAAJABEAAAAaABIAAAAKABEAAAAbABIAAAAIABEAAAAcABIAAAAJABEAAAAdABIAAAAKABEAAAAeABIAAAAIABEAAAAfABIAAAAJABEAAAAgABIAAAAKABEAAAAhABIAAAAIABEAAAAiABIAAAAJABEAAAAjABIAAAAKABEAAAAkABIAAAAIABEAAAAlABIAAAAJABEAAAAmABIAAAAKABEAAAAnABIAAAAIABEAAAAoABIAAAAJABEAAAApABIAAAAKABEAAAAqABIAAAAIABEAAAArABIAAAAJABEAAAAsABIAAAAKABEAAAAtABIAAAAIABEAAAAuABIAAAAJABEAAAAvABIAAAAKABEAAAAwABIAAAAIABEAAAAxABIAAAAJABEAAAAyABIAAAAKABEAAAAzABIAAAAIABEAAAA0ABIAAAAJABEAAAA1ABIAAAAKABEAAAA2ABIAAAAIABEAAAA3ABIAAAAJABEAAAA4ABIAAAAKABEAAAA5ABIAAAAIABEAAAA6ABIAAAAJABEAAAA7ABIAAAAKABEAAAA8ABIAAAAIABEAAAA9ABIAAAAJABEAAAA+ABIAAAAKABEAAAA/ABIAAAAIABEAAABAABIAAAAJABEAAABBABIAAAAKABEAAABCABIAAAAIABEAAABDABIAAAAJABEAAABEABIAAAAKABEAAABFABIAAAAIABEAAABGABIAAAAJABEAAABHABIAAAAKABEAAABIABIAAAAIABEAAABJABIAAAAJABEAAABKABIAAAAKABEAAABLABIAAAAIABEAAABMABIAAAAJABEAAABNABIAAAAKABEAAABOABIAAAAIABEAAABPABIAAAAJABEAAABQABIAAAAKABEAAABRABIAAAAIABEAAABSABIAAAAJABEAAABTABIAAAAKABEAAABUABIAAAAIABEAAABVABIAAAAJABEAAABWABIAAAAKABEAAABXABIAAAAIABEAAABYABIAAAAJABEAAABZABIAAAAKABEAAABaABIAAAAIABEAAABbABIAAAAJABEAAABcABIAAAAKABEAAABdABIAAAAIABEAAABeABIAAAAJABEAAABfABIAAAAKABEAAABgABIAAAAIABEAAABhABIAAAAJABEAAABiABIAAAAKABEAAABjABIAAAAIABEAAABkABIAAAAJABEAAABlABIAAAAKABEAAABmABIAAAAIABEAAABnABIAAAAJABEAAABoABIAAAAKABEAAABpABIAAAAIABEAAABqABIAAAAJABEAAABrABIAAAAKABEAAABsABIAAAAIABEAAABtABIAAAAJABEAAABuABIAAAAKABEAAABvABIAAAAIABEAAABwABIAAAAJABEAAABxABIAAAAKABEAAAByABIAAAAIABEAAABzABIAAAAJABEAAAB0ABIAAAAKABEAAAB1ABIAAAAIABEAAAB2ABIAAAAJABEAAAB3ABIAAAAKABEAAABoAAAAAAAIAAAAAABpAAAAAAAJAAAAAABqAAAAAAAKAAAAAABrAAAAAAALAAAAAABsAAAAAAAMAAAAAABtAAAAAAAIAAAAAABuAAAAAAAJAAAAAABvAAAAAAAKAAAAAABwAAAAAAALAAAAAABxAAAAAAAMAAAAAAByAAAAAAAIAAAAAABzAAAAAAAJAAAAAAB0AAAAAAAKAAAAAAB1AAAAAAALAAAAAAB2AAAAAAAMAAAAAAB3AAAAAAAMAAAAAAA=")
 tile_set = SubResource("TileSet_cdo1u")
 script = ExtResource("9_5hkht")
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("11_hshse")]
+[node name="PlayerSpawn" parent="." unique_id=1500136432 instance=ExtResource("11_hshse")]
 position = Vector2(38, 262)
 
-[node name="Campfire" type="AnimatedSprite2D" parent="."]
+[node name="Campfire" type="AnimatedSprite2D" parent="." unique_id=1239844774]
 texture_filter = 1
 position = Vector2(1359, 274)
 scale = Vector2(0.123438, 0.123438)
@@ -857,15 +857,15 @@ animation = &"campfire"
 autoplay = "campfire"
 frame_progress = 0.472901
 
-[node name="PointLight2D" type="PointLight2D" parent="Campfire"]
+[node name="PointLight2D" type="PointLight2D" parent="Campfire" unique_id=688868677]
 position = Vector2(6.86646e-05, -39.2982)
 scale = Vector2(3.13871, 3.13871)
 texture = SubResource("GradientTexture2D_y7qvs")
 
-[node name="LevelTransition2" parent="." instance=ExtResource("14_7au8u")]
+[node name="LevelTransition2" parent="." unique_id=1070097103 instance=ExtResource("14_7au8u")]
 position = Vector2(22, 281)
 level = "uid://cstqm2inckfvc"
 target_transition_area = "LevelTransition1"
 
-[node name="Shopkeeper" parent="." instance=ExtResource("15_qq7vn")]
+[node name="Shopkeeper" parent="." unique_id=236909221 instance=ExtResource("15_qq7vn")]
 position = Vector2(1334, 291)
