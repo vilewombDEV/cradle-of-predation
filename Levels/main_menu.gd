@@ -1,4 +1,5 @@
 extends Node2D
+class_name MainMenu
 
 const START_CUTSCENE: String = "res://Levels/opening_cutscene.tscn"
 

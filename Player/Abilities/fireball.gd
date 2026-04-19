@@ -5,7 +5,6 @@ class_name Fireball
 @export var fireball_audio: AudioStream
 
 var move_direction: Vector2 = Vector2.RIGHT
-
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var explode_sprite: Sprite2D = $ExplodeSprite
 @onready var fireball_hit_box: DamagedArea = %FireballHitBox
@@ -14,7 +13,7 @@ var move_direction: Vector2 = Vector2.RIGHT
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	fireball_hit_box.damage_taken.connect(_on_fireball_hit_box_body_entered)
+	fireball_hit_box.damage_taken.connect(_on_fireball_hit_box_area_entered)
 	if fireball_audio:
 		audio.stream = fireball_audio
 		audio.play()
@@ -32,10 +31,10 @@ func rotate_nodes() -> void:
 	explode_sprite.rotation = angle 
 	fireball_hit_box.rotation = angle
 
-func _on_fireball_hit_box_body_entered(body: Node2D) -> void:
-	animation_player.play("fireball_explode")
-	await animation_player.animation_finished
+func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	queue_free()
 
-func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+func _on_fireball_hit_box_area_entered(area: Area2D) -> void:
+	animation_player.play("fireball_explode")
+	await animation_player.animation_finished
 	queue_free()

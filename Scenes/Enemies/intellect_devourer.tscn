@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://drthrwplkxlqn" path="res://Inventory/Items/brain.tres" id="11_is7a1"]
 [ext_resource type="Script" uid="uid://bm6ms03qqqd8m" path="res://Scenes/Enemies/Enemy States/enemy_chase.gd" id="11_otjit"]
 [ext_resource type="Texture2D" uid="uid://b14rqa48x816p" path="res://Scenes/Enemies/Enemy Sprites/Intellect Devourer Sprites.png" id="12_qw8ed"]
-[ext_resource type="AudioStream" uid="uid://sdmbasi3gkg2" path="res://Music & SFX/SFX/skeleton_death.wav" id="13_04b1x"]
+[ext_resource type="AudioStream" uid="uid://du4tdjidajxwr" path="res://Music & SFX/SFX/misc._death.wav" id="13_qw8ed"]
 [ext_resource type="PackedScene" uid="uid://c50lff77vvpjg" path="res://Scenes/Enemies/vision_area.tscn" id="14_0psfa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw8ed"]
@@ -216,7 +216,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("13_04b1x")
+"stream": ExtResource("13_qw8ed")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -284,7 +284,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("13_04b1x")
+"stream": ExtResource("13_qw8ed")
 }],
 "times": PackedFloat32Array(0)
 }

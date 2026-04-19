@@ -6,12 +6,13 @@
 [ext_resource type="Script" uid="uid://du77ikfgsn2if" path="res://Player/Player States/run.gd" id="5_7emwf"]
 [ext_resource type="Script" uid="uid://bv7rj8qbu75a8" path="res://Player/Player States/jump.gd" id="6_hshwv"]
 [ext_resource type="Script" uid="uid://b2hv1myvve2jm" path="res://Player/Player States/dash.gd" id="6_qemgg"]
-[ext_resource type="AudioStream" uid="uid://q45dw704hn5f" path="res://Music & SFX/IMP SFX/CREAHmn_Short, Intimidating, Troll, MHCS14.wav" id="7_8viyr"]
+[ext_resource type="AudioStream" uid="uid://bi0jyrpdlrp8f" path="res://Music & SFX/IMP SFX/dash.wav" id="6_sm0op"]
 [ext_resource type="Script" uid="uid://bnhb3ihcx55ka" path="res://Player/Player States/fall.gd" id="7_gpjlu"]
 [ext_resource type="Script" uid="uid://bkrtmt8yhfoej" path="res://Player/Player States/attack.gd" id="8_8mwp6"]
+[ext_resource type="AudioStream" uid="uid://cgwix7jehq1od" path="res://Music & SFX/IMP SFX/jump.wav" id="8_76lrf"]
 [ext_resource type="Script" uid="uid://5r8nv8j0cru7" path="res://Player/Player States/stun.gd" id="9_qemgg"]
 [ext_resource type="Script" uid="uid://b6bvdqxywoejk" path="res://Player/Player States/death.gd" id="10_8viyr"]
-[ext_resource type="AudioStream" uid="uid://cavk1b25r6vbk" path="res://Music & SFX/SFX/22_Slash_04.wav" id="10_qemgg"]
+[ext_resource type="AudioStream" uid="uid://b60r5v3t5cpdm" path="res://Music & SFX/IMP SFX/attack.wav" id="11_76lrf"]
 [ext_resource type="Texture2D" uid="uid://c1yepr6eudcky" path="res://Player/Player Assests/Imp Sprite Sheet.png" id="12_76lrf"]
 [ext_resource type="Script" uid="uid://cmtqs8jddtedc" path="res://Scripts/player_camera.gd" id="13_efx54"]
 [ext_resource type="Script" uid="uid://bw4iy7clhu6to" path="res://Player/Player States/fireball.gd" id="13_gpjlu"]
@@ -26,7 +27,6 @@
 [ext_resource type="Script" uid="uid://bptcsh6qjiovk" path="res://Player/abilities.gd" id="21_8mwp6"]
 [ext_resource type="PackedScene" uid="uid://kks1c84sf1dy" path="res://Music & SFX/SFX/Footsteps SFX/footstep_audio_2d.tscn" id="21_sm0op"]
 [ext_resource type="Script" uid="uid://b5dwvw2ktpplk" path="res://Player/attack_area.gd" id="22_8viyr"]
-[ext_resource type="AudioStream" uid="uid://bg2mla5r4lyx4" path="res://Music & SFX/IMP SFX/dash_audio.wav" id="24_76lrf"]
 [ext_resource type="PackedScene" uid="uid://dcfnfsulceshe" path="res://Scenes/item_magnet.tscn" id="26_8viyr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pu2lt"]
@@ -576,12 +576,12 @@ script = ExtResource("5_7emwf")
 [node name="Dash" type="Node" parent="States" unique_id=2136662101]
 unique_name_in_owner = true
 script = ExtResource("6_qemgg")
-dash_audio = ExtResource("24_76lrf")
+dash_audio = ExtResource("6_sm0op")
 
 [node name="Jump" type="Node" parent="States" unique_id=451389251]
 unique_name_in_owner = true
 script = ExtResource("6_hshwv")
-jump_audio = ExtResource("7_8viyr")
+jump_audio = ExtResource("8_76lrf")
 
 [node name="Fall" type="Node" parent="States" unique_id=79625300]
 unique_name_in_owner = true
@@ -590,7 +590,7 @@ script = ExtResource("7_gpjlu")
 [node name="Attack" type="Node" parent="States" unique_id=674291896]
 unique_name_in_owner = true
 script = ExtResource("8_8mwp6")
-attack_sound = ExtResource("10_qemgg")
+attack_sound = ExtResource("11_76lrf")
 
 [node name="Stun" type="Node" parent="States" unique_id=610088228]
 unique_name_in_owner = true
@@ -676,6 +676,7 @@ max_polyphony = 100
 bus = &"SFX"
 
 [node name="FootstepAudio2D" parent="Audio" unique_id=673353833 instance=ExtResource("21_sm0op")]
+max_polyphony = 100
 
 [node name="Interactions" type="Node2D" parent="." unique_id=874949445]
 

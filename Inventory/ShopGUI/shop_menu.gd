@@ -77,7 +77,7 @@ func populate_item_list(items: Array[ItemData]) -> void:
 		var shop_item: ShopItemButton = SHOP_ITEM_BUTTON.instantiate()
 		shop_item.setup_item(item)
 		shop_items_container.add_child(shop_item)
-		shop_item.focus_entered.connect(update_item_details.bind(item))
+		shop_item.mouse_entered.connect(update_item_details.bind(item))
 		shop_item.pressed.connect(_purchase_item.bind(item))
 
 func play_audio(_a: AudioStream) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dea28c55q05wy"]
+[gd_scene format=3 uid="uid://dea28c55q05wy"]
 
 [ext_resource type="Script" uid="uid://ultugv8rec7h" path="res://Scripts/pause_menu.gd" id="1_vmyb1"]
 [ext_resource type="FontFile" uid="uid://bh7uomeu1tf74" path="res://Assets/Fonts/dungeon-mode.ttf" id="2_1och7"]
@@ -66,11 +66,12 @@ texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer" unique_id=1060051624]
 process_mode = 3
 script = ExtResource("1_vmyb1")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=132593501]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,7 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1940293626]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,7 +90,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.13, 0.13, 0.13, 0.9)
 
-[node name="PAUSED" type="Label" parent="Control"]
+[node name="PAUSED" type="Label" parent="Control" unique_id=888623365]
 texture_filter = 1
 layout_mode = 1
 offset_left = 160.0
@@ -101,19 +102,19 @@ theme_override_fonts/font = ExtResource("2_stj27")
 theme_override_font_sizes/font_size = 100
 text = "PAUSED"
 
-[node name="Click" type="AudioStreamPlayer" parent="Control"]
+[node name="Click" type="AudioStreamPlayer" parent="Control" unique_id=1706801981]
 stream = ExtResource("3_uscpe")
 
-[node name="Click2" type="AudioStreamPlayer" parent="Control"]
+[node name="Click2" type="AudioStreamPlayer" parent="Control" unique_id=1687884578]
 stream = ExtResource("3_bpi0q")
 
-[node name="Hover" type="AudioStreamPlayer" parent="Control"]
+[node name="Hover" type="AudioStreamPlayer" parent="Control" unique_id=120981122]
 stream = ExtResource("4_uscpe")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control" unique_id=342990336]
 max_polyphony = 5
 
-[node name="TabContainer" type="TabContainer" parent="Control"]
+[node name="TabContainer" type="TabContainer" parent="Control" unique_id=1392392038]
 self_modulate = Color(0, 0, 0, 1)
 texture_filter = 1
 layout_mode = 1
@@ -128,12 +129,13 @@ theme_override_font_sizes/font_size = 25
 tab_alignment = 1
 current_tab = 0
 
-[node name="Inventory" type="Control" parent="Control/TabContainer"]
+[node name="Inventory" type="Control" parent="Control/TabContainer" unique_id=2006837139]
+texture_filter = 1
 layout_mode = 2
 mouse_filter = 2
 metadata/_tab_index = 0
 
-[node name="AbilityContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+[node name="AbilityContainer" type="PanelContainer" parent="Control/TabContainer/Inventory" unique_id=1041930181]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -150,18 +152,18 @@ grow_vertical = 2
 scale = Vector2(2.5, 2.5)
 theme_override_styles/panel = SubResource("StyleBoxTexture_8flw2")
 
-[node name="AbilityGridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer"]
+[node name="AbilityGridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer" unique_id=1416197925]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
+[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer" unique_id=6947199]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 script = ExtResource("7_1ymcx")
 description = "A glob of blood that boomerangs, damaging all enemies in its path."
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot" unique_id=549955989]
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
@@ -170,14 +172,14 @@ offset_bottom = 32.0
 texture = SubResource("AtlasTexture_8flw2")
 stretch_mode = 3
 
-[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
+[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer" unique_id=848854740]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 script = ExtResource("7_1ymcx")
 description = "Conjures a fireball projectile."
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot2"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot2" unique_id=1011366024]
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
@@ -186,14 +188,14 @@ offset_bottom = 32.0
 texture = SubResource("AtlasTexture_c8xnj")
 stretch_mode = 3
 
-[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
+[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer" unique_id=1196868745]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 script = ExtResource("7_1ymcx")
 description = "Conjures a psychic force projectile."
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot3"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot3" unique_id=1570678048]
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
@@ -202,7 +204,7 @@ offset_bottom = 32.0
 texture = SubResource("AtlasTexture_m5ant")
 stretch_mode = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory" unique_id=663233505]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -219,100 +221,101 @@ grow_vertical = 2
 scale = Vector2(2.5, 2.5)
 theme_override_styles/panel = SubResource("StyleBoxTexture_myy0f")
 
-[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer"]
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer" unique_id=1709982005]
 layout_mode = 2
 columns = 5
 script = ExtResource("4_sjs17")
 data = ExtResource("5_u8tnp")
 
-[node name="InventorySlot" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=351345841 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot2" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot2" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=551639990 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot3" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot3" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1195733935 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot4" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot4" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=845483031 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot5" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot5" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=843572182 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot6" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot6" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1897066144 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot7" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot7" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1449075238 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot8" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot8" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1812770733 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot9" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot9" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=819435736 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot10" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot10" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=438964246 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot11" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot11" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=2137822466 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot12" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot12" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=349941892 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot13" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot13" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=308535727 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot14" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot14" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1248587299 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot15" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot15" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1579459810 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot16" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot16" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1498730190 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot17" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot17" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=1269234231 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot18" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot18" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=142702485 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot19" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot19" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=575302959 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="InventorySlot20" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot20" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" unique_id=124208855 instance=ExtResource("4_myy0f")]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("10_uscpe")]
+[node name="Stats" parent="Control/TabContainer/Inventory" unique_id=1229778186 instance=ExtResource("10_uscpe")]
+texture_filter = 1
 layout_mode = 0
 offset_left = 1000.0
 offset_top = 143.0
 offset_right = 1533.0
 offset_bottom = 209.0
 
-[node name="PanelContainer2" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+[node name="PanelContainer2" type="PanelContainer" parent="Control/TabContainer/Inventory" unique_id=1908893901]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -329,65 +332,65 @@ grow_vertical = 2
 scale = Vector2(2.5, 2.5)
 theme_override_styles/panel = SubResource("StyleBoxTexture_myy0f")
 
-[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer2"]
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer2" unique_id=1833907350]
 layout_mode = 2
 columns = 5
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=915957291]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("17_8flw2")
 stretch_mode = 3
 
-[node name="InventorySlot_Armor" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot_Armor" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1858212334 instance=ExtResource("4_myy0f")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 0
 
-[node name="ClearSlot" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+[node name="ClearSlot" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=10692312]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 stretch_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1660499899]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("15_tekra")
 stretch_mode = 3
 
-[node name="InventorySlot_Ring" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot_Ring" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=636908665 instance=ExtResource("4_myy0f")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 0
 
-[node name="TextureRect3" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+[node name="TextureRect3" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=2037201345]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("18_c8xnj")
 stretch_mode = 3
 
-[node name="InventorySlot_Weapon" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot_Weapon" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1964349502 instance=ExtResource("4_myy0f")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 0
 
-[node name="ClearSlot2" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+[node name="ClearSlot2" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1172963834]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 stretch_mode = 3
 
-[node name="TextureRect4" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+[node name="TextureRect4" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=1043259737]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("17_c8xnj")
 stretch_mode = 3
 
-[node name="InventorySlot_Book" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("4_myy0f")]
+[node name="InventorySlot_Book" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" unique_id=995797526 instance=ExtResource("4_myy0f")]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 0
 
-[node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory"]
+[node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory" unique_id=1834626475]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 4
@@ -404,13 +407,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Quests" type="Control" parent="Control/TabContainer"]
+[node name="Quests" type="Control" parent="Control/TabContainer" unique_id=875090780]
 visible = false
 layout_mode = 2
 script = ExtResource("10_524vl")
 metadata/_tab_index = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Quests"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Quests" unique_id=886148163]
 layout_mode = 0
 offset_left = 397.0
 offset_top = 131.0
@@ -420,57 +423,57 @@ follow_focus = true
 scroll_vertical_custom_step = 100.0
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Quests/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Quests/ScrollContainer" unique_id=1605554762]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer" unique_id=498506868]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="QuestItem" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=917788351 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestItem2" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem2" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=21831540 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestItem3" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem3" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=107312871 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestItem4" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem4" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1358157590 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestItem5" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem5" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=598853887 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestItem6" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem6" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=774621521 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestItem7" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem7" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1423381272 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestItem8" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem8" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1524266342 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestItem9" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem9" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=101003788 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="QuestItem10" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ix48p")]
+[node name="QuestItem10" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1291185732 instance=ExtResource("10_ix48p")]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests" unique_id=383586383]
 layout_mode = 0
 offset_left = 1032.0
 offset_top = 136.0
@@ -478,7 +481,7 @@ offset_right = 1742.0
 offset_bottom = 446.0
 theme_override_constants/separation = 20
 
-[node name="TitleLabel" type="Label" parent="Control/TabContainer/Quests/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="Control/TabContainer/Quests/VBoxContainer" unique_id=276067520]
 custom_minimum_size = Vector2(710, 15)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1och7")
@@ -486,7 +489,7 @@ theme_override_font_sizes/font_size = 30
 text = "Quest Title"
 autowrap_mode = 3
 
-[node name="DescriptionLabel" type="Label" parent="Control/TabContainer/Quests/VBoxContainer"]
+[node name="DescriptionLabel" type="Label" parent="Control/TabContainer/Quests/VBoxContainer" unique_id=1757113089]
 modulate = Color(0.560955, 0.560955, 0.560955, 1)
 custom_minimum_size = Vector2(710, 15)
 layout_mode = 2
@@ -495,34 +498,34 @@ theme_override_font_sizes/font_size = 20
 text = "Quest Description"
 autowrap_mode = 3
 
-[node name="SpacerControl" type="Control" parent="Control/TabContainer/Quests/VBoxContainer"]
+[node name="SpacerControl" type="Control" parent="Control/TabContainer/Quests/VBoxContainer" unique_id=375028829]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="QuestStepItem" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+[node name="QuestStepItem" parent="Control/TabContainer/Quests/VBoxContainer" unique_id=186366896 instance=ExtResource("12_0fi7f")]
 layout_mode = 2
 
-[node name="QuestStepItem2" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+[node name="QuestStepItem2" parent="Control/TabContainer/Quests/VBoxContainer" unique_id=108364026 instance=ExtResource("12_0fi7f")]
 layout_mode = 2
 
-[node name="QuestStepItem3" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+[node name="QuestStepItem3" parent="Control/TabContainer/Quests/VBoxContainer" unique_id=1376044751 instance=ExtResource("12_0fi7f")]
 layout_mode = 2
 
-[node name="QuestStepItem4" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+[node name="QuestStepItem4" parent="Control/TabContainer/Quests/VBoxContainer" unique_id=1706749842 instance=ExtResource("12_0fi7f")]
 layout_mode = 2
 
-[node name="QuestStepItem5" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+[node name="QuestStepItem5" parent="Control/TabContainer/Quests/VBoxContainer" unique_id=1916199243 instance=ExtResource("12_0fi7f")]
 layout_mode = 2
 
-[node name="QuestStepItem6" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("12_0fi7f")]
+[node name="QuestStepItem6" parent="Control/TabContainer/Quests/VBoxContainer" unique_id=1482740234 instance=ExtResource("12_0fi7f")]
 layout_mode = 2
 
-[node name="System" type="Control" parent="Control/TabContainer"]
+[node name="System" type="Control" parent="Control/TabContainer" unique_id=1741632466]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/System"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/System" unique_id=1600573218]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -537,28 +540,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="Save" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+[node name="Save" type="Button" parent="Control/TabContainer/System/VBoxContainer" unique_id=1898926474]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 30
 text = "Save"
 
-[node name="Load" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+[node name="Load" type="Button" parent="Control/TabContainer/System/VBoxContainer" unique_id=167592371]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 30
 text = "Load"
 
-[node name="Main Menu" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+[node name="Main Menu" type="Button" parent="Control/TabContainer/System/VBoxContainer" unique_id=22140474]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 30
 text = "Main Menu"
 
-[node name="Quit" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+[node name="Quit" type="Button" parent="Control/TabContainer/System/VBoxContainer" unique_id=1848852764]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1och7")

@@ -4606,7 +4606,7 @@ item_data = ExtResource("13_ybm0b")
 [node name="Enemies" type="Node" parent="." unique_id=1347610028]
 
 [node name="Spider" parent="Enemies" unique_id=1609016409 instance=ExtResource("12_8hemp")]
-position = Vector2(641, 161)
+position = Vector2(527, 161)
 
 [node name="LevelTransition1" parent="." unique_id=811490688 instance=ExtResource("29_a18s4")]
 position = Vector2(44, 144)

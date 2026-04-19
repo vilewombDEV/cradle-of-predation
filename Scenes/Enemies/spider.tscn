@@ -10,8 +10,9 @@
 [ext_resource type="Script" uid="uid://d4d8mbsnxqk41" path="res://Scenes/Enemies/Enemy States/enemy_stun.gd" id="5_wloym"]
 [ext_resource type="Script" uid="uid://mw37cjulc2af" path="res://Scenes/Enemies/Enemy States/enemy_destroy.gd" id="8_wloym"]
 [ext_resource type="Script" uid="uid://cqydt761s6qn0" path="res://Scenes/Enemies/Enemy States/drop_data.gd" id="9_6hqkn"]
-[ext_resource type="AudioStream" uid="uid://drmvbvldhl27j" path="res://Music & SFX/SFX/spider_death.wav" id="10_ox5xr"]
 [ext_resource type="Resource" uid="uid://bw2kdyiiney4s" path="res://Inventory/Items/eyeballs.tres" id="10_rxrcf"]
+[ext_resource type="AudioStream" uid="uid://d044hl8m0dfcc" path="res://Music & SFX/SFX/spider_death.ogg" id="12_rxrcf"]
+[ext_resource type="AudioStream" uid="uid://dxipm5s73x0xm" path="res://Music & SFX/SFX/spider_hit.ogg" id="13_rxrcf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hqkn"]
 radius = 7.0
@@ -129,7 +130,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("10_ox5xr")
+"stream": ExtResource("12_rxrcf")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -185,7 +186,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("10_ox5xr")
+"stream": ExtResource("12_rxrcf")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -327,6 +328,21 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.897827, 0.00418138, 9.62615e-08, 1), Color(1, 1, 1, 1)]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_rxrcf")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_wloym"]
 resource_name = "stun_right"
@@ -380,6 +396,21 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.897827, 0.00418138, 9.62615e-08, 1), Color(1, 1, 1, 1)]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_rxrcf")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_51pgp"]
 resource_name = "walk_left"
@@ -499,7 +530,7 @@ debug_color = Color(0, 0.638, 0.387, 0)
 [node name="HazardArea" type="Area2D" parent="." unique_id=990274410]
 position = Vector2(0, -4)
 collision_layer = 256
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("3_rxrcf")
 metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 

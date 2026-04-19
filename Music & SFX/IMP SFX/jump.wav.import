@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dqufly806qlfy"
-path="res://.godot/imported/slime_hit.wav-189d6f9b162409dd4bad8f741f55f9dd.sample"
+uid="uid://cgwix7jehq1od"
+path="res://.godot/imported/jump.wav-464433876d7311aadd54d462669145e4.sample"
 
 [deps]
 
-source_file="res://Music & SFX/SFX/slime_hit.wav"
-dest_files=["res://.godot/imported/slime_hit.wav-189d6f9b162409dd4bad8f741f55f9dd.sample"]
+source_file="res://Music & SFX/IMP SFX/jump.wav"
+dest_files=["res://.godot/imported/jump.wav-464433876d7311aadd54d462669145e4.sample"]
 
 [params]
 

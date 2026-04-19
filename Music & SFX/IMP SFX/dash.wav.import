@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bi0jyrpdlrp8f"
+path="res://.godot/imported/dash.wav-52987850f395821d0bfa131601c41f21.sample"
+
+[deps]
+
+source_file="res://Music & SFX/IMP SFX/dash.wav"
+dest_files=["res://.godot/imported/dash.wav-52987850f395821d0bfa131601c41f21.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

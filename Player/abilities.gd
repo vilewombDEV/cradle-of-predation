@@ -34,6 +34,7 @@ func setup_abilities(select_index: int = 0) -> void:
 	toggle_ability()
 
 func _unhandled_input(event: InputEvent) -> void:
+	
 	if event.is_action_pressed("spell_ability"):
 		match selected_ability:
 			0:

@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://txhp4iwmckwl" path="res://Inventory/Items/heart.tres" id="10_pws2r"]
 [ext_resource type="Script" uid="uid://bm6ms03qqqd8m" path="res://Scenes/Enemies/Enemy States/enemy_chase.gd" id="11_kumn5"]
 [ext_resource type="Texture2D" uid="uid://cus8bco1r4a0n" path="res://Scenes/Enemies/Enemy Sprites/mimic.png" id="12_pws2r"]
-[ext_resource type="AudioStream" uid="uid://sdmbasi3gkg2" path="res://Music & SFX/SFX/skeleton_death.wav" id="13_6b7pn"]
+[ext_resource type="AudioStream" uid="uid://du4tdjidajxwr" path="res://Music & SFX/SFX/misc._death.wav" id="13_pws2r"]
 [ext_resource type="PackedScene" uid="uid://c50lff77vvpjg" path="res://Scenes/Enemies/vision_area.tscn" id="14_tbnoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw8ed"]
@@ -221,7 +221,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("13_6b7pn")
+"stream": ExtResource("13_pws2r")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -289,7 +289,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("13_6b7pn")
+"stream": ExtResource("13_pws2r")
 }],
 "times": PackedFloat32Array(0)
 }

@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://bw2kdyiiney4s" path="res://Inventory/Items/eyeballs.tres" id="10_l1gwr"]
 [ext_resource type="Texture2D" uid="uid://bheqkdfepxqyo" path="res://Scenes/Enemies/Enemy Sprites/Skeleton enemy.png" id="11_qykqd"]
 [ext_resource type="Script" uid="uid://bm6ms03qqqd8m" path="res://Scenes/Enemies/Enemy States/enemy_chase.gd" id="12_1oimy"]
-[ext_resource type="AudioStream" uid="uid://sdmbasi3gkg2" path="res://Music & SFX/SFX/skeleton_death.wav" id="12_ymct7"]
+[ext_resource type="AudioStream" uid="uid://du4tdjidajxwr" path="res://Music & SFX/SFX/misc._death.wav" id="13_1oimy"]
 [ext_resource type="PackedScene" uid="uid://c50lff77vvpjg" path="res://Scenes/Enemies/vision_area.tscn" id="13_ymct7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymct7"]
@@ -219,7 +219,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("12_ymct7")
+"stream": ExtResource("13_1oimy")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -287,7 +287,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("12_ymct7")
+"stream": ExtResource("13_1oimy")
 }],
 "times": PackedFloat32Array(0)
 }
