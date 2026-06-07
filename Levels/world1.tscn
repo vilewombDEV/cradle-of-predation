@@ -4600,7 +4600,7 @@ autoplay = &"Move"
 position = Vector2(1835, 66)
 
 [node name="Chest1" parent="Props" unique_id=1995431874 instance=ExtResource("12_mn3ar")]
-position = Vector2(273, -187)
+position = Vector2(1866, 69)
 item_data = ExtResource("13_ybm0b")
 
 [node name="Enemies" type="Node" parent="." unique_id=1347610028]

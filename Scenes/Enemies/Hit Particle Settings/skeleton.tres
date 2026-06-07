@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="HitParticleSettings" format=3 uid="uid://danfixiqltlpg"]
+
+[ext_resource type="Script" uid="uid://dxq3ax3vp6iig" path="res://Scenes/Enemies/Hit Particle Settings/hit_particle_settings.gd" id="1_j2mtb"]
+
+[resource]
+script = ExtResource("1_j2mtb")
+count = 15
+color = Color(0.5568628, 0.5568628, 0.5568628, 1)
+metadata/_custom_type_script = "uid://dxq3ax3vp6iig"

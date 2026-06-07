@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuh4u4nyi51hl"
-path="res://.godot/imported/cursor.png-e3cf70f5f8bd51c33ad8cb385ab171ff.ctex"
+uid="uid://dss86p6k1eudl"
+path="res://.godot/imported/predation.png-1bbe03a5c089ddd02865e61e1dd09c9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/cursor.png"
-dest_files=["res://.godot/imported/cursor.png-e3cf70f5f8bd51c33ad8cb385ab171ff.ctex"]
+source_file="res://Assets/Fonts/predation.png"
+dest_files=["res://.godot/imported/predation.png-1bbe03a5c089ddd02865e61e1dd09c9d.ctex"]
 
 [params]
 

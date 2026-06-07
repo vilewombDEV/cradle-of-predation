@@ -1466,25 +1466,25 @@ size = 4
 [node name="EnemyCounter" parent="." unique_id=721973562 instance=ExtResource("8_6bmas")]
 
 [node name="IntellectDevourer" parent="EnemyCounter" unique_id=1660676104 instance=ExtResource("10_8iqij")]
-position = Vector2(265, 182)
+position = Vector2(297, 181)
 
 [node name="IntellectDevourer2" parent="EnemyCounter" unique_id=1828489146 instance=ExtResource("10_8iqij")]
-position = Vector2(1214, 182)
+position = Vector2(1214, 181)
 
 [node name="MimicChest" parent="EnemyCounter" unique_id=1847793522 instance=ExtResource("11_385m0")]
 position = Vector2(319, 34)
 
 [node name="Slime" parent="EnemyCounter" unique_id=1315670198 instance=ExtResource("12_t5806")]
-position = Vector2(479, 167)
+position = Vector2(479, 158)
 
 [node name="Slime2" parent="EnemyCounter" unique_id=2128654462 instance=ExtResource("12_t5806")]
-position = Vector2(869, 167)
+position = Vector2(798, 158)
 
-[node name="Skeleton" parent="EnemyCounter" unique_id=353598766 instance=ExtResource("13_vo1m4")]
-position = Vector2(816, 68)
+[node name="Skeleton" parent="EnemyCounter" unique_id=527118764 instance=ExtResource("13_vo1m4")]
+position = Vector2(757, 72)
 
-[node name="Skeleton2" parent="EnemyCounter" unique_id=2079190865 instance=ExtResource("13_vo1m4")]
-position = Vector2(967, 68)
+[node name="Skeleton2" parent="EnemyCounter" unique_id=797603767 instance=ExtResource("13_vo1m4")]
+position = Vector2(962, 72)
 
 [node name="Props" type="Node" parent="." unique_id=1516547515]
 

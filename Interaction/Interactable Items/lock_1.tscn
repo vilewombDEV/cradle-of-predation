@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b1wuom23ncb8h" path="res://Music & SFX/SFX/Lock Unlock.ogg" id="4_clw0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bca0v"]
-size = Vector2(8, 102)
+size = Vector2(8, 154)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34uw3"]
 size = Vector2(15, 77)
@@ -154,7 +154,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=498820368]
-position = Vector2(0, 3)
+position = Vector2(0, -23)
 shape = SubResource("RectangleShape2D_bca0v")
 debug_color = Color(0.0896908, 0.523442, 1, 0.42)
 

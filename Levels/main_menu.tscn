@@ -7,8 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://b0lt00cgv1rgr" path="res://Music & SFX/SFX/hover.mp3" id="3_b8u61"]
 [ext_resource type="Texture2D" uid="uid://d2t6awa0mbco" path="res://Splash Scene/vw LOGO.png" id="3_ce3w2"]
 [ext_resource type="AudioStream" uid="uid://bd3vaoqo1psh7" path="res://Music & SFX/SFX/click_pm.wav" id="4_1brcv"]
-[ext_resource type="FontFile" uid="uid://kp6rccpff4uq" path="res://Assets/Fonts/MM FONT.ttf" id="4_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://duxfwe5mrbtr6" path="res://Splash Scene/vile_DEV (trans2).png" id="5_trj04"]
+[ext_resource type="Texture2D" uid="uid://dss86p6k1eudl" path="res://Assets/Fonts/predation.png" id="7_b8u61"]
+[ext_resource type="FontFile" uid="uid://c5xxlpxy7ndyv" path="res://Assets/Fonts/Skullled-Regular.ttf" id="8_mkm6k"]
 [ext_resource type="PackedScene" uid="uid://c5ykmin26do5a" path="res://Levels/player_spawn.tscn" id="9_6e2af"]
 [ext_resource type="PackedScene" uid="uid://ewn7p1on468q" path="res://Splash Scene/splash_screen.tscn" id="10_vr1f0"]
 [ext_resource type="AudioStream" uid="uid://um1mti2yr473" path="res://Music & SFX/SFX/hover_pm.wav" id="12_b8u61"]
@@ -33,6 +34,10 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mkm6k"]
+texture = ExtResource("7_b8u61")
+modulate_color = Color(0.1882353, 0.0627451, 0.12941177, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16hvj"]
 texture = ExtResource("5_trj04")
@@ -77,10 +82,10 @@ anchor_left = 0.5
 anchor_top = 0.541
 anchor_right = 0.5
 anchor_bottom = 0.541
-offset_left = -152.0
-offset_top = -104.28
-offset_right = 172.0
-offset_bottom = 139.72
+offset_left = 340.0
+offset_top = -35.28003
+offset_right = 574.0
+offset_bottom = 166.71997
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -116,46 +121,36 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
 text = "Quit"
 
-[node name="GAME NAME" type="Label" parent="CanvasLayer/MainMenu" unique_id=444761111]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -488.0
-offset_top = -452.0
-offset_right = 541.0
-offset_bottom = -284.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 10
-theme_override_constants/shadow_offset_y = 10
-theme_override_constants/shadow_outline_size = 10
-theme_override_fonts/font = ExtResource("4_ce3w2")
-theme_override_font_sizes/font_size = 150
-text = "Cradle of Predation"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="PREDATION" type="Panel" parent="CanvasLayer/MainMenu" unique_id=1052002596]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 220.0
+offset_right = 1813.0288
+offset_bottom = 351.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mkm6k")
 
-[node name="vileDEV" type="Label" parent="CanvasLayer/MainMenu" unique_id=671931273]
+[node name="CRADLE OF" type="Label" parent="CanvasLayer/MainMenu" unique_id=671931273]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 180.0
-offset_top = 208.0
-offset_right = 709.0
-offset_bottom = 284.0
+offset_left = 408.0
+offset_top = 200.0
+offset_right = 550.0
+offset_bottom = 227.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.827451, 0.517647, 0.639216, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 8
-theme_override_constants/shadow_offset_y = 8
-theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_colors/font_color = Color(0.7604822, 0.45043758, 0.27395758, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.43400002)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("8_mkm6k")
 theme_override_font_sizes/font_size = 25
-text = "a game by: vile_DEV"
+text = "Cradle of"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -165,10 +160,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -14.0
-offset_top = 882.0
-offset_right = -1668.0
-offset_bottom = 42.0
+offset_left = -8.0
+offset_top = 946.0
+offset_right = -1748.45
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -182,8 +177,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -191.0
-offset_top = -127.0
+offset_left = -176.0
+offset_top = -112.0
+offset_right = -6.055176
+offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2

@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bslqh6e56kxfg" path="res://Music & SFX/juanjo_sound - The Hollow Path.ogg" id="2_a6p5l"]
 [ext_resource type="Texture2D" uid="uid://scdc3r77ekqr" path="res://Assets/Tile Sets/Garden's Forest/background4.png" id="2_pdoyq"]
 [ext_resource type="Texture2D" uid="uid://bt1dkge5mri8" path="res://Assets/Tile Sets/Garden's Forest/background3.png" id="3_a6p5l"]
+[ext_resource type="Material" uid="uid://5lep7oat22sh" path="res://Materials/fog_fade_material.tres" id="3_phkg6"]
 [ext_resource type="Texture2D" uid="uid://eg3lico65yv8" path="res://Assets/Tile Sets/Garden's Forest/background2.png" id="4_phkg6"]
 [ext_resource type="Texture2D" uid="uid://dsvfer1wd80mp" path="res://Assets/Tile Sets/Garden's Forest/background1.png" id="5_ytdl4"]
 [ext_resource type="Texture2D" uid="uid://cj1q5jxc2ws0y" path="res://Assets/Tile Sets/Garden's Forest/frontleaves.png" id="6_ojs2h"]
@@ -13,6 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://cynwhuhe2gwkl" path="res://Assets/Tile Sets/Garden's Forest/ground_tileset.png" id="10_yftvn"]
 [ext_resource type="PackedScene" uid="uid://c5ykmin26do5a" path="res://Levels/player_spawn.tscn" id="11_vwddi"]
 [ext_resource type="PackedScene" uid="uid://bw6gxq0t8wvsm" path="res://Levels/level_transition.tscn" id="13_a6p5l"]
+
+[sub_resource type="Gradient" id="Gradient_a6p5l"]
+colors = PackedColorArray(0.20285092, 0.25030932, 0.2716998, 0, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_phkg6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ytdl4"]
+height = 256
+noise = SubResource("FastNoiseLite_phkg6")
+color_ramp = SubResource("Gradient_a6p5l")
+seamless = true
+normalize = false
+seamless_blend_skirt = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3phl1"]
 size = Vector2(30, 316)
@@ -506,163 +520,179 @@ color = Color(0.0901961, 0.129412, 0.156863, 1)
 energy = 0.3
 blend_mode = 2
 
-[node name="Parallax2D-BG" type="Parallax2D" parent="." unique_id=854985796]
+[node name="FogParalax" type="Parallax2D" parent="." unique_id=1698240070]
+z_index = 1
+scroll_scale = Vector2(1.35, 1)
+scroll_offset = Vector2(0, 120)
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-15, 0)
+repeat_times = 3
+
+[node name="FogSprite" type="Sprite2D" parent="FogParalax" unique_id=757915368]
+material = ExtResource("3_phkg6")
+position = Vector2(756, 185)
+texture = SubResource("NoiseTexture2D_ytdl4")
+
+[node name="ParalaxLayers" type="Node2D" parent="." unique_id=1487041080]
+
+[node name="Parallax2D-BG" type="Parallax2D" parent="ParalaxLayers" unique_id=854985796]
 z_index = -1
 scroll_scale = Vector2(0.5, 1)
 scroll_offset = Vector2(-3, -61)
 
-[node name="BG1-1" type="Sprite2D" parent="Parallax2D-BG" unique_id=509811298]
+[node name="BG1-1" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=509811298]
 position = Vector2(256, 227)
 texture = ExtResource("2_pdoyq")
 
-[node name="BG1-2" type="Sprite2D" parent="Parallax2D-BG" unique_id=1843754570]
+[node name="BG1-2" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=1843754570]
 position = Vector2(768, 227)
 texture = ExtResource("2_pdoyq")
 
-[node name="BG1-3" type="Sprite2D" parent="Parallax2D-BG" unique_id=1142116773]
+[node name="BG1-3" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=1142116773]
 position = Vector2(1278, 227)
 texture = ExtResource("2_pdoyq")
 
-[node name="BG1-4" type="Sprite2D" parent="Parallax2D-BG" unique_id=12151956]
+[node name="BG1-4" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=12151956]
 position = Vector2(1792, 227)
 texture = ExtResource("2_pdoyq")
 
-[node name="BG2-1" type="Sprite2D" parent="Parallax2D-BG" unique_id=251374968]
+[node name="BG2-1" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=251374968]
 position = Vector2(256, 227)
 texture = ExtResource("3_a6p5l")
 
-[node name="BG2-2" type="Sprite2D" parent="Parallax2D-BG" unique_id=902708134]
+[node name="BG2-2" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=902708134]
 position = Vector2(768, 227)
 texture = ExtResource("3_a6p5l")
 
-[node name="BG2-3" type="Sprite2D" parent="Parallax2D-BG" unique_id=464565613]
+[node name="BG2-3" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=464565613]
 position = Vector2(1280, 227)
 texture = ExtResource("3_a6p5l")
 
-[node name="BG2-4" type="Sprite2D" parent="Parallax2D-BG" unique_id=169577913]
+[node name="BG2-4" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=169577913]
 position = Vector2(1792, 227)
 texture = ExtResource("3_a6p5l")
 
-[node name="BG3-1" type="Sprite2D" parent="Parallax2D-BG" unique_id=427741476]
+[node name="BG3-1" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=427741476]
 position = Vector2(256, 227)
 texture = ExtResource("4_phkg6")
 
-[node name="BG3-2" type="Sprite2D" parent="Parallax2D-BG" unique_id=1630556603]
+[node name="BG3-2" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=1630556603]
 position = Vector2(768, 227)
 texture = ExtResource("4_phkg6")
 
-[node name="BG3-3" type="Sprite2D" parent="Parallax2D-BG" unique_id=589811505]
+[node name="BG3-3" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=589811505]
 position = Vector2(1281, 227)
 texture = ExtResource("4_phkg6")
 
-[node name="BG3-4" type="Sprite2D" parent="Parallax2D-BG" unique_id=405734489]
+[node name="BG3-4" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG" unique_id=405734489]
 position = Vector2(1793, 227)
 texture = ExtResource("4_phkg6")
 
-[node name="Parallax2D-BG-3" type="Parallax2D" parent="." unique_id=1207719144]
+[node name="Parallax2D-BG-3" type="Parallax2D" parent="ParalaxLayers" unique_id=1207719144]
 scroll_scale = Vector2(0.9, 1)
 scroll_offset = Vector2(-3, -61)
 
-[node name="BG4-1" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=983308888]
+[node name="BG4-1" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-3" unique_id=983308888]
 z_index = -1
 position = Vector2(256, 227)
 texture = ExtResource("5_ytdl4")
 
-[node name="BG4-2" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=1109323458]
+[node name="BG4-2" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-3" unique_id=1109323458]
 z_index = -1
 position = Vector2(767, 227)
 texture = ExtResource("5_ytdl4")
 
-[node name="BG4-3" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=2031620536]
+[node name="BG4-3" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-3" unique_id=2031620536]
 z_index = -1
 position = Vector2(1277, 227)
 texture = ExtResource("5_ytdl4")
 
-[node name="BG4-4" type="Sprite2D" parent="Parallax2D-BG-3" unique_id=1172182576]
+[node name="BG4-4" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-3" unique_id=1172182576]
 z_index = -1
 position = Vector2(1788, 227)
 texture = ExtResource("5_ytdl4")
 
-[node name="Parallax2D-BG-LEAVES" type="Parallax2D" parent="." unique_id=2120655170]
+[node name="Parallax2D-BG-LEAVES" type="Parallax2D" parent="ParalaxLayers" unique_id=2120655170]
+z_index = 1
 scroll_scale = Vector2(1.1, 1)
 scroll_offset = Vector2(-3, -61)
 
-[node name="BG-TOPLEAVES" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=1095811701]
+[node name="BG-TOPLEAVES" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-LEAVES" unique_id=1095811701]
 position = Vector2(248, 227)
 texture = ExtResource("6_ojs2h")
 
-[node name="BG-TOPLEAVES2" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=183584596]
+[node name="BG-TOPLEAVES2" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-LEAVES" unique_id=183584596]
 position = Vector2(751, 227)
 texture = ExtResource("6_ojs2h")
 
-[node name="BG-TOPLEAVES3" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=1883787594]
+[node name="BG-TOPLEAVES3" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-LEAVES" unique_id=1883787594]
 position = Vector2(1254, 227)
 texture = ExtResource("6_ojs2h")
 
-[node name="BG-TOPLEAVES4" type="Sprite2D" parent="Parallax2D-BG-LEAVES" unique_id=1078961050]
+[node name="BG-TOPLEAVES4" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-LEAVES" unique_id=1078961050]
 position = Vector2(1757, 227)
 texture = ExtResource("6_ojs2h")
 
-[node name="Parallax2D-BG-TREES" type="Parallax2D" parent="." unique_id=655898884]
+[node name="Parallax2D-BG-TREES" type="Parallax2D" parent="ParalaxLayers" unique_id=655898884]
 scroll_scale = Vector2(0.95, 1)
 scroll_offset = Vector2(-2, 0)
 
-[node name="TREES" type="Sprite2D" parent="Parallax2D-BG-TREES" unique_id=1361920246]
+[node name="TREES" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-TREES" unique_id=1361920246]
 z_index = -1
 position = Vector2(256, 166)
 texture = ExtResource("7_nyewu")
 
-[node name="TREES2" type="Sprite2D" parent="Parallax2D-BG-TREES" unique_id=2012507524]
+[node name="TREES2" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-TREES" unique_id=2012507524]
 z_index = -1
 position = Vector2(982, 166)
 texture = ExtResource("7_nyewu")
 
-[node name="TREES3" type="Sprite2D" parent="Parallax2D-BG-TREES" unique_id=2034288090]
+[node name="TREES3" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-TREES" unique_id=2034288090]
 z_index = -1
 position = Vector2(1664, 166)
 texture = ExtResource("7_nyewu")
 
-[node name="Parallax2D-BG-BUSHES" type="Parallax2D" parent="." unique_id=446364542]
+[node name="Parallax2D-BG-BUSHES" type="Parallax2D" parent="ParalaxLayers" unique_id=446364542]
 scroll_offset = Vector2(-2, 0)
 
-[node name="BUSHES" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=206471016]
+[node name="BUSHES" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-BUSHES" unique_id=206471016]
 z_index = -1
 position = Vector2(256, 158)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=1432987818]
+[node name="BUSHES2" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-BUSHES" unique_id=1432987818]
 z_index = -1
 position = Vector2(768, 158)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=241864580]
+[node name="BUSHES3" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-BUSHES" unique_id=241864580]
 z_index = -1
 position = Vector2(1280, 158)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-BG-BUSHES" unique_id=427814670]
+[node name="BUSHES4" type="Sprite2D" parent="ParalaxLayers/Parallax2D-BG-BUSHES" unique_id=427814670]
 z_index = -1
 position = Vector2(1792, 158)
 texture = ExtResource("8_t5vqj")
 
-[node name="Parallax2D-FG-BUSHES2" type="Parallax2D" parent="." unique_id=1589631384]
+[node name="Parallax2D-FG-BUSHES2" type="Parallax2D" parent="ParalaxLayers" unique_id=1589631384]
 z_index = 1
 scroll_scale = Vector2(1.1, 1)
 scroll_offset = Vector2(-2, 0)
 
-[node name="BUSHES" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=1391239169]
+[node name="BUSHES" type="Sprite2D" parent="ParalaxLayers/Parallax2D-FG-BUSHES2" unique_id=1391239169]
 position = Vector2(178, 230)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES2" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=191638699]
+[node name="BUSHES2" type="Sprite2D" parent="ParalaxLayers/Parallax2D-FG-BUSHES2" unique_id=191638699]
 position = Vector2(690, 230)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES3" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=29944396]
+[node name="BUSHES3" type="Sprite2D" parent="ParalaxLayers/Parallax2D-FG-BUSHES2" unique_id=29944396]
 position = Vector2(1202, 230)
 texture = ExtResource("8_t5vqj")
 
-[node name="BUSHES4" type="Sprite2D" parent="Parallax2D-FG-BUSHES2" unique_id=466307129]
+[node name="BUSHES4" type="Sprite2D" parent="ParalaxLayers/Parallax2D-FG-BUSHES2" unique_id=466307129]
 position = Vector2(1714, 230)
 texture = ExtResource("8_t5vqj")
 

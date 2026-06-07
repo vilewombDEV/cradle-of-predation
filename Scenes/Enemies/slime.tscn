@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cwegslnq02qru"]
 
 [ext_resource type="Script" uid="uid://bex13kf7i2h0d" path="res://Scenes/Enemies/Enemy States/enemy.gd" id="1_sapfs"]
+[ext_resource type="Resource" uid="uid://dctenjownyoup" path="res://Scenes/Enemies/Hit Particle Settings/slime_particles.tres" id="2_dksck"]
 [ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="2_sapfs"]
 [ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="3_sapfs"]
 [ext_resource type="Script" uid="uid://4n6ds180b6rx" path="res://Scenes/Enemies/Enemy States/enemy_state_machine.gd" id="4_ow0i3"]
@@ -16,10 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://c50lff77vvpjg" path="res://Scenes/Enemies/vision_area.tscn" id="14_vyct5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw8ed"]
-size = Vector2(31.454, 20.6404)
+size = Vector2(55.759453, 30.417458)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is7a1"]
-size = Vector2(18, 19)
+size = Vector2(31, 28)
 
 [sub_resource type="Resource" id="Resource_6hqkn"]
 script = ExtResource("9_vik4j")
@@ -29,7 +30,7 @@ max_amount = 5
 metadata/_custom_type_script = "uid://cqydt761s6qn0"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5iaqs"]
-size = Vector2(18, 18.5)
+size = Vector2(17, 28)
 
 [sub_resource type="Animation" id="Animation_kvhtq"]
 length = 0.001
@@ -595,6 +596,7 @@ collision_mask = 4120
 script = ExtResource("1_sapfs")
 hp = 5
 xp_reward = 6
+particle_settings = ExtResource("2_dksck")
 
 [node name="DamagedArea" type="Area2D" parent="." unique_id=1540403134]
 collision_layer = 256
@@ -603,13 +605,12 @@ script = ExtResource("2_sapfs")
 metadata/_custom_type_script = "uid://dcakya56c46uh"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DamagedArea" unique_id=2126058939]
-position = Vector2(-3.57628e-07, 6.5)
+position = Vector2(0.49999952, 8)
 scale = Vector2(0.699433, 0.920524)
 shape = SubResource("RectangleShape2D_qw8ed")
 debug_color = Color(0.229, 0.638, 0, 0)
 
 [node name="HazardArea" type="Area2D" parent="." unique_id=1791306755]
-position = Vector2(1, 9)
 collision_layer = 256
 collision_mask = 5
 script = ExtResource("3_sapfs")
@@ -617,7 +618,7 @@ damage = 3
 metadata/_custom_type_script = "uid://cyrdi5pinh0kj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=1894616441]
-position = Vector2(-1, -2.5)
+position = Vector2(0.5, 8)
 shape = SubResource("RectangleShape2D_is7a1")
 debug_color = Color(1, 0.003, 0.073, 0)
 
@@ -650,12 +651,12 @@ next_state = NodePath("../Idle")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=332371846]
 texture_filter = 1
-scale = Vector2(0.672222, 0.672222)
+scale = Vector2(1.0694443, 1.0694443)
 texture = ExtResource("12_sapfs")
 hframes = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=20298247]
-position = Vector2(0, 6.25)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_5iaqs")
 debug_color = Color(0, 0.6, 0.7, 0)
 
@@ -668,8 +669,9 @@ max_polyphony = 10
 bus = &"SFX"
 
 [node name="VisionArea" parent="." unique_id=1130436070 instance=ExtResource("14_vyct5")]
+position = Vector2(0, 8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionArea" unique_id=1516238859]
-position = Vector2(1.49012e-08, 8)
+position = Vector2(1.49012e-08, 0)
 scale = Vector2(0.245354, 0.245354)
 polygon = PackedVector2Array(-16, 0, 16, 0, 128, 128, -128, 128)

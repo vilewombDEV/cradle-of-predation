@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fv7hfjfw86rk"]
 
 [ext_resource type="Script" uid="uid://bex13kf7i2h0d" path="res://Scenes/Enemies/Enemy States/enemy.gd" id="1_qw8ed"]
+[ext_resource type="Resource" uid="uid://b6n5mmtmuet61" path="res://Scenes/Enemies/Hit Particle Settings/intellect_dev.tres" id="2_is7a1"]
 [ext_resource type="Script" uid="uid://dcakya56c46uh" path="res://Scripts/damaged_area.gd" id="2_qw8ed"]
 [ext_resource type="Script" uid="uid://cyrdi5pinh0kj" path="res://Scripts/hazard_area.gd" id="3_is7a1"]
 [ext_resource type="Script" uid="uid://4n6ds180b6rx" path="res://Scenes/Enemies/Enemy States/enemy_state_machine.gd" id="4_qvghs"]
@@ -596,6 +597,7 @@ collision_layer = 4096
 collision_mask = 4120
 script = ExtResource("1_qw8ed")
 xp_reward = 4
+particle_settings = ExtResource("2_is7a1")
 
 [node name="DamagedArea" type="Area2D" parent="." unique_id=554300092]
 collision_layer = 256

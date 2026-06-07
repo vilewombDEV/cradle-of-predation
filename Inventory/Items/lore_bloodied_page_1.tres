@@ -17,9 +17,11 @@ region = Rect2(65, 17, 14, 14)
 [resource]
 script = ExtResource("2_6e7mn")
 name = "Bloodied Page (1)"
-description = "A bloodied page ripped from a diabolical book.
+description = "A torn page stained with old blood.
 
-\"...and if it is found outside of its cradle, it must be re-contained.\""
+\"...He says that if it is to inherit our burden, it should at least be granted a name..
+
+The others disagree.\""
 texture = SubResource("AtlasTexture_np40p")
 effects = Array[ExtResource("1_7qg0l")]([SubResource("Resource_1gu18")])
 metadata/_custom_type_script = "uid://biyd2cvsmp6a5"

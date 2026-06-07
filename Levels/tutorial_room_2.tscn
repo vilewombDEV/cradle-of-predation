@@ -3098,19 +3098,31 @@ texture = ExtResource("13_x6073")
 22:7/0 = 0
 23:7/0 = 0
 0:8/0 = 0
+0:8/0/custom_data_0 = 2
 1:8/0 = 0
+1:8/0/custom_data_0 = 2
 2:8/0 = 0
+2:8/0/custom_data_0 = 2
 3:8/0 = 0
+3:8/0/custom_data_0 = 2
 4:8/0 = 0
+4:8/0/custom_data_0 = 2
 5:8/0 = 0
+5:8/0/custom_data_0 = 2
 6:8/0 = 0
+6:8/0/custom_data_0 = 2
 7:8/0 = 0
+7:8/0/custom_data_0 = 2
 8:8/0 = 0
 9:8/0 = 0
 10:8/0 = 0
+10:8/0/custom_data_0 = 2
 11:8/0 = 0
+11:8/0/custom_data_0 = 2
 12:8/0 = 0
+12:8/0/custom_data_0 = 2
 13:8/0 = 0
+13:8/0/custom_data_0 = 2
 14:8/0 = 0
 15:8/0 = 0
 16:8/0 = 0
@@ -3118,9 +3130,13 @@ texture = ExtResource("13_x6073")
 18:8/0 = 0
 19:8/0 = 0
 20:8/0 = 0
+20:8/0/custom_data_0 = 2
 21:8/0 = 0
+21:8/0/custom_data_0 = 2
 22:8/0 = 0
+22:8/0/custom_data_0 = 2
 23:8/0 = 0
+23:8/0/custom_data_0 = 2
 0:9/0 = 0
 1:9/0 = 0
 2:9/0 = 0
@@ -3146,19 +3162,27 @@ texture = ExtResource("13_x6073")
 22:9/0 = 0
 23:9/0 = 0
 0:10/0 = 0
+0:10/0/custom_data_0 = 2
 1:10/0 = 0
+1:10/0/custom_data_0 = 2
 2:10/0 = 0
 2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:10/0/custom_data_0 = 2
 3:10/0 = 0
 3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:10/0/custom_data_0 = 2
 4:10/0 = 0
 4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:10/0/custom_data_0 = 2
 5:10/0 = 0
 5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:10/0/custom_data_0 = 2
 6:10/0 = 0
 6:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:10/0/custom_data_0 = 2
 7:10/0 = 0
 7:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:10/0/custom_data_0 = 2
 8:10/0 = 0
 9:10/0 = 0
 10:10/0 = 0
@@ -3410,6 +3434,8 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 16
 physics_layer_1/collision_layer = 32
 physics_layer_1/collision_mask = 32
+custom_data_layer_0/name = "Footstep_Type"
+custom_data_layer_0/type = 2
 sources/1 = SubResource("TileSetAtlasSource_8va2t")
 sources/3 = SubResource("TileSetAtlasSource_2mgh8")
 
@@ -4115,7 +4141,7 @@ theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "You yearn.
 
-For what, you do not know just yet."
+For what, you are not quite sure."
 fit_content = true
 scroll_active = false
 tab_size = 24
@@ -4150,7 +4176,7 @@ offset_top = 93.5
 offset_right = 378.5
 offset_bottom = 102.5
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = "+"
 horizontal_alignment = 1
 
@@ -4167,7 +4193,7 @@ offset_top = 93.5
 offset_right = 421.5
 offset_bottom = 102.5
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = "or"
 horizontal_alignment = 1
 
@@ -4184,7 +4210,7 @@ offset_top = 77.0
 offset_right = 456.0
 offset_bottom = 146.0
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = "
 
 
@@ -4206,7 +4232,7 @@ offset_top = 91.5
 offset_right = 118.5
 offset_bottom = 100.5
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = "+"
 horizontal_alignment = 1
 
@@ -4223,7 +4249,7 @@ offset_top = 91.5
 offset_right = 164.0
 offset_bottom = 100.5
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = "or"
 horizontal_alignment = 1
 
@@ -4240,7 +4266,7 @@ offset_top = 99.5
 offset_right = 199.0
 offset_bottom = 144.5
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = "
 to DASH up
 or down
@@ -4264,7 +4290,7 @@ offset_top = 178.0
 offset_right = 635.0
 offset_bottom = 187.0
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = " to INTERACT"
 horizontal_alignment = 1
 
@@ -4281,7 +4307,7 @@ offset_top = 34.0
 offset_right = 790.0
 offset_bottom = 55.0
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = "
 to MELEE ATTACK"
 horizontal_alignment = 1
@@ -4299,7 +4325,7 @@ offset_top = 33.0
 offset_right = 1031.5
 offset_bottom = 54.0
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = "to SHOOT ability 
 (when unlocked)"
 horizontal_alignment = 1
@@ -4317,7 +4343,7 @@ offset_top = 102.0
 offset_right = 1017.0
 offset_bottom = 135.0
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = "to TOGGLE
 through abilities
 "
@@ -4336,7 +4362,7 @@ offset_top = 85.5
 offset_right = 1433.0
 offset_bottom = 130.5
 theme_override_fonts/font = ExtResource("15_ebhke")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 9
 text = " to PAUSE
 
 You can use, equip,

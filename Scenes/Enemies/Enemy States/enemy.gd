@@ -9,6 +9,7 @@ const DIR_2 = [Vector2.RIGHT, Vector2.LEFT]
 
 @export var hp: int = 3
 @export var xp_reward: int = 1
+@export var particle_settings: HitParticleSettings
 
 var axis_direction: Vector2 = Vector2.LEFT
 var direction: Vector2 = Vector2.ZERO
@@ -70,6 +71,7 @@ func _take_damage(attack_area: AttackArea) -> void:
 	hp -= attack_area.damage
 	PlayerManager.shake_camera()
 	EffectManager.damage_text( attack_area.damage, global_position + Vector2(0, -36) )
+	VisualEffects.hit_particles( self.global_position, Vector2(1, -1), particle_settings)
 	if hp > 0:
 		enemy_damaged.emit(attack_area)
 	else:

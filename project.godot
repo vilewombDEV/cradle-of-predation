@@ -39,6 +39,7 @@ DialogSystem="*res://Interaction/Dialog System/dialog_system.tscn"
 QuestManager="*res://Singleton/global_quest_manager.gd"
 EffectManager="*res://Singleton/global_effect_manager.gd"
 ShopMenu="*res://Inventory/ShopGUI/shop_menu.tscn"
+VisualEffects="*uid://dflgpqw1ttiu5"
 
 [display]
 
@@ -47,7 +48,7 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
-mouse_cursor/custom_image="uid://cuh4u4nyi51hl"
+mouse_cursor/custom_image="uid://ba18jqf12sl8t"
 
 [file_customization]
 
@@ -84,7 +85,8 @@ folder_colors={
 "res://Quests/Utility Nodes/": "green",
 "res://Scenes/Enemies/": "red",
 "res://Scenes/Enemies/Enemy Sprites/": "purple",
-"res://Scenes/Enemies/Enemy States/": "yellow"
+"res://Scenes/Enemies/Enemy States/": "yellow",
+"res://Scenes/Enemies/Hit Particle Settings/": "green"
 }
 
 [global_group]
